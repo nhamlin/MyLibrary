@@ -2,7 +2,7 @@
 
 namespace MyLibrary
 {
-    public class Class1
+    public static class EnumExtensions
     {
     }
 }
