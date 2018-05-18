@@ -1,24 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+// ReSharper disable PossibleMultipleEnumeration
 
 namespace MyLibrary.Extensions
 {
-    public static class NumberExtensions
-    {
-	    public static ICollection<T> Mode<T>(this IEnumerable<T> sources)
-	    {
-		    var charGroups = (from c in testString
-		                      group c by c into g
-		                      select new
-		                             {
-			                             c = g.Key,
-			                             count = g.Count(),
-		                             }).OrderByDescending(c => c.count);
-		    foreach (var group in charGroups)
-		    {
-			    Console.WriteLine(group.c + ": " + group.count);
-		    }
+	public static class NumberExtensions
+	{
+		// ReSharper disable once TooManyDeclarations
+		public static IEnumerable<T> Mode<T>(this IEnumerable<T> sources)
+		{
+			if (sources.IsEmpty())
+			{
+				return null;
+			}
+
+			var groups = sources
+						 .GroupBy(x => x)
+						 .Select(g => new { Value = g.Key, Count = g.Count() })
+						 .ToList();                  // materialize the query to avoid evaluating it twice below
+			int maxCount = groups.Max(g => g.Count); // throws InvalidOperationException if myArray is empty
+			return groups
+				   .Where(g => g.Count == maxCount)
+				   .Select(g => g.Value);
 		}
-    }
+	}
 }

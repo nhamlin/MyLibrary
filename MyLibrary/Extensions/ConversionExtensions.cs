@@ -52,13 +52,13 @@ namespace MyLibrary.Extensions
 		/// <param name="value">Item to convert</param>
 		/// <param name="ifError">Value to return if there is an error</param>
 		/// <returns></returns>
-		public static T To<T>(this IConvertible value, IConvertible ifError)
+		public static T To<T>(this IConvertible value, T ifError)
 		{
 			try
 			{
 				if (value == null || value.Equals(""))
 				{
-					return (T)ifError;
+					return ifError;
 				}
 
 				Type t = typeof(T);
@@ -70,7 +70,7 @@ namespace MyLibrary.Extensions
 			}
 			catch
 			{
-				return (T)ifError;
+				return ifError;
 			}
 		}
 	}

@@ -87,9 +87,9 @@ namespace MyLibrary.Extensions
 			return sumTillNowTimeSpan;
 		}
 
-		public static bool IsDate<T>(this string source)
+		public static bool IsDate<T>(this T source)
 		{
-			return (DateTime.TryParse(source, out _));
+			return source is DateTime || DateTime.TryParse(source.ToString(), out _);
 		}
 	}
 }
