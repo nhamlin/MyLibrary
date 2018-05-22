@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Security;
+using System.Text.RegularExpressions;
 
 namespace MyLibrary.Extensions
 {
@@ -55,6 +57,24 @@ namespace MyLibrary.Extensions
 
         public static string ToSafeString(this char[] source) {
             return source == null ? null : new string(source);
-        }
+		}
+
+		/// <summary>
+		/// Splits the string by pascal case.
+		/// </summary>
+		/// <example>var str = "ThisIsAPascalCaseString";
+		/// return str.SplitPascalCase(); => "This Is A Pascal Case String"</example>
+		/// <param name="text">The text.</param>
+		/// <returns></returns>
+		public static string SplitPascalCase(this string text)
+		{
+			if (string.IsNullOrEmpty(text))
+			{
+				return text;
+			}
+			return Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+		}
+
+		public static string Join(this IEnumerable<string> source, string separator) => string.Join(separator, source);
 	}
 }

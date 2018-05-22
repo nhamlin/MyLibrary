@@ -5,14 +5,16 @@ using System.Linq;
 namespace MyLibrary.Extensions
 {
 	/// <summary>
-	/// Extensions of the DateTime type.
+	///     Extensions of the DateTime type.
 	/// </summary>
 	public static class DateTimeExtensions
 	{
+		#region Date Functions
+
 		/// <summary>
-		/// Determines whether the date falls on Monday-Friday
+		///     Determines whether the date falls on Monday-Friday
 		/// </summary>
-		/// <param name="source"><see cref="DateTime"/> to check</param>
+		/// <param name="source"><see cref="DateTime" /> to check</param>
 		/// <returns>true/false</returns>
 		public static bool IsWeekday(this DateTime source)
 		{
@@ -21,9 +23,9 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Determines whether the date falls on a weekend
+		///     Determines whether the date falls on a weekend
 		/// </summary>
-		/// <param name="source"><see cref="DateTime"/> to check</param>
+		/// <param name="source"><see cref="DateTime" /> to check</param>
 		/// <returns>true/false</returns>
 		public static bool IsWeekend(this DateTime source)
 		{
@@ -32,9 +34,9 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Determines whether the date falls on a national holiday.
+		///     Determines whether the date falls on a national holiday.
 		/// </summary>
-		/// <param name="source"><see cref="DateTime"/> to check</param>
+		/// <param name="source"><see cref="DateTime" /> to check</param>
 		/// <returns>true/false</returns>
 		public static bool IsHoliday(this DateTime source)
 		{
@@ -43,22 +45,45 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Provides a range of dates from the source date to a defined date.
+		/// Returns a <see cref="DateTime"/> object for the first Monday of the year
 		/// </summary>
-		/// <param name="from"><see cref="DateTime"/> that begins the range</param>
-		/// <param name="to"><see cref="DateTime"/> that ends the range</param>
-		/// <returns>Enumerable list of <see cref="DateTime"/></returns>
+		/// <example>DateTime mnd = DateExtensions.FirstMondayOfYear(2017);</example>
+		/// <param name="year"></param>
+		/// <returns></returns>
+		public static DateTime FirstMondayOfYear(int year)
+		{
+			DateTime firstDay = new DateTime(year, 1, 1);
+			return new DateTime(year, 1, (8 - (int)firstDay.DayOfWeek) % 7 + 1);
+		}
+
+		/// <summary>
+		///     Provides a range of dates from the source date to a defined date.
+		/// </summary>
+		/// <param name="from"><see cref="DateTime" /> that begins the range</param>
+		/// <param name="to"><see cref="DateTime" /> that ends the range</param>
+		/// <returns>Enumerable list of <see cref="DateTime" /></returns>
 		public static IEnumerable<DateTime> RangeUntil(this DateTime from, DateTime to)
 		{
 			throw new NotImplementedException();
 		}
 
+		public static bool IsDate<T>(this T source)
+		{
+			return source is DateTime || DateTime.TryParse(source.ToString(), out _);
+		}
+
+		#endregion Date Functions
+
+		#region Time Functions
+
 		/// <summary>
-		/// Returns an average of a list of <see cref="TimeSpan"/> items.
+		///     Returns an average of a list of <see cref="TimeSpan" /> items.
 		/// </summary>
 		/// <example>TimeSpan average = timeSpans.Average();</example>
-		/// <param name="sourceTimeSpans">Enumerable list of <see cref="TimeSpan"/></param>
-		/// <returns><see cref="TimeSpan"/></returns>
+		/// <param name="sourceTimeSpans">Enumerable list of <see cref="TimeSpan" /></param>
+		/// <returns>
+		///     <see cref="TimeSpan" />
+		/// </returns>
 		public static TimeSpan Average(this IEnumerable<TimeSpan> sourceTimeSpans)
 		{
 			IEnumerable<long> ticksPerTimeSpan = sourceTimeSpans.Select(t => t.Ticks);
@@ -71,10 +96,12 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Calculates the sum of the given timeSpans.
+		///     Calculates the sum of the given timeSpans.
 		/// </summary>
-		/// <param name="sources">Enumerable list of <see cref="TimeSpan"/></param>
-		/// <returns><see cref="TimeSpan"/></returns>
+		/// <param name="sources">Enumerable list of <see cref="TimeSpan" /></param>
+		/// <returns>
+		///     <see cref="TimeSpan" />
+		/// </returns>
 		public static TimeSpan Sum(this IEnumerable<TimeSpan> sources)
 		{
 			TimeSpan sumTillNowTimeSpan = TimeSpan.Zero;
@@ -87,9 +114,6 @@ namespace MyLibrary.Extensions
 			return sumTillNowTimeSpan;
 		}
 
-		public static bool IsDate<T>(this T source)
-		{
-			return source is DateTime || DateTime.TryParse(source.ToString(), out _);
-		}
+		#endregion Time Functions
 	}
 }
