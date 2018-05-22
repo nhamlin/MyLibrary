@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Security;
 using System.Text.RegularExpressions;
 
@@ -76,5 +77,15 @@ namespace MyLibrary.Extensions
 		}
 
 		public static string Join(this IEnumerable<string> source, string separator) => string.Join(separator, source);
+
+		/// <summary>
+		/// Returns only the digits inside of a string
+		/// </summary>
+		/// <param name="source">Source string</param>
+		/// <returns>All digits in the string</returns>
+		public static string OnlyDigits(this string source)
+		{
+			return new string(source?.Where(char.IsDigit).ToArray());
+		}
 	}
 }
