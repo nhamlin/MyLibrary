@@ -5,7 +5,7 @@ using System.Linq;
 namespace MyLibrary.Extensions
 {
 	/// <summary>
-	///     Extensions of the DateTime type.
+	///     Extension methods for <see cref="DateTime" />
 	/// </summary>
 	public static class DateTimeExtensions
 	{
@@ -45,7 +45,7 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Returns a <see cref="DateTime"/> object for the first Monday of the year
+		///     Returns a <see cref="DateTime" /> object for the first Monday of the year
 		/// </summary>
 		/// <example>DateTime mnd = DateExtensions.FirstMondayOfYear(2017);</example>
 		/// <param name="year"></param>
@@ -67,6 +67,12 @@ namespace MyLibrary.Extensions
 			throw new NotImplementedException();
 		}
 
+		/// <summary>
+		///     Returns whether the object represents a valid date
+		/// </summary>
+		/// <typeparam name="T">Generic type</typeparam>
+		/// <param name="source">Object</param>
+		/// <returns></returns>
 		public static bool IsDate<T>(this T source)
 		{
 			return source is DateTime || DateTime.TryParse(source.ToString(), out _);

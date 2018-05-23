@@ -5,7 +5,7 @@ using System.Linq;
 namespace MyLibrary.Helpers
 {
 	/// <summary>
-	/// Helper methods for the Enum type
+	/// Helper methods for <see cref="Enum"/>
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	public static class EnumHelper<T>
@@ -14,7 +14,6 @@ namespace MyLibrary.Helpers
 		/// Retrieves the description listed in an enum's attribute
 		/// </summary>
 		/// <example>EnumHelper&lt;SomeEnumName&gt;.GetDescription("</example>
-		/// <typeparam name="T"></typeparam>
 		/// <param name="value"></param>
 		/// <returns></returns>
 		public static string SearchDescriptions(string value)

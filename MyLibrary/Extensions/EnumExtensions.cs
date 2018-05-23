@@ -3,9 +3,9 @@
 namespace MyLibrary.Extensions
 {
 	/// <summary>
-	/// Extensions of the Enum type
+	///     Extension methods for <see cref="Enum"/>
 	/// </summary>
-    public static class EnumExtensions
-    {
+	public static class EnumExtensions
+	{
 	}
 }

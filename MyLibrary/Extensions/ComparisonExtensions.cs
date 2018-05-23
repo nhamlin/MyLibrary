@@ -4,11 +4,14 @@ using System.Linq;
 
 namespace MyLibrary.Extensions
 {
+	/// <summary>
+	///     Extension methods for comparisons
+	/// </summary>
 	public static class ComparisonExtensions
 	{
 		/// <summary>
-		/// Determines if an object can be found inside a generic list
-		/// Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")
+		///     Determines if an object can be found inside a generic list
+		///     Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")
 		/// </summary>
 		/// <example>if(someString.IsIn("string1", "string2", "string3"))</example>
 		/// <typeparam name="T">Generic</typeparam>
@@ -26,13 +29,15 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Determines if an object can be found inside a generic list
-		/// Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")
+		///     Determines if an object can be found inside a generic list
+		///     Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")
 		/// </summary>
-		/// <example>var inclusionList = new List&lt;string&gt; { "inclusion1", "inclusion2" };
-		/// var query = myEntities.MyEntity
-		///	                      .Select(e => e.Name)
-		///	                      .Where(e => e.IsIn(inclusionList));</example>
+		/// <example>
+		///     var inclusionList = new List&lt;string&gt; { "inclusion1", "inclusion2" };
+		///     var query = myEntities.MyEntity
+		///     .Select(e => e.Name)
+		///     .Where(e => e.IsIn(inclusionList));
+		/// </example>
 		/// <typeparam name="T">Generic</typeparam>
 		/// <param name="source">Generic being </param>
 		/// <param name="list"></param>
@@ -45,17 +50,6 @@ namespace MyLibrary.Extensions
 			}
 
 			return list.Contains(source);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="source"></param>
-		/// <returns></returns>
-		public static T Reverse<T>(this T source)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }

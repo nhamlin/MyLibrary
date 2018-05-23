@@ -4,6 +4,9 @@ using System.Security.Cryptography;
 
 namespace MyLibrary.Extensions
 {
+	/// <summary>
+	///     Extension methods for conversions
+	/// </summary>
 	public static class ConversionExtensions
 	{
 		/// <summary>
@@ -79,7 +82,9 @@ namespace MyLibrary.Extensions
 		/// <summary>
 		/// Implicit hashing
 		/// </summary>
-		/// <typeparam name="T"><see cref="HashAlgorithm"/></typeparam>
+		/// <typeparam name="T">
+		///     <see cref="HashAlgorithm" />
+		/// </typeparam>
 		/// <param name="x">Byte array</param>
 		/// <returns>Encrypted byte array</returns>
 		public static byte[] HashBy<T>(this byte[] x) where T : HashAlgorithm

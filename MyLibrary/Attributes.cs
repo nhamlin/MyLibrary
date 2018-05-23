@@ -1,9 +1,9 @@
 ﻿namespace MyLibrary
 {
 	/// <summary>
-	/// Custom attributes
+	///     Custom attributes
 	/// </summary>
-    class Attributes
-    {
-    }
+	class Attributes
+	{
+	}
 }
