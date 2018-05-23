@@ -71,16 +71,18 @@ namespace MyLibrary.Extensions
 		{
 			return source.Substring(0, source.Length - 1);
 		}
-		public static string RemoveLastSubstring(this string source, int numberOfChars)
+
 		/// <summary>
 		/// Removes a number of characters from the end of the string.
 		/// </summary>
 		/// <param name="source"></param>
 		/// <param name="numberOfChars"></param>
 		/// <returns></returns>
+		public static string RemoveLastCharacters(this string source, int numberOfChars)
 		{
 			return source.Substring(0, source.Length - numberOfChars);
 		}
+
 		/// <summary>
 		/// Removes the last character from the string.
 		/// </summary>
@@ -90,13 +92,14 @@ namespace MyLibrary.Extensions
 		{
 			return source.Substring(1);
 		}
-		public static string RemoveFirstSubstring(this string source, int numberOfChars)
+
 		/// <summary>
 		/// Removes a number of characters from the end of the string.
 		/// </summary>
 		/// <param name="source"></param>
 		/// <param name="numberOfChars"></param>
 		/// <returns></returns>
+		public static string RemoveFirstCharacters(this string source, int numberOfChars)
 		{
 			return source.Substring(numberOfChars);
 		}
@@ -107,6 +110,11 @@ namespace MyLibrary.Extensions
 		/// <param name="source"></param>
 		/// <param name="substring"></param>
 		/// <returns></returns>
+		public static string RemoveSubstring(this string source, string substring)
+		{
+			return source.Replace(substring, string.Empty);
+		}
+
 		/// <summary>
 		/// Reverses the string.
 		/// </summary>
@@ -124,11 +132,11 @@ namespace MyLibrary.Extensions
 		/// <param name="source"></param>
 		/// <returns></returns>
         public static string ToSafeString(this char[] source) {
-            return source == null ? null : new string(source);
+			return source == null ? null : new string(source);
 		}
 
 		/// <summary>
-		/// Splits the string by pascal case.
+		/// Splits the string by pascal case.		
 		/// </summary>
 		/// <example>
 		/// The following returns "This Is A Pascal Case String"

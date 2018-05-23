@@ -80,26 +80,29 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Implicit hashing
+		///     Implicit hashing
 		/// </summary>
 		/// <typeparam name="T">
 		///     <see cref="HashAlgorithm" />
 		/// </typeparam>
 		/// <param name="x">Byte array</param>
 		/// <returns>Encrypted byte array</returns>
-		public static byte[] HashBy<T>(this byte[] x) where T : HashAlgorithm
+		public static byte[] HashBy<T>(this byte[] x)
+			where T : HashAlgorithm
 		{
 			HashAlgorithm algorithm;
 			try
 			{
 				algorithm = typeof(T)
-				       .GetMethod("Create", BindingFlags.Public | BindingFlags.Static, null, new Type[] { }, null)?
-				       .Invoke(null, null) as HashAlgorithm;
+				            .GetMethod("Create", BindingFlags.Public | BindingFlags.Static, null, new Type[] { }, null)
+				            ?
+				            .Invoke(null, null) as HashAlgorithm;
 			}
 			catch
 			{
 				algorithm = Activator.CreateInstance<T>();
 			}
+
 			return algorithm?.ComputeHash(x);
 		}
 	}

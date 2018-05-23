@@ -1,5 +1,4 @@
 ﻿using System;
-using Newtonsoft.Json;
 
 namespace MyLibrary.Extensions
 {
@@ -8,9 +7,5 @@ namespace MyLibrary.Extensions
 	/// </summary>
 	public static class JsonExtensions
 	{
-		public static T DeepCopy<T>(this T a)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
