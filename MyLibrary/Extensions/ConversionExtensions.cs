@@ -18,7 +18,7 @@ namespace MyLibrary.Extensions
 		/// <typeparam name="T">Type to convert to</typeparam>
 		/// <param name="value">Item to convert</param>
 		/// <returns></returns>
-		public static T To<T>(this IConvertible value)
+		public static T ConvertTo<T>(this IConvertible value)
 		{
 			try
 			{
@@ -54,7 +54,7 @@ namespace MyLibrary.Extensions
 		/// <param name="value">Item to convert</param>
 		/// <param name="ifError">Value to return if there is an error</param>
 		/// <returns></returns>
-		public static T To<T>(this IConvertible value, T ifError)
+		public static T ConvertTo<T>(this IConvertible value, T ifError)
 		{
 			try
 			{

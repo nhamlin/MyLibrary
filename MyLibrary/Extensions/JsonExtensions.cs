@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace MyLibrary.Extensions
 {
@@ -6,7 +7,7 @@ namespace MyLibrary.Extensions
 	{
 		public static T DeepCopy<T>(this T a)
 		{
-			return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(a));
+			throw new NotImplementedException();
 		}
 	}
 }

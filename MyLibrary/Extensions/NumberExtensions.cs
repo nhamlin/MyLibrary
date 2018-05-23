@@ -17,8 +17,8 @@ namespace MyLibrary.Extensions
 			var groups = sources
 						 .GroupBy(x => x)
 						 .Select(g => new { Value = g.Key, Count = g.Count() })
-						 .ToList();                  // materialize the query to avoid evaluating it twice below
-			int maxCount = groups.Max(g => g.Count); // throws InvalidOperationException if myArray is empty
+						 .ToList();                  
+			int maxCount = groups.Max(g => g.Count); 
 			return groups
 				   .Where(g => g.Count == maxCount)
 				   .Select(g => g.Value);

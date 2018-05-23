@@ -87,5 +87,17 @@ namespace MyLibrary.Extensions
 		{
 			return new string(source?.Where(char.IsDigit).ToArray());
 		}
+
+		/// <summary>
+		/// Returns whether the string is blank (white space characters ignored because then it wouldn't be 'blank')
+		/// </summary>
+		/// <example>" ".IsBlank() => false;
+		/// "".IsBlank() => true;</example>
+		/// <param name="source"></param>
+		/// <returns></returns>
+		public static bool IsBlank(this string source)
+		{
+			return string.IsNullOrEmpty(source);
+		}
 	}
 }
