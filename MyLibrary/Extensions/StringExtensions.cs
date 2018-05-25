@@ -157,6 +157,27 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
+		/// Splits the string by underlines.		
+		/// </summary>
+		/// <example>
+		/// The following returns "This_Is_An_Underlined_String"
+		/// <code>
+		/// var str = "This_Is_An_Underlined_String";
+		/// return str.SplitUnderlines();
+		/// </code>
+		/// </example>
+		/// <param name="text">The text.</param>
+		/// <returns></returns>
+		public static string SplitUnderlines(this string text)
+		{
+			if (string.IsNullOrEmpty(text))
+			{
+				return text;
+			}
+			return Regex.Replace(text, "(_)", " $1", RegexOptions.Compiled).Trim();
+		}
+
+		/// <summary>
 		/// Joins an <see cref="IEnumerable{String}"/> into a single string.
 		/// </summary>
 		/// <param name="source"></param>

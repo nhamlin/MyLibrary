@@ -4,11 +4,6 @@
         <name>MyLibrary</name>
     </assembly>
     <members>
-        <member name="T:MyLibrary.Attributes">
-            <summary>
-                Custom attributes
-            </summary>
-        </member>
         <member name="T:MyLibrary.Extensions.CharExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Char"/>
@@ -374,6 +369,20 @@
             <code>
             var str = "ThisIsAPascalCaseString";
             return str.SplitPascalCase();
+            </code>
+            </example>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.SplitUnderlines(System.String)">
+            <summary>
+            Splits the string by underlines.		
+            </summary>
+            <example>
+            The following returns "This_Is_An_Underlined_String"
+            <code>
+            var str = "This_Is_An_Underlined_String";
+            return str.SplitUnderlines();
             </code>
             </example>
             <param name="text">The text.</param>

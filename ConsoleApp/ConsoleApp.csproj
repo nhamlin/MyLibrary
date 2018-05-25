@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLibrary\MyLibrary.csproj">
-      <Project>{bb1c850a-d12f-4f9b-b644-5073d2f820d7}</Project>
+      <Project>{15aa2005-f80a-4a3a-8915-424002a604d7}</Project>
       <Name>MyLibrary</Name>
     </ProjectReference>
   </ItemGroup>
