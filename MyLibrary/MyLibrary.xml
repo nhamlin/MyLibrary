@@ -221,6 +221,15 @@
                 Extension methods for <see cref="T:System.Collections.Generic.IEnumerable`1" />
             </summary>
         </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns an empty enumerable if null, otherwise returns the enumerable.
+            <example>
+            <code>var something = Model.SomeNullEnumerable;
+            IEnumerable&lt;int&gt; source = something.Safe();
+            </code></example>
+            </summary>
+        </member>
         <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty.
@@ -238,14 +247,6 @@
             <param name="source"></param>
             <param name="predicate"></param>
             <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.CopyTo``1(``0[],``0[])">
-            <summary>
-            Same as the <see cref="M:MyLibrary.Extensions.EnumerableExtensions.CopyTo``1(``0[],``0[])"/> method but defaults to start at index 0.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="source"></param>
-            <param name="target"></param>
         </member>
         <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
@@ -275,6 +276,14 @@
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> that contains the elements of all sequences.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="first" /> or <paramref name="subsequent" /> is <c>null</c>.</exception>
         </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Takes any IEnumerable and returns a HashSet
+            </summary>
+            <param name="source">Ienumerable</param>
+            <typeparam name="T">Generic Class</typeparam>
+            <returns></returns>
+        </member>
         <member name="T:MyLibrary.Extensions.EnumExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Enum"/>
@@ -297,6 +306,13 @@
             <typeparam name="T"></typeparam>
             <param name="sources"></param>
             <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.IsPrime(System.Int32)">
+            <summary>
+            Returns whether the integer is a prime number.
+            </summary>
+            <param name="input">Integer to check against</param>
+            <returns>True/False</returns>
         </member>
         <member name="T:MyLibrary.Extensions.StringExtensions">
             <summary>

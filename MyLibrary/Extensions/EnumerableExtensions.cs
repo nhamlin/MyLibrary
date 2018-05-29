@@ -11,6 +11,20 @@ namespace MyLibrary.Extensions
 	public static class EnumerableExtensions
 	{
 		/// <summary>
+		/// Returns an empty enumerable if null, otherwise returns the enumerable.
+		/// <example>
+		/// <code>var something = Model.SomeNullEnumerable;
+		/// IEnumerable&lt;int&gt; source = something.Safe();
+		/// </code></example>
+		/// </summary>
+		public static IEnumerable<T> Safe<T>(this IEnumerable<T> source)
+		{
+			if (source == null)
+				return new T[0];
+			return source;
+		}
+
+		/// <summary>
 		///     Returns whether the <see cref="IEnumerable{T}" /> is empty.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
@@ -35,17 +49,6 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		/// Same as the <see cref="CopyTo{T}"/> method but defaults to start at index 0.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="source"></param>
-		/// <param name="target"></param>
-		public static void CopyTo<T>(this T[] source, T[] target)
-		{
-			source.CopyTo(target, 0);
-		}
-
-		/// <summary>
 		///     Returns a string that represents a concatenated list of enumerables.
 		/// </summary>
 		/// <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
@@ -55,7 +58,7 @@ namespace MyLibrary.Extensions
 		/// <returns></returns>
 		public static string ToString<T>(this IEnumerable<T> source, string delimiter)
 		{
-			return string.Join(delimiter, source);
+			return String.Join(delimiter, source);
 		}
 
 		/// <summary>
@@ -88,6 +91,36 @@ namespace MyLibrary.Extensions
 			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
 
 			return subsequent.Aggregate(first, Enumerable.Concat);
+		}
+
+		/// <summary>
+		/// Takes any IEnumerable and returns a HashSet
+		/// </summary>
+		/// <param name="source">Ienumerable</param>
+		/// <typeparam name="T">Generic Class</typeparam>
+		/// <returns></returns>
+		public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source)
+		{
+			return new HashSet<T>(source);
+		}
+
+		/// <summary>
+		///     Joins an <see cref="IEnumerable{String}" /> into a single string.
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="separator"></param>
+		/// <returns></returns>
+		public static string Join(this IEnumerable<string> source, string separator)
+		{
+			return string.Join(separator, source);
+		}
+
+		/// <summary>
+		///     Returns the same enumerable, with all its elements trimmed
+		/// </summary>
+		public static IEnumerable<string> TrimElements(this IEnumerable<string> enumerable)
+		{
+			return enumerable.Select(str => str.Trim());
 		}
 	}
 }
