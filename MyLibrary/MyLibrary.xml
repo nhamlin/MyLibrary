@@ -185,6 +185,37 @@
                 <see cref="T:System.TimeSpan" />
             </returns>
         </member>
+        <member name="T:MyLibrary.Extensions.DictionaryExtensions">
+            <summary>
+            Extension methods for Dictionaries and Arrays.
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.DictionaryExtensions.MaxKey``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+                Returns the key of the highest value in a dictionary.
+            </summary>
+            <typeparam name="TKey">The key type</typeparam>
+            <typeparam name="TValue">Value type, must implement IComparable&lt;Value&gt;</typeparam>
+            <param name="dictionary">The dictionary</param>
+            <returns>The key of the highest value in the dictionary.</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.DictionaryExtensions.MaxValue``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+                Returns the maximum value in the dictionary.
+            </summary>
+            <param name="dictionary">The dictionary</param>
+            <typeparam name="TKey">The key type</typeparam>
+            <typeparam name="TValue">The value type</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.DictionaryExtensions.CopyTo``1(``0[],``0[])">
+            <summary>
+            Same as the <see cref="M:MyLibrary.Extensions.DictionaryExtensions.CopyTo``1(``0[],``0[])"/> method but defaults to start at index 0.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="target"></param>
+        </member>
         <member name="T:MyLibrary.Extensions.EnumerableExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Collections.Generic.IEnumerable`1" />
