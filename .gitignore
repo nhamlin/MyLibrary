@@ -262,5 +262,5 @@ __pycache__/
 
 # Visual Studio Auto-generated files
 *.cd
-EpiServer/App_Data/GeoLiteCity.dat
+GeoLiteCity.dat
 *.zip
