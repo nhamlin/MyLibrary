@@ -122,5 +122,16 @@ namespace MyLibrary.Extensions
 		{
 			return enumerable.Select(str => str.Trim());
 		}
+
+		/// <summary>
+		/// Removes null values from the collection
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="source"></param>
+		/// <returns></returns>
+		public static IEnumerable<T> RemoveNull<T>(this IEnumerable<T> source)
+		{
+			return source.Where(item => item != null);
+		}
 	}
 }

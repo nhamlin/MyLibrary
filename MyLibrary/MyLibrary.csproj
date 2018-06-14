@@ -59,7 +59,9 @@
     <Compile Include="Formatters\DateTimeFormatting.cs" />
     <Compile Include="Formatters\StringFormatting.cs" />
     <Compile Include="Helpers\AddressHelper.cs" />
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Region.cs" />
