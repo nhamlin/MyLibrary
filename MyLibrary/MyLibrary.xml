@@ -4,17 +4,91 @@
         <name>MyLibrary</name>
     </assembly>
     <members>
+        <member name="M:MyLibrary.Extensions.BufferExtensions.AsString(System.Byte[])">
+            <summary>
+                Converts a byte array to a string, using its byte order mark to convert it to the right encoding.
+                http://www.shrinkrays.net/code-snippets/csharp/an-extension-method-for-converting-a-byte-array-to-a-string.aspx
+            </summary>
+            <param name="buffer">An array of bytes to convert</param>
+            <returns>The byte as a string.</returns>
+        </member>
         <member name="T:MyLibrary.Extensions.CharExtensions">
             <summary>
-                Extension methods for <see cref="T:System.Char"/>
+                Extension methods for <see cref="T:System.Char" />
             </summary>
         </member>
         <member name="M:MyLibrary.Extensions.CharExtensions.ToHex(System.Char)">
             <summary>
-                Converts the Unicode value of this character to its equivalent 4-character hexadecimal string representation.
+                Converts the Unicode value of this character to its equivalent 4-character hexadecimal string representation
             </summary>
-            <param name="ch">A character to convert to a hexadecimal string.</param>
-            <returns>The equivalent 4-character hexadecimal string representation.</returns>
+            <param name="ch">A character to convert to a hexadecimal string</param>
+            <returns>The equivalent 4-character hexadecimal string representation</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.ToUpper(System.Char)">
+            <summary>
+                Converts a character to uppercase
+            </summary>
+            <param name="c">Character to convert</param>
+            <returns>Character in uppercase</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.ToLower(System.Char)">
+            <summary>
+                Converts a character to lowercase
+            </summary>
+            <param name="c">Character to convert</param>
+            <returns>Character in lowercase</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.ToUpperInvariant(System.Char)">
+            <summary>
+                Converts a character to uppercase, without a specific culture
+            </summary>
+            <param name="c">Character to convert</param>
+            <returns>Character in uppercase</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.ToLowerInvariant(System.Char)">
+            <summary>
+                Converts a character to lowercase, without a specific culture
+            </summary>
+            <param name="c">Character to convert</param>
+            <returns>Character in lowercase</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.ToStringInvariant(System.Char)">
+            <summary>
+                Converts a char to a string with an invariant culture format
+            </summary>
+            <param name="c">Character to convert</param>
+            <returns>Character as a string with an invariant culture</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.AllExcept(System.String,System.String[])">
+            <summary>
+            	Returns a string without any of the given substring inside
+            </summary>
+            <param name="source">Source string to extract</param>
+            <param name="paramStrings">Array of strings to remove from the source string</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.EndWith(System.String,System.String)">
+            <summary>
+            	Returns a string ending with the provided suffix, if it doesn't already end with it
+            </summary>
+            <param name="source">Source string</param>
+            <param name="suffix">Expected suffix</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.BeginWith(System.String,System.String)">
+            <summary>
+            	Returns a string beginning with the provided prefix, if it doesn't already begin with it
+            </summary>
+            <param name="source">Source string</param>
+            <param name="prefix">Expected prefix</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.CharExtensions.ReplaceUnicode(System.String)">
+            <summary>
+            Replaces all diacritics in the source string with their romanized counterpart
+            </summary>
+            <param name="source">Source string</param>
+            <returns>Completely Romanized string</returns>
         </member>
         <member name="T:MyLibrary.Extensions.ComparisonExtensions">
             <summary>
@@ -221,43 +295,6 @@
                 Extension methods for <see cref="T:System.Collections.Generic.IEnumerable`1" />
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Returns an empty enumerable if null, otherwise returns the enumerable.
-            <example>
-            <code>var something = Model.SomeNullEnumerable;
-            IEnumerable&lt;int&gt; source = something.Safe();
-            </code></example>
-            </summary>
-        </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-                Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
-            <summary>
-                Returns whether the enumerable has any elements that match the LINQ qualifier.
-            </summary>
-            <example>intList.Contains(i =&gt; i == 2); // false</example>
-            <typeparam name="T"></typeparam>
-            <param name="source"></param>
-            <param name="predicate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
-            <summary>
-                Returns a string that represents a concatenated list of enumerables.
-            </summary>
-            <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
-            <typeparam name="T">Generic type</typeparam>
-            <param name="source">Enumerable to concatenate</param>
-            <param name="delimiter">Delimiter as a <see cref="T:System.String" /> between values</param>
-            <returns></returns>
-        </member>
         <member name="M:MyLibrary.Extensions.EnumerableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0[])">
             <summary>
                 Appends multiple elements to the given sequence.
@@ -276,13 +313,88 @@
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> that contains the elements of all sequences.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="first" /> or <paramref name="subsequent" /> is <c>null</c>.</exception>
         </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+                Returns whether the enumerable has any elements that match the LINQ qualifier.
+            </summary>
+            <example>intList.Contains(i =&gt; i == 2); // false</example>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+                Joins an <see cref="T:System.Collections.Generic.IEnumerable`1" /> into a single string.
+            </summary>
+            <param name="source"></param>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Max``1(``0[])">
+            <summary>
+                Returns the maximum value in a sequence
+            </summary>
+            <typeparam name="TSource">Type of objects to compare</typeparam>
+            <param name="values">Objects to compare</param>
+            <returns>Object that is the maximum value in a sequence</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Min``1(``0[])">
+            <summary>
+                Returns the minimum value in a sequence
+            </summary>
+            <typeparam name="TSource">Type of objects to compare</typeparam>
+            <param name="values">Objects to compare</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.RemoveNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Removes null values from the collection
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Returns an empty enumerable if null, otherwise returns the enumerable.
+                <example>
+                    <code>var something = Model.SomeNullEnumerable;
+            IEnumerable&lt;int&gt; source = something.Safe();
+            </code>
+                </example>
+            </summary>
+        </member>
         <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            Takes any IEnumerable and returns a HashSet
+                Takes any IEnumerable and returns a HashSet
             </summary>
             <param name="source">Ienumerable</param>
-            <typeparam name="T">Generic Class</typeparam>
+            <typeparam name="TSource">Generic Class</typeparam>
             <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+                Returns a string that represents a concatenated list of enumerables
+            </summary>
+            <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
+            <typeparam name="TSource"></typeparam>
+            <param name="source">Enumerable to concatenate</param>
+            <param name="delimiter">Delimiter as a <see cref="T:System.String" /> between values</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.TrimEachElement(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Returns the same enumerable, with all its elements trimmed
+            </summary>
         </member>
         <member name="T:MyLibrary.Extensions.EnumExtensions">
             <summary>
@@ -299,6 +411,33 @@
                 Extension methods for numbers
             </summary>
         </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Int32,System.Int32,System.Int32)">
+            <summary>
+                Checks if the value is in given range
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Double,System.Double,System.Double)">
+            <summary>
+                Checks if the value is in given range
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Single,System.Single,System.Single)">
+            <summary>
+                Checks if the value is in given range
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+                Checks if the value is in given range
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.IsPrime(System.UInt32)">
+            <summary>
+                Returns whether the integer is a prime number.
+            </summary>
+            <param name="input">Integer to check against</param>
+            <returns>True/False</returns>
+        </member>
         <member name="M:MyLibrary.Extensions.NumberExtensions.Mode``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Returns the object(s) that appear the most number of times in the <see cref="T:System.Collections.Generic.IEnumerable`1" />
@@ -307,156 +446,339 @@
             <param name="sources"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.IsPrime(System.Int32)">
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDoubleOrDefault(System.String)">
             <summary>
-            Returns whether the integer is a prime number.
+                Converts a string to a double
             </summary>
-            <param name="input">Integer to check against</param>
-            <returns>True/False</returns>
+            <param name="source">String to convert</param>
+            <returns>String as a double or an double type's default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDoubleOrDefault(System.String,System.Double)">
+            <summary>
+                Converts a string to a double
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="defaultValue">Default value to return if the string fails to convert</param>
+            <returns>String as a double or the default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseFloatOrDefault(System.String)">
+            <summary>
+                Converts a string to a float
+            </summary>
+            <param name="source">String to convert</param>
+            <returns>String as a float or an float type's default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseFloatOrDefault(System.String,System.Single)">
+            <summary>
+                Converts a string to a float
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="defaultValue">Default value to return if the string fails to convert</param>
+            <returns>String as a float or the default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseIntOrDefault(System.String)">
+            <summary>
+                Converts a string to an integer
+            </summary>
+            <param name="source">String to convert</param>
+            <returns>String as an integer or an integer type's default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseIntOrDefault(System.String,System.Int32)">
+            <summary>
+                Converts a string to an integer
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="defaultValue">Default value to return if the string fails to convert</param>
+            <returns>String as an integer or the default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseLongOrDefault(System.String)">
+            <summary>
+                Converts a string to a long
+            </summary>
+            <param name="source">String to convert</param>
+            <returns>String as a long or an long type's default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseLongOrDefault(System.String,System.Int64)">
+            <summary>
+                Converts a string to a long
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="defaultValue">Default value to return if the string fails to convert</param>
+            <returns>String as a long or the default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDecimalOrDefault(System.String)">
+            <summary>
+                Converts a string to a decimal
+            </summary>
+            <param name="source">String to convert</param>
+            <returns>String as a decimal or an decimal type's default value</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDecimalOrDefault(System.String,System.Decimal)">
+            <summary>
+                Converts a string to a decimal
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="defaultValue">Default value to return if the string fails to convert</param>
+            <returns>String as a decimal or the default value</returns>
+        </member>
+        <member name="T:MyLibrary.Extensions.ReflectionExtensions">
+            <summary>Reflection extensions</summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>Retrieve an attribute from a member (property)</summary>
+            <typeparam name="T">Type of attribute to retrieve</typeparam>
+            <param name="prop">Member to retrieve attribute from</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.ReflectionExtensions.GetAttribute``1(System.Type)">
+            <summary>Retrieve an attribute from a type</summary>
+            <typeparam name="T">Type of attribute to retrieve</typeparam>
+            <param name="type">Type to retrieve attribute from</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.ReflectionExtensions.IsSubclassOfRawGeneric(System.Type,System.Type)">
+            <summary>
+                Checks a type to see if it derives from a raw generic (e.g. List[[]])
+            </summary>
+            <param name="toCheck"></param>
+            <param name="generic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StreamExtensions.CopyTo(System.IO.Stream,System.IO.Stream)">
+            <summary>Copies bytes from one stream to another</summary>
+            <param name="input">The input stream.</param>
+            <param name="output">The output stream.</param>
+        </member>
+        <member name="M:MyLibrary.Extensions.StreamExtensions.ReadAsBytes(System.IO.Stream)">
+            <summary>Read a stream into a byte array</summary>
+            <param name="input">Stream to read</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StreamExtensions.SaveAs(System.Byte[],System.String)">
+            <summary>Save a byte array to a file</summary>
+            <param name="input">Bytes to save</param>
+            <param name="path">Full path to save file to</param>
         </member>
         <member name="T:MyLibrary.Extensions.StringExtensions">
             <summary>
-            Extension methods for <see cref="T:System.String"/>
+                Extension methods for <see cref="T:System.String" />
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+        <member name="M:MyLibrary.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
             <summary>
-            Returns whether the string is completely empty, including white spaces.
+                Encrypts the string based on the provided <see cref="T:System.Net.Security.EncryptionPolicy" />
             </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToUpper(System.String)">
-            <summary>
-            Returns the string with the first letter in upper case.
-            </summary>
-            <param name="source"></param>
+            <param name="source">String to encrypt</param>
+            <param name="encryptionPolicy">
+                <see cref="T:System.Net.Security.EncryptionPolicy"> to use to encrypt the string</see>
+            </param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToLower(System.String)">
             <summary>
-            Returns the string with the first letter in lower case.
+                Converts the first letter in a string to lower case
             </summary>
-            <param name="source"></param>
+            <param name="source">String to convert</param>
             <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToLower(System.String,System.Globalization.CultureInfo)">
+            <summary>
+                Returns the string with the first letter in lower case
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="cultureInfo">Culture of the string</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToUpper(System.String)">
+            <summary>
+                Converts the first letter in a string to upper case using an invariant culture
+            </summary>
+            <param name="source">String to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToUpper(System.String,System.Globalization.CultureInfo)">
+            <summary>
+                Converts the first letter in a string to upper case
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="cultureInfo">Culture of the string</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.IsBlank(System.String)">
+            <summary>
+                Returns whether the string is blank (white space characters ignored because then it wouldn't be 'blank')
+            </summary>
+            <example>
+                " ".IsBlank() => false;
+                "".IsBlank() => true;
+            </example>
+            <param name="source">String to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.IsLowercase(System.String)">
+            <summary>
+                Returns whether a string is completely in lowercase
+            </summary>
+            <param name="source">String to check</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+                Returns whether the string is completely empty, including white spaces
+            </summary>
+            <param name="source">String to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.IsUppercase(System.String)">
+            <summary>
+                Returns whether a string is completely in uppercase
+            </summary>
+            <param name="source">String to check</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.OnlyDigits(System.String)">
+            <summary>
+                Returns only the digits inside of a string
+            </summary>
+            <param name="source">String to compare against</param>
+            <returns>All digits in the string</returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.ProperCapitalization(System.String)">
             <summary>
-            Returns the string with the first letter in either upper or lower case depending on the word before it.
+                Converts the first letter of the string into either upper or lower case depending on the word before it
             </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
-            <summary>
-            Encrypts the string based on the provided <see cref="T:System.Net.Security.EncryptionPolicy"/>
-            </summary>
-            <param name="source"></param>
-            <param name="encryptionPolicy"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.RemoveLastCharacter(System.String)">
-            <summary>
-            Removes the last character from the string.
-            </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.RemoveLastCharacters(System.String,System.Int32)">
-            <summary>
-            Removes a number of characters from the end of the string.
-            </summary>
-            <param name="source"></param>
-            <param name="numberOfChars"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.RemoveFirstCharacter(System.String)">
-            <summary>
-            Removes the last character from the string.
-            </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.RemoveFirstCharacters(System.String,System.Int32)">
-            <summary>
-            Removes a number of characters from the end of the string.
-            </summary>
-            <param name="source"></param>
-            <param name="numberOfChars"></param>
+            <param name="source">String to convert</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.RemoveSubstring(System.String,System.String)">
             <summary>
-            Removes a substring from a string.
+                Removes a substring from a string
             </summary>
-            <param name="source"></param>
-            <param name="substring"></param>
+            <param name="source">String to convert</param>
+            <param name="substring">Substring to remove</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.Reverse(System.String)">
             <summary>
-            Reverses the string.
+                Reverses the string
             </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToSafeString(System.Char[])">
-            <summary>
-             Converts an array of characters to a safe string.
-            </summary>
-            <param name="source"></param>
+            <param name="source">String to reverse</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.SplitPascalCase(System.String)">
             <summary>
-            Splits the string by pascal case.		
+                Splits the string by pascal case
             </summary>
             <example>
-            The following returns "This Is A Pascal Case String"
-            <code>
+                The following returns "This Is A Pascal Case String"
+                <code>
             var str = "ThisIsAPascalCaseString";
             return str.SplitPascalCase();
             </code>
             </example>
-            <param name="text">The text.</param>
+            <param name="source">String to convert</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.SplitUnderlines(System.String)">
             <summary>
-            Splits the string by underlines.		
+                Splits the string by underlines
             </summary>
             <example>
-            The following returns "This_Is_An_Underlined_String"
-            <code>
+                The following returns "This Is An Underlined String"
+                <code>
             var str = "This_Is_An_Underlined_String";
             return str.SplitUnderlines();
             </code>
             </example>
-            <param name="text">The text.</param>
+            <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+        <member name="M:MyLibrary.Extensions.StringExtensions.GetCharsNotFound(System.String,System.String)">
             <summary>
-            Joins an <see cref="T:System.Collections.Generic.IEnumerable`1"/> into a single string.
+                Returns a collection of characters that do not appear in both strings
             </summary>
-            <param name="source"></param>
-            <param name="separator"></param>
+            <param name="source">Primary string to compare</param>
+            <param name="other">Secondary string to compare</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.OnlyDigits(System.String)">
+        <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String)">
             <summary>
-            Returns only the digits inside of a string
+                Converts a string into pascal case (UpperCamelCase) with an invariant culture
             </summary>
-            <param name="source">Source string</param>
-            <returns>All digits in the string</returns>
+            <param name="source">String to convert</param>
+            <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.IsBlank(System.String)">
+        <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String,System.Globalization.CultureInfo)">
             <summary>
-            Returns whether the string is blank (white space characters ignored because then it wouldn't be 'blank')
+                Converts a string into pascal case (UpperCamelCase)
             </summary>
-            <example>" ".IsBlank() => false;
-            "".IsBlank() => true;</example>
-            <param name="source"></param>
+            <param name="source">String to convert</param>
+            <param name="cultureInfo">Culture of the string</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String,System.Boolean,System.Globalization.CultureInfo)">
+            <summary>
+                Converts a string into pascal case (UpperCamelCase) with the option to remove underscores
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="removeUnderscores">Option to remove underscores</param>
+            <param name="cultureInfo">Culture of the string</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.ToSafeString(System.Char[])">
+            <summary>
+                Converts an array of characters to a safe string
+            </summary>
+            <param name="source">Array of characters to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String)">
+            <summary>
+                Returns a string, or a default value if the string is null
+            </summary>
+            <typeparam name="T">Generic type</typeparam>
+            <param name="source">String to convert</param>
+            <param name="defaultValue">String to display if the source string is null</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String,System.String)">
+            <summary>
+                Returns a formatted string, or a default value if the string is null
+            </summary>
+            <typeparam name="T">Generic type</typeparam>
+            <param name="source">String to display</param>
+            <param name="format">Format of the string</param>
+            <param name="defaultValue">String to display if the source string is null</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateFirstChar(System.String)">
+            <summary>
+                Removes the first character from the string
+            </summary>
+            <param name="source">String to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateFromLeft(System.String,System.Int32)">
+            <summary>
+                Removes a number of characters from the beginning of the string
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="numberOfChars">Number of characters to remove</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateFromRight(System.String,System.Int32)">
+            <summary>
+                Removes a number of characters from the end of the string
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="numberOfChars">Number of characters to remove</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateLastChar(System.String)">
+            <summary>
+                Removes the last character from the string
+            </summary>
+            <param name="source">String to convert</param>
             <returns></returns>
         </member>
         <member name="T:MyLibrary.Formatters.DateTimeFormatting">
@@ -502,6 +824,16 @@
             </summary>
             <param name="region">The enum of the region represented as an integer</param>
             <returns></returns>
+        </member>
+        <member name="T:MyLibrary.Helpers.Constants">
+            <summary>
+            Constants
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Helpers.Constants.Diacritics">
+            <summary>
+            Dictionary of all possible diacritics and their romanized counterparts
+            </summary>
         </member>
         <member name="T:MyLibrary.Helpers.EnumHelper`1">
             <summary>

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\BufferExtensions.cs" />
     <Compile Include="Extensions\CharExtensions.cs" />
     <Compile Include="Extensions\ComparisonExtensions.cs" />
     <Compile Include="Extensions\ConversionExtensions.cs" />
@@ -55,6 +56,8 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\JsonExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
+    <Compile Include="Extensions\ReflectionExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Formatters\DateTimeFormatting.cs" />
     <Compile Include="Formatters\StringFormatting.cs" />
