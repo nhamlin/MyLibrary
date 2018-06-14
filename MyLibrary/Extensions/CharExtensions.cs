@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
+using MyLibrary.Helpers;
 
 namespace MyLibrary.Extensions
 {
@@ -106,11 +107,21 @@ namespace MyLibrary.Extensions
 		///		Returns a string beginning with the provided prefix, if it doesn't already begin with it
 		/// </summary>
 		/// <param name="source">Source string</param>
-		/// <param name="prefix">Expected suffix</param>
+		/// <param name="prefix">Expected prefix</param>
 		/// <returns></returns>
 		public static string BeginWith(this string source, string prefix)
 		{
 			return source.StartsWith(prefix) ? source : source + prefix;
+		}
+
+		/// <summary>
+		/// Replaces all diacritics in the source string with their romanized counterpart
+		/// </summary>
+		/// <param name="source">Source string</param>
+		/// <returns>Completely Romanized string</returns>
+		public static string ReplaceUnicode(this string source) 
+		{
+			return Constants.Diacritics[source];
 		}
 	}
 }

@@ -6,73 +6,22 @@ using System.Linq;
 namespace MyLibrary.Extensions
 {
 	/// <summary>
-	///     Extension methods for <see cref="IEnumerable{T}" />
+	///     Extension methods for <see cref="IEnumerable{TSource}" />
 	/// </summary>
 	public static class EnumerableExtensions
 	{
 		/// <summary>
-		/// Returns an empty enumerable if null, otherwise returns the enumerable.
-		/// <example>
-		/// <code>var something = Model.SomeNullEnumerable;
-		/// IEnumerable&lt;int&gt; source = something.Safe();
-		/// </code></example>
-		/// </summary>
-		public static IEnumerable<T> Safe<T>(this IEnumerable<T> source)
-		{
-			if (source == null)
-				return new T[0];
-			return source;
-		}
-
-		/// <summary>
-		///     Returns whether the <see cref="IEnumerable{T}" /> is empty.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="source"></param>
-		/// <returns></returns>
-		public static bool IsEmpty<T>(this IEnumerable<T> source)
-		{
-			return !source.Any();
-		}
-
-		/// <summary>
-		///     Returns whether the enumerable has any elements that match the LINQ qualifier.
-		/// </summary>
-		/// <example>intList.Contains(i =&gt; i == 2); // false</example>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="source"></param>
-		/// <param name="predicate"></param>
-		/// <returns></returns>
-		public static bool Contains<T>(this IEnumerable<T> source, Func<T, bool> predicate)
-		{
-			return source.Any(predicate);
-		}
-
-		/// <summary>
-		///     Returns a string that represents a concatenated list of enumerables.
-		/// </summary>
-		/// <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
-		/// <typeparam name="T">Generic type</typeparam>
-		/// <param name="source">Enumerable to concatenate</param>
-		/// <param name="delimiter">Delimiter as a <see cref="string" /> between values</param>
-		/// <returns></returns>
-		public static string ToString<T>(this IEnumerable<T> source, string delimiter)
-		{
-			return String.Join(delimiter, source);
-		}
-
-		/// <summary>
 		///     Appends multiple elements to the given sequence.
 		/// </summary>
-		/// <param name="source">An <see cref="IEnumerable{T}" /> to append additional elements to.</param>
+		/// <param name="source">An <see cref="IEnumerable{TSource}" /> to append additional elements to.</param>
 		/// <param name="elements">The additional elements to append.</param>
-		/// <returns>An <see cref="IEnumerable{T}" /> that contains the additional elements.</returns>
+		/// <returns>An <see cref="IEnumerable{TSource}" /> that contains the additional elements.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="source" /> or <paramref name="elements" /> is <c>null</c>.</exception>
-		public static IEnumerable<T> Append<T>(this IEnumerable<T> source, params T[] elements)
+		public static IEnumerable<TSource> Append<TSource>(this IEnumerable<TSource> source, params TSource[] elements)
 		{
 			Contract.Requires<ArgumentNullException>(source != null);
 			Contract.Requires<ArgumentNullException>(elements != null);
-			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
+			Contract.Ensures(Contract.Result<IEnumerable<TSource>>() != null);
 
 			return elements.Length > 0 ? source.Concat(elements) : source;
 		}
@@ -80,28 +29,41 @@ namespace MyLibrary.Extensions
 		/// <summary>
 		///     Concatenates multiple sequences.
 		/// </summary>
-		/// <param name="first">An <see cref="IEnumerable{T}" /> to concatenate additional sequences to.</param>
-		/// <param name="subsequent">The additional <see cref="IEnumerable{T}" /> objects whose elements to append.</param>
-		/// <returns>An <see cref="IEnumerable{T}" /> that contains the elements of all sequences.</returns>
+		/// <param name="first">An <see cref="IEnumerable{TSource}" /> to concatenate additional sequences to.</param>
+		/// <param name="subsequent">The additional <see cref="IEnumerable{TSource}" /> objects whose elements to append.</param>
+		/// <returns>An <see cref="IEnumerable{TSource}" /> that contains the elements of all sequences.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="first" /> or <paramref name="subsequent" /> is <c>null</c>.</exception>
-		public static IEnumerable<T> Concat<T>(this IEnumerable<T> first, params IEnumerable<T>[] subsequent)
+		public static IEnumerable<TSource> Concat<TSource>(this IEnumerable<TSource> first, params IEnumerable<TSource>[] subsequent)
 		{
 			Contract.Requires<ArgumentNullException>(first != null);
 			Contract.Requires<ArgumentNullException>(subsequent != null);
-			Contract.Ensures(Contract.Result<IEnumerable<T>>() != null);
+			Contract.Ensures(Contract.Result<IEnumerable<TSource>>() != null);
 
 			return subsequent.Aggregate(first, Enumerable.Concat);
 		}
 
 		/// <summary>
-		/// Takes any IEnumerable and returns a HashSet
+		///     Returns whether the enumerable has any elements that match the LINQ qualifier.
 		/// </summary>
-		/// <param name="source">Ienumerable</param>
-		/// <typeparam name="T">Generic Class</typeparam>
+		/// <example>intList.Contains(i =&gt; i == 2); // false</example>
+		/// <typeparam name="TSource"></typeparam>
+		/// <param name="source"></param>
+		/// <param name="predicate"></param>
 		/// <returns></returns>
-		public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source)
+		public static bool Contains<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
 		{
-			return new HashSet<T>(source);
+			return source.Any(predicate);
+		}
+
+		/// <summary>
+		///     Returns whether the <see cref="IEnumerable{TSource}" /> is empty.
+		/// </summary>
+		/// <typeparam name="TSource"></typeparam>
+		/// <param name="source"></param>
+		/// <returns></returns>
+		public static bool IsEmpty<TSource>(this IEnumerable<TSource> source)
+		{
+			return !source.Any();
 		}
 
 		/// <summary>
@@ -116,22 +78,88 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		///     Returns the same enumerable, with all its elements trimmed
+		///     Returns the maximum value in a sequence
 		/// </summary>
-		public static IEnumerable<string> TrimElements(this IEnumerable<string> enumerable)
+		/// <typeparam name="TSource">Type of objects to compare</typeparam>
+		/// <param name="values">Objects to compare</param>
+		/// <returns>Object that is the maximum value in a sequence</returns>
+		public static TSource Max<TSource>(params TSource[] values)
 		{
-			return enumerable.Select(str => str.Trim());
+			IEnumerable<TSource> vals = values.ToList();
+			return vals.Max();
 		}
 
 		/// <summary>
-		/// Removes null values from the collection
+		///     Returns the minimum value in a sequence
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="TSource">Type of objects to compare</typeparam>
+		/// <param name="values">Objects to compare</param>
+		/// <returns></returns>
+		public static TSource Min<TSource>(params TSource[] values)
+		{
+			IEnumerable<TSource> vals = values.ToList();
+			return vals.Min();
+		}
+
+		/// <summary>
+		///     Removes null values from the collection
+		/// </summary>
+		/// <typeparam name="TSource"></typeparam>
 		/// <param name="source"></param>
 		/// <returns></returns>
-		public static IEnumerable<T> RemoveNull<T>(this IEnumerable<T> source)
+		public static IEnumerable<TSource> RemoveNull<TSource>(this IEnumerable<TSource> source)
 		{
 			return source.Where(item => item != null);
+		}
+
+		/// <summary>
+		///     Returns an empty enumerable if null, otherwise returns the enumerable.
+		///     <example>
+		///         <code>var something = Model.SomeNullEnumerable;
+		/// IEnumerable&lt;int&gt; source = something.Safe();
+		/// </code>
+		///     </example>
+		/// </summary>
+		public static IEnumerable<TSource> Safe<TSource>(this IEnumerable<TSource> source)
+		{
+			if (source == null)
+			{
+				return new TSource[0];
+			}
+
+			return source;
+		}
+
+		/// <summary>
+		///     Takes any IEnumerable and returns a HashSet
+		/// </summary>
+		/// <param name="source">Ienumerable</param>
+		/// <typeparam name="TSource">Generic Class</typeparam>
+		/// <returns></returns>
+		public static HashSet<TSource> ToHashSet<TSource>(this IEnumerable<TSource> source)
+		{
+			return new HashSet<TSource>(source);
+		}
+
+		/// <summary>
+		///     Returns a string that represents a concatenated list of enumerables
+		/// </summary>
+		/// <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
+		/// <typeparam name="TSource"></typeparam>
+		/// <param name="source">Enumerable to concatenate</param>
+		/// <param name="delimiter">Delimiter as a <see cref="string" /> between values</param>
+		/// <returns></returns>
+		public static string ToString<TSource>(this IEnumerable<TSource> source, string delimiter)
+		{
+			return string.Join(delimiter, source);
+		}
+
+		/// <summary>
+		///     Returns the same enumerable, with all its elements trimmed
+		/// </summary>
+		public static IEnumerable<string> TrimEachElement(this IEnumerable<string> enumerable)
+		{
+			return enumerable.Select(str => str.Trim());
 		}
 	}
 }
