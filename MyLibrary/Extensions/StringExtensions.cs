@@ -26,6 +26,20 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
+		///     Returns a collection of characters that do not appear in both strings
+		/// </summary>
+		/// <param name="source">Primary string to compare</param>
+		/// <param name="other">Secondary string to compare</param>
+		/// <returns></returns>
+		public static char[] GetCharsNotFound(this string source, string other)
+		{
+			string longest = source.Length >= other.Length ? source : other;
+			string shortest = source.Length < other.Length ? source : other;
+
+			return longest.Except(shortest).ToArray();
+		}
+
+		/// <summary>
 		///     Converts the first letter in a string to lower case
 		/// </summary>
 		/// <param name="source">String to convert</param>
@@ -109,6 +123,16 @@ namespace MyLibrary.Extensions
 		public static bool IsUppercase(this string source)
 		{
 			return Regex.IsMatch(source, "^[A-Z]+$");
+		}
+
+		/// <summary>
+		///     Converts an empty string to null instead of string.Empty
+		/// </summary>
+		/// <param name="source">String to convert</param>
+		/// <returns>A valid string or null</returns>
+		public static string NullIfEmpty(this string source)
+		{
+			return string.IsNullOrWhiteSpace(source) ? null : source;
 		}
 
 		/// <summary>
@@ -199,20 +223,6 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		///     Returns a collection of characters that do not appear in both strings
-		/// </summary>
-		/// <param name="source">Primary string to compare</param>
-		/// <param name="other">Secondary string to compare</param>
-		/// <returns></returns>
-		public static char[] GetCharsNotFound(this string source, string other)
-		{
-			string longest = source.Length >= other.Length ? source : other;
-			string shortest = source.Length < other.Length ? source : other;
-
-			return longest.Except(shortest).ToArray();
-		}
-
-		/// <summary>
 		///     Converts a string into pascal case (UpperCamelCase) with an invariant culture
 		/// </summary>
 		/// <param name="source">String to convert</param>
@@ -292,12 +302,7 @@ namespace MyLibrary.Extensions
 		public static string ToStringOrDefault<T>(this T? source, string defaultValue)
 			where T : struct
 		{
-			if (source != null && source.HasValue)
-			{
-				return source.Value.ToString();
-			}
-
-			return defaultValue;
+			return source.HasValue ? source.Value.ToString() : defaultValue;
 		}
 
 		/// <summary>
@@ -311,12 +316,7 @@ namespace MyLibrary.Extensions
 		public static string ToStringOrDefault<T>(this T? source, string format, string defaultValue)
 			where T : struct, IFormattable
 		{
-			if (source != null && source.HasValue)
-			{
-				return source.Value.ToString(format, CultureInfo.CurrentCulture);
-			}
-
-			return defaultValue;
+			return source.HasValue ? source.Value.ToString(format, CultureInfo.InvariantCulture) : defaultValue;
 		}
 
 		/// <summary>

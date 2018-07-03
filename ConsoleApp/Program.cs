@@ -16,8 +16,13 @@ namespace ConsoleApp
 			//string[] strings = { "a", "b", "d", "z" };
 			//char charD = 'a';
 
-			Console.WriteLine(string.Join(",", GetNumbers(2, 1590809955000)));
+			//Console.WriteLine(string.Join(",", GetNumbers(2, 1590809955000)));
 
+			List<TestEnum> someEnums = new List<TestEnum>();
+			someEnums.Add(TestEnum.Distributor);
+			someEnums.Add(string.Empty);
+
+			Console.WriteLine(someEnums.ToString());
 			//Console.WriteLine((number + ".ConvertTo<int>()").PadRight(50) + " => " + number.ConvertTo(-1));
 			//Console.WriteLine((number + ".ConvertTo<double>()").PadRight(50) + " => " + number.ConvertTo(-1D));
 			//Console.WriteLine((number + ".ConvertTo<decimal>()").PadRight(50) + " => " + number.ConvertTo<decimal>(-1));
@@ -43,6 +48,8 @@ namespace ConsoleApp
 
 			return returnList;
 		}
+
+		
 
 	}
 

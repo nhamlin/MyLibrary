@@ -5,7 +5,14 @@ using System.Reflection;
 namespace MyLibrary.Extensions
 {
 	/// <summary>Reflection extensions</summary>
-	public static class ReflectionExtensions
+	/// Use Module to get all global and non-global methods defined in the module.
+	/// Use MethodInfo to look at information such as parameters, name, return type, access modifiers and implementation details.
+	/// Use EventInfo to find out the event-handler data type, the name, declaring type and custom attributes.
+	/// Use ConstructorInfo to get data on the parameters, access modifiers, and implementation details of a constructor.
+	/// Use Assembly to load modules listed in the assembly manifest.
+	/// Use PropertyInfo to get the declaring type, reflected type, data type, name and writable status of a property or to get and set property values.
+	/// Use CustomAttributeData to find out information on custom attributes or to review attributes without having to create more instances.
+public static class ReflectionExtensions
 	{
 		/// <summary>
 		/// Changes the type of an object to another type ignoring culture
