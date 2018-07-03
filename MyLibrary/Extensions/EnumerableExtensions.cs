@@ -56,7 +56,7 @@ namespace MyLibrary.Extensions
 		}
 
 		/// <summary>
-		///     Returns whether the <see cref="IEnumerable{TSource}" /> is empty.
+		///     Returns whether the <see cref="IEnumerable{TSource}" /> is empty
 		/// </summary>
 		/// <typeparam name="TSource"></typeparam>
 		/// <param name="source"></param>
@@ -64,6 +64,17 @@ namespace MyLibrary.Extensions
 		public static bool IsEmpty<TSource>(this IEnumerable<TSource> source)
 		{
 			return !source.Any();
+		}
+
+		/// <summary>
+		/// Returns whether the IEnumerable{TSource} is null or empty
+		/// </summary>
+		/// <typeparam name="TSource">Source Type</typeparam>
+		/// <param name="source">IEnumerable to be compared against</param>
+		/// <returns></returns>
+		public static bool IsNullOrEmpty<TSource>(this IEnumerable<TSource> source)
+		{
+			return source == null || !source.Any();
 		}
 
 		/// <summary>

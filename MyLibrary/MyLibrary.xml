@@ -4,12 +4,17 @@
         <name>MyLibrary</name>
     </assembly>
     <members>
+        <member name="T:MyLibrary.Extensions.BufferExtensions">
+            <summary>
+            Extension methods for Buffers
+            </summary>
+        </member>
         <member name="M:MyLibrary.Extensions.BufferExtensions.AsString(System.Byte[])">
             <summary>
                 Converts a byte array to a string, using its byte order mark to convert it to the right encoding.
                 http://www.shrinkrays.net/code-snippets/csharp/an-extension-method-for-converting-a-byte-array-to-a-string.aspx
             </summary>
-            <param name="buffer">An array of bytes to convert</param>
+            <param name="source">An array of bytes to convert</param>
             <returns>The byte as a string.</returns>
         </member>
         <member name="T:MyLibrary.Extensions.CharExtensions">
@@ -325,10 +330,18 @@
         </member>
         <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-                Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty.
+                Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty
             </summary>
             <typeparam name="TSource"></typeparam>
             <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns whether the IEnumerable{TSource} is null or empty
+            </summary>
+            <typeparam name="TSource">Source Type</typeparam>
+            <param name="source">IEnumerable to be compared against</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.EnumerableExtensions.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
@@ -400,6 +413,14 @@
             <summary>
                 Extension methods for <see cref="T:System.Enum"/>
             </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.EnumExtensions.GetDisplayName``1(``0)">
+            <summary>
+            Returns the Enum's Display Name as found in the Display(Name=xxx) Attribute or the Enum's value name if no attribute is found
+            </summary>
+            <typeparam name="TEnum">Enum Type</typeparam>
+            <param name="value">Enum Value</param>
+            <returns></returns>
         </member>
         <member name="T:MyLibrary.Extensions.JsonExtensions">
             <summary>
@@ -523,40 +544,61 @@
         </member>
         <member name="T:MyLibrary.Extensions.ReflectionExtensions">
             <summary>Reflection extensions</summary>
+            Use Module to get all global and non-global methods defined in the module.
+            Use MethodInfo to look at information such as parameters, name, return type, access modifiers and implementation details.
+            Use EventInfo to find out the event-handler data type, the name, declaring type and custom attributes.
+            Use ConstructorInfo to get data on the parameters, access modifiers, and implementation details of a constructor.
+            Use Assembly to load modules listed in the assembly manifest.
+            Use PropertyInfo to get the declaring type, reflected type, data type, name and writable status of a property or to get and set property values.
+            Use CustomAttributeData to find out information on custom attributes or to review attributes without having to create more instances.
+        </member>
+        <member name="M:MyLibrary.Extensions.ReflectionExtensions.ChangeType(System.Object,System.Type)">
+            <summary>
+            Changes the type of an object to another type ignoring culture
+            </summary>
+            <param name="source">Object to convert</param>
+            <param name="newType">New type to convert to</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.ReflectionExtensions.ChangeType(System.Object,System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            Changes the type of an object to another type, with culture specificity
+            </summary>
+            <param name="source">Object to convert</param>
+            <param name="newType">New type to convert to</param>
+            <param name="culture">Culture</param>
+            <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
-            <summary>Retrieve an attribute from a member (property)</summary>
-            <typeparam name="T">Type of attribute to retrieve</typeparam>
-            <param name="prop">Member to retrieve attribute from</param>
+            <summary>Get an attribute from a member</summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="source">Member to retrieve attribute from</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.ReflectionExtensions.GetAttribute``1(System.Type)">
-            <summary>Retrieve an attribute from a type</summary>
-            <typeparam name="T">Type of attribute to retrieve</typeparam>
-            <param name="type">Type to retrieve attribute from</param>
+            <summary>Get an attribute from a type</summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="source">Type to retrieve attribute from</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ReflectionExtensions.IsSubclassOfRawGeneric(System.Type,System.Type)">
+        <member name="T:MyLibrary.Extensions.StreamExtensions">
             <summary>
-                Checks a type to see if it derives from a raw generic (e.g. List[[]])
+            Extension methods for Streams
             </summary>
-            <param name="toCheck"></param>
-            <param name="generic"></param>
-            <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StreamExtensions.CopyTo(System.IO.Stream,System.IO.Stream)">
             <summary>Copies bytes from one stream to another</summary>
-            <param name="input">The input stream.</param>
-            <param name="output">The output stream.</param>
+            <param name="source">The input stream</param>
+            <param name="destination">The output stream</param>
         </member>
         <member name="M:MyLibrary.Extensions.StreamExtensions.ReadAsBytes(System.IO.Stream)">
             <summary>Read a stream into a byte array</summary>
-            <param name="input">Stream to read</param>
+            <param name="source">Stream to read</param>
             <returns>byte[]</returns>
         </member>
         <member name="M:MyLibrary.Extensions.StreamExtensions.SaveAs(System.Byte[],System.String)">
             <summary>Save a byte array to a file</summary>
-            <param name="input">Bytes to save</param>
+            <param name="source">Bytes to save</param>
             <param name="path">Full path to save file to</param>
         </member>
         <member name="T:MyLibrary.Extensions.StringExtensions">
@@ -572,6 +614,14 @@
             <param name="encryptionPolicy">
                 <see cref="T:System.Net.Security.EncryptionPolicy"> to use to encrypt the string</see>
             </param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.GetCharsNotFound(System.String,System.String)">
+            <summary>
+                Returns a collection of characters that do not appear in both strings
+            </summary>
+            <param name="source">Primary string to compare</param>
+            <param name="other">Secondary string to compare</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToLower(System.String)">
@@ -636,6 +686,13 @@
             <param name="source">String to check</param>
             <returns>True/False</returns>
         </member>
+        <member name="M:MyLibrary.Extensions.StringExtensions.NullIfEmpty(System.String)">
+            <summary>
+                Converts an empty string to null instead of string.Empty
+            </summary>
+            <param name="source">String to convert</param>
+            <returns>A valid string or null</returns>
+        </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.OnlyDigits(System.String)">
             <summary>
                 Returns only the digits inside of a string
@@ -691,14 +748,6 @@
             </code>
             </example>
             <param name="source">String to convert</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.GetCharsNotFound(System.String,System.String)">
-            <summary>
-                Returns a collection of characters that do not appear in both strings
-            </summary>
-            <param name="source">Primary string to compare</param>
-            <param name="other">Secondary string to compare</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String)">
