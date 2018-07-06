@@ -263,10 +263,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ContentAreaMaxItemsAttribute.cs" />
     <Compile Include="Extensions\CategoryExtensions.cs" />
-    <Compile Include="Extensions\CommerceExtensions.cs" />
+    <Compile Include="Extensions\Commerce\ProductExtensions.cs" />
+    <Compile Include="Extensions\ContentAreaExtensions.cs" />
     <Compile Include="Extensions\ContentExtensions.cs" />
+    <Compile Include="Extensions\MediaExtensions.cs" />
+    <Compile Include="Extensions\PageExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
+    <Compile Include="Models\Media\DocumentData.cs" />
+    <Compile Include="Models\Media\Image.cs" />
+    <Compile Include="Models\Media\VideoData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
