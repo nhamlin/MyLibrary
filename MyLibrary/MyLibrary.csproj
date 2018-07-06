@@ -60,6 +60,7 @@
     <Compile Include="Extensions\ReflectionExtensions.cs" />
     <Compile Include="Extensions\StreamExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Formatters\DateTimeFormatting.cs" />
     <Compile Include="Formatters\StringFormatting.cs" />
     <Compile Include="Helpers\AddressHelper.cs" />
