@@ -12,58 +12,16 @@ using MyLibrary.Extensions;
 
 namespace Episerver.Extensions
 {
+	/// <summary>
+	///     Extension methods for <see cref="IContent"/>
+	/// </summary>
 	public static class ContentExtensions
 	{
-		private static Func<IContent, bool> _visitorFilterer;
-		private static IContentRepository _repo;
-
-		/// <summary>
-		///     returns true if the current user has access to the specified content
-		/// </summary>
-		public static Func<IContent, bool> VisitorFilterer
-		{
-			get { return _visitorFilterer ?? (content => content != null && EPiServer.Filters.FilterForVisitor.Filter(new[] { content }).Any()); }
-			set => _visitorFilterer = value;
-		}
-
-		private static bool CheckPublishedStatus(this IContent content, PagePublishedStatus status)
-		{
-			IVersionable obj = content as IVersionable;
-			if (obj == null)
-			{
-				return false;
-			}
-
-			if (status != PagePublishedStatus.Ignore)
-			{
-				if (obj.IsPendingPublish)
-				{
-					return false;
-				}
-
-				if (obj.Status != VersionStatus.Published)
-				{
-					return false;
-				}
-
-				if (status >= PagePublishedStatus.PublishedIgnoreStopPublish && obj.StartPublish > DateTime.Now) //Context.Current.RequestTime))
-				{
-					return false;
-				}
-
-				if (status >= PagePublishedStatus.Published && obj.StopPublish < DateTime.Now) //Context.Current.RequestTime))
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
+		private static IContentRepository _repo;		
 
 		/// <summary>
 		///     Filters content for the current visitor/user according to publish status and page access
 		/// </summary>
-		/// <remarks>Uses the <see cref="VisitorFilterer" />, to determine if a visitor have access or not</remarks>
 		/// <typeparam name="TContentType">Type of content items</typeparam>
 		/// <param name="content">The items to check access for</param>
 		/// <returns>A filtered list containing content items that the current user has access to</returns>
@@ -74,9 +32,8 @@ namespace Episerver.Extensions
 			{
 				_repo = ServiceLocator.Current.GetInstance<IContentRepository>();
 			}
-
-			//return content.Where(c => VisitorFilterer(c));
-			return content.Where(c => c != null && c.QueryAccess() != AccessLevel.NoAccess && c.QueryAccess() != AccessLevel.Undefined && _repo.Get<IContent>(c.ContentLink).CheckPublishedStatus(PagePublishedStatus.Published));
+			
+			return content.Where(c => c != null && c.QueryAccess() != AccessLevel.NoAccess && c.QueryAccess() != AccessLevel.Undefined && _repo.Get<IContent>(c.ContentLink).IsPublished());
 		}
 
 		/// <summary>
@@ -95,6 +52,7 @@ namespace Episerver.Extensions
 		public static TContentType Get<TContentType>(this ContentReference contentLink, bool filterForVisitor = false, IContentLoader contentLoader = null, LanguageSelector languageSelector = null)
 			where TContentType : class, IContent
 		{
+			
 			if (ContentReference.IsNullOrEmpty(contentLink))
 			{
 				return null;
@@ -109,7 +67,7 @@ namespace Episerver.Extensions
 			{
 				languageSelector = new NullLanguageSelector();
 			}
-			
+
 			try
 			{
 				var content = contentLoader.Get<TContentType>(contentLink, languageSelector);
@@ -139,7 +97,6 @@ namespace Episerver.Extensions
 		///     Gets all children of a certain type
 		/// </summary>
 		/// <typeparam name="TContent"></typeparam>
-		/// <param name="page"></param>
 		/// <returns></returns>
 		public static IEnumerable<TContent> GetChildren<TContent>(this ContentData content, LanguageSelector languageSelector = null)
 			where TContent : class, IContent
@@ -149,7 +106,7 @@ namespace Episerver.Extensions
 				return null;
 			}
 
-			return GetChildren<TContent>((content as IContent).ContentLink, null, languageSelector);
+			return GetChildren<TContent>((content as IContent)?.ContentLink, null, languageSelector);
 		}
 
 		/// <summary>
@@ -158,6 +115,7 @@ namespace Episerver.Extensions
 		/// <typeparam name="TContent"></typeparam>
 		/// <param name="contentRef"></param>
 		/// <param name="filterExpression">A Lambda to filter out the pages that do not comply</param>
+		/// <param name="languageSelector">Language</param>
 		/// <returns></returns>
 		public static IEnumerable<TContent> GetChildren<TContent>(this ContentReference contentRef, Expression<Func<TContent, bool>> filterExpression = null, LanguageSelector languageSelector = null)
 			where TContent : class, IContent
@@ -199,6 +157,7 @@ namespace Episerver.Extensions
 		/// <typeparam name="TContent"></typeparam>
 		/// <param name="contentRef"></param>
 		/// <param name="filterExpression">A Lambda to filter out the pages that do not comply</param>
+		/// <param name="languageSelector">Language</param>
 		/// <returns></returns>
 		[Obsolete]
 		public static IEnumerable<TContent> GetDescendents<TContent>(this ContentReference contentRef, Expression<Func<TContent, bool>> filterExpression = null, LanguageSelector languageSelector = null)
@@ -237,6 +196,22 @@ namespace Episerver.Extensions
 		public static bool IsNullOrEmpty(this ContentArea contentArea)
 		{
 			if (contentArea != null && contentArea.FilteredItems != null && contentArea.FilteredItems.Any())
+			{
+				return false;
+			}
+
+			return true;
+		}
+
+		private static bool IsPublished(this IContent content)
+		{
+			IVersionable obj = content as IVersionable;
+			if (obj == null) return false;
+			
+			if (obj.IsPendingPublish ||
+			    obj.Status != VersionStatus.Published ||
+			    obj.StartPublish > DateTime.Now ||
+			    obj.StopPublish < DateTime.Now)
 			{
 				return false;
 			}

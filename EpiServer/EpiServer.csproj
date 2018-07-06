@@ -264,6 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ContentAreaMaxItemsAttribute.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Extensions\CategoryExtensions.cs" />
     <Compile Include="Extensions\Commerce\ProductExtensions.cs" />
     <Compile Include="Extensions\ContentAreaExtensions.cs" />
@@ -275,11 +276,13 @@
     <Compile Include="Models\Media\DocumentData.cs" />
     <Compile Include="Models\Media\Image.cs" />
     <Compile Include="Models\Media\VideoData.cs" />
+    <Compile Include="Models\StartPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\FileUtility.cs" />
+    <Compile Include="Utilities\SiteUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="App_Data\GeoLiteCity.dat" />
     <None Include="Configs\baf.config" />
     <None Include="Configs\baf.data.manager.config" />
     <None Include="Configs\baf.data.metaobject.config" />
@@ -304,6 +307,9 @@
       <Project>{15aa2005-f80a-4a3a-8915-424002a604d7}</Project>
       <Name>MyLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

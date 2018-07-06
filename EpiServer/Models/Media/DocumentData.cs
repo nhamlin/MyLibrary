@@ -12,9 +12,9 @@ namespace EpiServer.Models.Media
 	{
 		[CultureSpecific]
 		[Display(
-			Name="Document Title",
+			Name = "Document Title",
 			GroupName = SystemTabNames.Content,
-			Order=10)]
+			Order = 10)]
 		public virtual string Title { get; set; }
 
 		[CultureSpecific]
@@ -26,9 +26,9 @@ namespace EpiServer.Models.Media
 		public virtual string Description { get; set; }
 
 		[Display(
-			Name="Filesize",
+			Name = "Filesize",
 			GroupName = SystemTabNames.Content,
-			Order=30)]
+			Order = 30)]
 		[Editable(false)]
 		public virtual string Filesize { get; set; }
 
@@ -42,15 +42,15 @@ namespace EpiServer.Models.Media
 		//public virtual ContentArea Products { get; set; }
 
 		[Display(
-			Name="Languages",
+			Name = "Languages",
 			GroupName = SystemTabNames.Content,
-			Order=40)]
+			Order = 40)]
 		//[AllowedTypes(typeof(TagTerm))]
 		public virtual ContentArea Languages { get; set; }
 
 		[CultureSpecific]
 		[Display(
-			Name="Thumbnail Image",
+			Name = "Thumbnail Image",
 			GroupName = SystemTabNames.Content,
 			Order = 50)]
 		[UIHint(UIHint.Image)]

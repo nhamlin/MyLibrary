@@ -3,7 +3,7 @@ using EPiServer.Commerce.Routing;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 
-namespace EpiServer2.Infrastructure
+namespace EpiServer.Infrastructure
 {
     [InitializableModule]
     [ModuleDependency(typeof(EPiServer.Commerce.Initialization.InitializationModule))]

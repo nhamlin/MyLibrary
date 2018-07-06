@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -13,14 +12,14 @@ namespace EpiServer.Models.Media
 	{
 		[CultureSpecific]
 		[Display(
-			Name="Title",
+			Name = "Title",
 			GroupName = SystemTabNames.Content,
-			Order=10)]
+			Order = 10)]
 		public virtual string Title { get; set; }
 
 		[CultureSpecific]
 		[Display(
-			Name="Description",
+			Name = "Description",
 			GroupName = SystemTabNames.Content,
 			Order = 20)]
 		[UIHint(UIHint.Textarea)]
@@ -29,7 +28,7 @@ namespace EpiServer.Models.Media
 		[Display(
 			Name = "File size",
 			GroupName = SystemTabNames.Content,
-			Order=30)]
+			Order = 30)]
 		[Editable(false)]
 		public virtual string Filesize { get; set; }
 
@@ -37,10 +36,10 @@ namespace EpiServer.Models.Media
 
 		[CultureSpecific]
 		[Display(
-			Name="Thumbnail Image",
+			Name = "Thumbnail Image",
 			GroupName = SystemTabNames.Content,
 			Order = 40)]
 		[UIHint(UIHint.Image)]
-		public virtual ContentReference ThumnailImage { get; set; }
+		public virtual ContentReference ThumbnailImage { get; set; }
 	}
 }

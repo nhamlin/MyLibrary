@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -11,7 +10,6 @@ namespace EpiServer.Models.Media
 	[MediaDescriptor(ExtensionString = "jpg,jpeg,png,gif,tiff,svg")]
 	public class Image : ImageData
 	{
-
 		[CultureSpecific]
 		[Display(
 			Name = "Image Title",
@@ -26,13 +24,11 @@ namespace EpiServer.Models.Media
 			Order = 20)]
 		public virtual string Description { get; set; }
 
-
 		[CultureSpecific]
 		[Display(
 			Name = "Alt Text",
 			GroupName = SystemTabNames.Content,
 			Order = 30)]
 		public virtual string AltText { get; set; }
-
 	}
 }

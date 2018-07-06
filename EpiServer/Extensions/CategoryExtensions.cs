@@ -6,35 +6,22 @@ using EPiServer.ServiceLocation;
 
 namespace Episerver.Extensions
 {
+	/// <summary>
+	///     Extension methods for <see cref="Category" />
+	/// </summary>
 	public static class CategoryExtensions
 	{
-		public static Category GetCategory(this string idName)
+		public static Category FindCategory(this PageData currentPage, int categoryId)
 		{
-			int id = 0;
-			if (int.TryParse(idName, out id))
+			if (categoryId > 0)
 			{
-				return id.GetCategory();
-			}
-
-			Category root = ServiceLocator
-			                .Current
-			                .GetInstance<CategoryRepository>()
-			                .GetRoot();
-			Category category = root.FindChild(idName);
-			if (category != null)
-			{
-				return category;
+				if (currentPage.Category.Any(x => x == categoryId))
+				{
+					return categoryId.GetCategory();
+				}
 			}
 
 			return null;
-		}
-
-		public static Category GetCategory(this int id)
-		{
-			return ServiceLocator
-			       .Current
-			       .GetInstance<CategoryRepository>()
-			       .Get(id);
 		}
 
 		public static IEnumerable<Category> GetCategories(this CategoryList categoryList)
@@ -59,19 +46,32 @@ namespace Episerver.Extensions
 			return categoryNamesIds.Select(category => category.GetCategory());
 		}
 
-		/// <summary>
-		///     returns the first category in a CategoryList
-		/// </summary>
-		/// <param name="categoryList"></param>
-		/// <returns></returns>
-		public static Category GetFirst(this CategoryList categoryList)
+		public static Category GetCategory(this string idName)
 		{
-			return categoryList.GetCategories().FirstOrDefault();
+			if (int.TryParse(idName, out int id))
+			{
+				return id.GetCategory();
+			}
+
+			Category root = ServiceLocator
+			                .Current
+			                .GetInstance<CategoryRepository>()
+			                .GetRoot();
+			Category category = root.FindChild(idName);
+			return category;
+		}
+
+		public static Category GetCategory(this int id)
+		{
+			return ServiceLocator
+			       .Current
+			       .GetInstance<CategoryRepository>()
+			       .Get(id);
 		}
 
 		public static IEnumerable<Category> GetChildren(this Category category)
 		{
-			return category.Categories.Cast<Category>();
+			return category.Categories;
 		}
 
 		public static IEnumerable<Category> GetDescendents(this Category category)
@@ -91,17 +91,14 @@ namespace Episerver.Extensions
 			}
 		}
 
-		public static Category FindCategory(this PageData currentPage, int categoryId)
+		/// <summary>
+		///     returns the first category in a CategoryList
+		/// </summary>
+		/// <param name="categoryList"></param>
+		/// <returns></returns>
+		public static Category GetFirst(this CategoryList categoryList)
 		{
-			if (categoryId > 0)
-			{
-				if (currentPage.Category.Any(x => x == categoryId))
-				{
-					return categoryId.GetCategory();
-				}
-			}
-
-			return null;
+			return categoryList.GetCategories().FirstOrDefault();
 		}
 	}
 }
