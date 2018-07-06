@@ -20,7 +20,7 @@ namespace MyLibrary.Interfaces
 		/// <summary>
 		/// The URL to the HTML website corresponding to the channel
 		/// </summary>
-		UriBuilder FeedUrl { get; set; }
+		Uri FeedUrl { get; set; }
 		/// <summary>
 		/// The culture the channel is written in (ex "en-US")
 		/// </summary>
