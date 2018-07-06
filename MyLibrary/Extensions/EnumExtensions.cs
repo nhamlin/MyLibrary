@@ -33,11 +33,4 @@ namespace MyLibrary.Extensions
 			return staticName;
 		}
 	}
-
-	public enum TestEnum
-	{
-		Distributor = 0,
-		Partner = 1,
-		Customer = 2
-	}
 }

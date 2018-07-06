@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace MyLibrary.Extensions
+﻿namespace MyLibrary.Extensions
 {
 	/// <summary>
-	/// Extension methods for JSON objects
+	///     Extension methods for JSON objects
 	/// </summary>
 	public static class JsonExtensions
 	{

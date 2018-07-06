@@ -14,9 +14,9 @@ namespace MyLibrary.Extensions
 		/// </summary>
 		/// <example>
 		///     var age = "28";
-		///     var intAge = age.To&lt;int&gt;();
-		///     var doubleAge = intAge.To&lt;double&gt;();
-		///     var decimalAge = doubleAge.To&lt;decimal&gt;();
+		///     var intAge = age.ConvertTo&lt;int&gt;(); => 28
+		///     var doubleAge = intAge.ConvertTo&lt;double&gt;(); => 28.0
+		///     var dateTimeAge = doubleAge.ConvertTo&lt;DateTime&gt;(); => 1/1/0001 12:00:00AM
 		/// </example>
 		/// <typeparam name="T">Type to convert to</typeparam>
 		/// <param name="value">Item to convert</param>
@@ -37,7 +37,6 @@ namespace MyLibrary.Extensions
 					? (T)Convert.ChangeType(value, u)
 					: (T)Convert.ChangeType(value, t);
 			}
-
 			catch
 			{
 				return default(T);
@@ -49,9 +48,9 @@ namespace MyLibrary.Extensions
 		/// </summary>
 		/// <example>
 		///     var age = "28";
-		///     var intAge = age.To&lt;int&gt;(-1);
-		///     var doubleAge = intAge.To&lt;double&gt;(-1);
-		///     var decimalAge = doubleAge.To&lt;decimal&gt;(-1);
+		///     var intAge = age.ConvertTo&lt;int&gt;(-1); => 28
+		///     var doubleAge = intAge.ConvertTo&lt;double&gt;(-1); => 28.0
+		///     var dateTimeAge = doubleAge.ConvertTo&lt;DateTime&gt;(DateTime.Today); => {Today's Date}
 		/// </example>
 		/// <typeparam name="T">Type to convert to</typeparam>
 		/// <param name="value">Item to convert</param>
@@ -77,6 +76,17 @@ namespace MyLibrary.Extensions
 			{
 				return ifError;
 			}
+		}
+
+		/// <summary>
+		///     Another way to call ConvertTo{T}
+		/// </summary>
+		/// <typeparam name="T">Type to convert to</typeparam>
+		/// <param name="source">Source to convert</param>
+		/// <returns></returns>
+		public static T GetSafe<T>(this IConvertible source)
+		{
+			return source.ConvertTo<T>();
 		}
 
 		/// <summary>

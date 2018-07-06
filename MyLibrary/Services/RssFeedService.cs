@@ -21,7 +21,7 @@ namespace MyLibrary.Services
 		public static IEnumerable<RssItem> GetRssItems(IRssFeed rssFeed)
 		{
 			WebClient wClient = new WebClient();
-			string rssData = wClient.DownloadString(rssFeed.FeedUrl.ToString());
+			string rssData = wClient.DownloadString(rssFeed.FeedUrl.AbsoluteUri);
 			XDocument xDoc = XDocument.Parse(rssData);
 			var rssFeedData = from x in xDoc.Descendants("item")
 			                  select new RssItem

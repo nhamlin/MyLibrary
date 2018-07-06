@@ -120,7 +120,12 @@ namespace MyLibrary.Extensions
 		/// <returns></returns>
 		public static IEnumerable<TSource> RemoveNull<TSource>(this IEnumerable<TSource> source)
 		{
-			return source.Where(item => item != null);
+			foreach (var item in source)
+			{
+				if (item == null)
+					continue;
+				yield return item;
+			}
 		}
 
 		/// <summary>

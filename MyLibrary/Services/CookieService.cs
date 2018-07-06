@@ -3,8 +3,16 @@ using System.Web;
 
 namespace MyLibrary.Services
 {
+	/// <summary>
+	/// Services to handle cookie manipulation
+	/// </summary>
 	public class CookieService
 	{
+		/// <summary>
+		/// Get a specific cookie
+		/// </summary>
+		/// <param name="cookie"></param>
+		/// <returns></returns>
 		public virtual string Get(string cookie)
 		{
 			if (HttpContext.Current == null)
@@ -15,6 +23,11 @@ namespace MyLibrary.Services
 			return HttpContext.Current.Request.Cookies[cookie] == null ? null : HttpContext.Current.Request.Cookies[cookie].Value;
 		}
 
+		/// <summary>
+		/// Set a specific cookie
+		/// </summary>
+		/// <param name="cookie"></param>
+		/// <param name="value"></param>
 		public virtual void Set(string cookie, string value)
 		{
 			if (HttpContext.Current != null)
@@ -30,6 +43,10 @@ namespace MyLibrary.Services
 			}
 		}
 
+		/// <summary>
+		/// Delete a specific cookie
+		/// </summary>
+		/// <param name="cookie"></param>
 		public virtual void Remove(string cookie)
 		{
 			if (HttpContext.Current != null)

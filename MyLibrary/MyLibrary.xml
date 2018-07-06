@@ -138,9 +138,9 @@
             </summary>
             <example>
                 var age = "28";
-                var intAge = age.To&lt;int&gt;();
-                var doubleAge = intAge.To&lt;double&gt;();
-                var decimalAge = doubleAge.To&lt;decimal&gt;();
+                var intAge = age.ConvertTo&lt;int&gt;(); => 28
+                var doubleAge = intAge.ConvertTo&lt;double&gt;(); => 28.0
+                var dateTimeAge = doubleAge.ConvertTo&lt;DateTime&gt;(); => 1/1/0001 12:00:00AM
             </example>
             <typeparam name="T">Type to convert to</typeparam>
             <param name="value">Item to convert</param>
@@ -152,13 +152,21 @@
             </summary>
             <example>
                 var age = "28";
-                var intAge = age.To&lt;int&gt;(-1);
-                var doubleAge = intAge.To&lt;double&gt;(-1);
-                var decimalAge = doubleAge.To&lt;decimal&gt;(-1);
+                var intAge = age.ConvertTo&lt;int&gt;(-1); => 28
+                var doubleAge = intAge.ConvertTo&lt;double&gt;(-1); => 28.0
+                var dateTimeAge = doubleAge.ConvertTo&lt;DateTime&gt;(DateTime.Today); => {Today's Date}
             </example>
             <typeparam name="T">Type to convert to</typeparam>
             <param name="value">Item to convert</param>
             <param name="ifError">Value to return if there is an error</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Extensions.ConversionExtensions.GetSafe``1(System.IConvertible)">
+            <summary>
+                Another way to call ConvertTo{T}
+            </summary>
+            <typeparam name="T">Type to convert to</typeparam>
+            <param name="source">Source to convert</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Extensions.ConversionExtensions.HashBy``1(System.Byte[])">
@@ -424,7 +432,7 @@
         </member>
         <member name="T:MyLibrary.Extensions.JsonExtensions">
             <summary>
-            Extension methods for JSON objects
+                Extension methods for JSON objects
             </summary>
         </member>
         <member name="T:MyLibrary.Extensions.NumberExtensions">
@@ -830,6 +838,18 @@
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
+        <member name="T:MyLibrary.Extensions.UrlExtensions">
+            <summary>
+            Extension Methods for URLs
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Extensions.UrlExtensions.IsNullOrEmpty(System.Uri)">
+            <summary>
+            Returns whether the url is null or empty
+            </summary>
+            <param name="url">Uri to check</param>
+            <returns>True/False</returns>
+        </member>
         <member name="T:MyLibrary.Formatters.DateTimeFormatting">
             <summary>
             DateTime formatters
@@ -897,6 +917,11 @@
             <example>EnumHelper&lt;SomeEnumName&gt;.GetDescription("</example>
             <param name="value"></param>
             <returns></returns>
+        </member>
+        <member name="T:MyLibrary.Helpers.StringHelper">
+            <summary>
+            Helper methods for String types
+            </summary>
         </member>
         <member name="T:MyLibrary.Interfaces.IRssFeed">
             <summary>
@@ -1053,6 +1078,44 @@
             <summary>
             Country the state belongs to
             </summary>
+        </member>
+        <member name="T:MyLibrary.Services.CookieService">
+            <summary>
+            Services to handle cookie manipulation
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Services.CookieService.Get(System.String)">
+            <summary>
+            Get a specific cookie
+            </summary>
+            <param name="cookie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Services.CookieService.Set(System.String,System.String)">
+            <summary>
+            Set a specific cookie
+            </summary>
+            <param name="cookie"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MyLibrary.Services.CookieService.Remove(System.String)">
+            <summary>
+            Delete a specific cookie
+            </summary>
+            <param name="cookie"></param>
+        </member>
+        <member name="T:MyLibrary.Services.RssFeedService">
+            <summary>
+                Helper method to get an RSS Feed and populate articles
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Services.RssFeedService.GetRssItems(MyLibrary.Interfaces.IRssFeed)">
+            <summary>
+                Method to get all Rss Articles from a feed
+            </summary>
+            <example>IEnumerable&lt;RssItem&gt; myArticles = RssFeedService.GetRssItems(myRssFeed)</example>
+            <param name="rssFeed"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
