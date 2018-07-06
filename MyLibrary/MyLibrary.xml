@@ -898,6 +898,52 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="T:MyLibrary.Interfaces.IRssFeed">
+            <summary>
+            An interface for an RSS Feed object
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssFeed.FeedUrl">
+            <summary>
+            The URL to the HTML website corresponding to the channel
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssFeed.FeedLanguage">
+            <summary>
+            The culture the channel is written in (ex "en-US")
+            </summary>
+            <example>FeedLanguage = new CultureInfo("en-US")</example>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssFeed.Articles">
+            <summary>
+            List of articles from the RSS feed
+            </summary>
+        </member>
+        <member name="T:MyLibrary.Interfaces.IRssItem">
+            <summary>
+            Individual RSS Feed article
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssItem.Title">
+            <summary>
+             Title of the article
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssItem.Link">
+            <summary>
+            URL of the article
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssItem.Description">
+            <summary>
+             Description of the article
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Interfaces.IRssItem.PublicationDate">
+            <summary>
+            Publication Date of the article
+            </summary>
+        </member>
         <member name="T:MyLibrary.Models.Address">
             <summary>
             Class to hold information about addresses
@@ -981,6 +1027,11 @@
         <member name="P:MyLibrary.Models.Region.Code">
             <summary>
             ISO standard region code
+            </summary>
+        </member>
+        <member name="T:MyLibrary.Models.RssItem">
+            <summary>
+            Concrete instance of an Rss Item
             </summary>
         </member>
         <member name="T:MyLibrary.Models.State">

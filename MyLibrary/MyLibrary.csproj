@@ -66,12 +66,16 @@
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Interfaces\IRssFeed.cs" />
+    <Compile Include="Interfaces\IRssItem.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\RssItem.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CookieService.cs" />
+    <Compile Include="Services\RssFeedService.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
