@@ -1,9 +1,9 @@
 ﻿namespace MyLibrary.Formatters
 {
 	/// <summary>
-	/// String formatters
+	/// DateTime formatters
 	/// </summary>
-    class StringFormatting
+    class DateTimeFormatter
     {
     }
 }

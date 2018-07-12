@@ -40,7 +40,7 @@ namespace MyLibrary.Utilities
 		{
 			try
 			{
-				_logger.Info($"GetAppSetting: reading appsetting '{(object)key}'");
+				_logger.Info($"GetAppSetting: reading appsetting '{key}'");
 				string appSetting = ConfigurationManager.AppSettings[key];
 				if (appSetting == null)
 				{
@@ -55,13 +55,13 @@ namespace MyLibrary.Utilities
 				{
 					case NullReferenceException _:
 					case ArgumentNullException _:
-						_logger.Error($"GetAppSetting: failed reading appsetting '{(object)key}'", ex);
+						_logger.Error($"GetAppSetting: failed reading appsetting '{key}'", ex);
 						break;
 					case InvalidCastException _:
-						_logger.Error($"GetAppSetting: failed casting appsetting '{(object)key}'", ex);
+						_logger.Error($"GetAppSetting: failed casting appsetting '{key}'", ex);
 						break;
 					case FormatException _:
-						_logger.Warn($"GetAppSetting: failed formatting appsetting '{(object)key}'", ex);
+						_logger.Warn($"GetAppSetting: failed formatting appsetting '{key}'", ex);
 						break;
 				}
 
