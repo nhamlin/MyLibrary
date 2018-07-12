@@ -1117,5 +1117,42 @@
             <param name="rssFeed"></param>
             <returns></returns>
         </member>
+        <member name="T:MyLibrary.Utilities.ConfigurationUtility">
+            <summary>
+                Utilities for System Configuration
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Utilities.ConfigurationUtility.GetAppSetting``1(System.String,``0,System.Boolean)">
+            <summary>
+                Tries to read an appsetting strongly typed by using
+                <see cref="M:System.Convert.ChangeType(System.Object,System.TypeCode)" /> to convert the string value.
+            </summary>
+            <typeparam name="T">Target type</typeparam>
+            <param name="key">The appSetting key</param>
+            <param name="fallback">
+                Fallback value to return if the value is not found, or can not be converted to the target type
+                if <paramref name="throwIfInvalid" /> is false.
+            </param>
+            <param name="throwIfInvalid">
+                If set true, the function will throw if conversion fails. It will *not* throw if the
+                config value is null (not found).
+            </param>
+        </member>
+        <member name="T:MyLibrary.Utilities.ExcelUtilities`1">
+            <summary>
+            Utilities for CRUD operations of Excel files
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Utilities.ExcelUtilities`1.#ctor(System.Data.DataRowCollection)">
+            <summary>
+            Constructor for Excel Utilities
+            </summary>
+            <param name="rows"></param>
+        </member>
+        <member name="T:MyLibrary.Utilities.FileUtility">
+            <summary>
+            Utilities for file management
+            </summary>
+        </member>
     </members>
 </doc>

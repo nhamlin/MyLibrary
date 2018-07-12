@@ -9,25 +9,12 @@
 #endregion header
 
 using EPiServer.Framework.Blobs;
+using MyLibrary.Formatters;
 
 namespace EpiServer.Utilities
 {
-	public static class FileUtility
+	public static class EpiFileUtility
 	{
-		public static string FormatFilesize(double fileLength)
-		{
-			string[] sizes = { "B", "KB", "MB", "GB", "TB", "PB" };
-			double len = fileLength;
-			int order = 0;
-
-			while (len >= 1024 && order < sizes.Length - 1)
-			{
-				order++;
-				len = len / 1024;
-			}
-
-			return $"{len:0.#} {sizes[order]}";
-		}
 
 		public static string GetFormattedFilesize(Blob binaryData)
 		{
@@ -38,7 +25,7 @@ namespace EpiServer.Utilities
 
 			using (var binaryStream = binaryData.OpenRead())
 			{
-				return FormatFilesize(binaryStream.Length);
+				return FilesizeFormatter.FormatFilesize(binaryStream.Length);
 			}
 		}
 	}
