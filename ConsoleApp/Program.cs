@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Humanizer;
-using MyLibrary.Extensions;
+using MyLibrary.Core.Extensions;
 
 namespace ConsoleApp
 {

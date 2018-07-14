@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MyLibrary.Models;
 
-namespace MyLibrary.Helpers
+namespace MyLibrary.Core.Helpers
 {
 	/// <summary>
 	///     Methods to extend and format Addresses

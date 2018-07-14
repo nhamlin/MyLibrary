@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	/// Extension methods for Buffers

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for comparisons

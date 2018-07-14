@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Security.Cryptography;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for conversions

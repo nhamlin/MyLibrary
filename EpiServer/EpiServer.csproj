@@ -267,7 +267,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Extensions\CategoryExtensions.cs" />
     <Compile Include="Extensions\Commerce\ProductExtensions.cs" />
-    <Compile Include="Extensions\ContentAreaExtensions.cs" />
     <Compile Include="Extensions\ContentExtensions.cs" />
     <Compile Include="Extensions\MediaExtensions.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
@@ -305,9 +304,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyLibrary\MyLibrary.csproj">
+    <ProjectReference Include="..\MyLibrary\MyLibrary.Core.csproj">
       <Project>{15aa2005-f80a-4a3a-8915-424002a604d7}</Project>
-      <Name>MyLibrary</Name>
+      <Name>MyLibrary.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

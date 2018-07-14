@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace MyLibrary.Services
+namespace MyLibrary.Core.Services
 {
 	/// <summary>
 	/// Services to handle cookie manipulation

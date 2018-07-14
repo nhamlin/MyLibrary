@@ -5,7 +5,7 @@ using System.Xml.Linq;
 using MyLibrary.Interfaces;
 using MyLibrary.Models;
 
-namespace MyLibrary.Services
+namespace MyLibrary.Core.Services
 {
 	/// <summary>
 	///     Helper method to get an RSS Feed and populate articles

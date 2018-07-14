@@ -1,4 +1,4 @@
-namespace MyLibrary.Helpers
+namespace MyLibrary.Core.Helpers
 {
     /// <summary>
     /// Helper methods for String types

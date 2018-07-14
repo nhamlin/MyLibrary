@@ -8,9 +8,9 @@ using EPiServer.Core.Internal;
 using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
-using MyLibrary.Extensions;
+using MyLibrary.Core.Extensions;
 
-namespace Episerver.Extensions
+namespace EpiServer.Extensions
 {
 	/// <summary>
 	///     Extension methods for <see cref="IContent"/>
@@ -140,15 +140,15 @@ namespace Episerver.Extensions
 			return contentRepo.GetChildren<TContent>(contentRef, languageSelector).FilterForVisitor().Where(page => filterFunc(page));
 		}
 
-		public static IEnumerable<TContentType> GetContentItems<TContentType>(this ContentArea contentArea)
-			where TContentType : ContentData
+		public static IEnumerable<T> GetContentItems<T>(this ContentArea contentArea)
+			where T : ContentData
 		{
-			if (!contentArea.IsNullOrEmpty())
+			if (contentArea.HasContent())
 			{
-				return contentArea.FilteredItems.Select(item => item.GetContent() as TContentType).RemoveNull();
+				return contentArea.FilteredItems.Select(item => item.GetContent() as T).RemoveNull();
 			}
 
-			return Enumerable.Empty<TContentType>();
+			return Enumerable.Empty<T>();
 		}
 
 		/// <summary>
@@ -195,12 +195,12 @@ namespace Episerver.Extensions
 
 		public static bool IsNullOrEmpty(this ContentArea contentArea)
 		{
-			if (contentArea != null && contentArea.FilteredItems != null && contentArea.FilteredItems.Any())
-			{
-				return false;
-			}
+			return contentArea?.FilteredItems == null || !contentArea.FilteredItems.Any();
+		}
 
-			return true;
+		public static bool HasContent(this ContentArea contentArea)
+		{
+			return contentArea?.FilteredItems != null && contentArea.FilteredItems.Any();
 		}
 
 		private static bool IsPublished(this IContent content)

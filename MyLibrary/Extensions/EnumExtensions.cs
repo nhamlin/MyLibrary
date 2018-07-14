@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for <see cref="Enum"/>

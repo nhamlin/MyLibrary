@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MyLibrary.Helpers
+namespace MyLibrary.Core.Helpers
 {
 	/// <summary>
 	/// Constants

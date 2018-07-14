@@ -7,6 +7,7 @@
 #endregion
 
 using MyLibrary.Interfaces;
+
 #pragma warning disable 1591
 
 namespace MyLibrary.Models

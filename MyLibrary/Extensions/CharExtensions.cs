@@ -2,9 +2,9 @@
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
-using MyLibrary.Helpers;
+using MyLibrary.Core.Helpers;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for <see cref="char" />

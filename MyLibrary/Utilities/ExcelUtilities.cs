@@ -13,7 +13,7 @@ using System.Data;
 using System.IO;
 using ExcelDataReader;
 
-namespace MyLibrary.Utilities
+namespace MyLibrary.Core.Utilities
 {
 	/// <summary>
 	///     Utilities for CRUD operations of Excel files

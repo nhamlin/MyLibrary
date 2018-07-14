@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 
-namespace MyLibrary.Helpers
+namespace MyLibrary.Core.Helpers
 {
 	/// <summary>
 	/// Helper methods for <see cref="Enum"/>

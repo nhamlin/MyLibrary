@@ -11,7 +11,7 @@
 using System;
 using MyLibrary.Interfaces;
 
-namespace MyLibrary.Utilities
+namespace MyLibrary.Core.Utilities
 {
 	/// <inheritdoc />
 	/// <summary>

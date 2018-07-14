@@ -5,7 +5,7 @@ using System.Net.Security;
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for <see cref="string" />

@@ -8,7 +8,7 @@
 
 using System;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	/// Extension Methods for URLs

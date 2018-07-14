@@ -9,7 +9,7 @@
 #endregion header
 
 using EPiServer.Framework.Blobs;
-using MyLibrary.Formatters;
+using MyLibrary.Core.Formatters;
 
 namespace EpiServer.Utilities
 {

@@ -4,7 +4,7 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
 
-namespace Episerver.Extensions
+namespace EpiServer.Extensions
 {
 	/// <summary>
 	///     Extension methods for <see cref="Category" />

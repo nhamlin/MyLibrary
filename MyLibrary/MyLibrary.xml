@@ -4,12 +4,12 @@
         <name>MyLibrary</name>
     </assembly>
     <members>
-        <member name="T:MyLibrary.Extensions.BufferExtensions">
+        <member name="T:MyLibrary.Core.Extensions.BufferExtensions">
             <summary>
             Extension methods for Buffers
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.BufferExtensions.AsString(System.Byte[])">
+        <member name="M:MyLibrary.Core.Extensions.BufferExtensions.AsString(System.Byte[])">
             <summary>
                 Converts a byte array to a string, using its byte order mark to convert it to the right encoding.
                 http://www.shrinkrays.net/code-snippets/csharp/an-extension-method-for-converting-a-byte-array-to-a-string.aspx
@@ -17,54 +17,54 @@
             <param name="source">An array of bytes to convert</param>
             <returns>The byte as a string.</returns>
         </member>
-        <member name="T:MyLibrary.Extensions.CharExtensions">
+        <member name="T:MyLibrary.Core.Extensions.CharExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Char" />
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ToHex(System.Char)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ToHex(System.Char)">
             <summary>
                 Converts the Unicode value of this character to its equivalent 4-character hexadecimal string representation
             </summary>
             <param name="ch">A character to convert to a hexadecimal string</param>
             <returns>The equivalent 4-character hexadecimal string representation</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ToUpper(System.Char)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ToUpper(System.Char)">
             <summary>
                 Converts a character to uppercase
             </summary>
             <param name="c">Character to convert</param>
             <returns>Character in uppercase</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ToLower(System.Char)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ToLower(System.Char)">
             <summary>
                 Converts a character to lowercase
             </summary>
             <param name="c">Character to convert</param>
             <returns>Character in lowercase</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ToUpperInvariant(System.Char)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ToUpperInvariant(System.Char)">
             <summary>
                 Converts a character to uppercase, without a specific culture
             </summary>
             <param name="c">Character to convert</param>
             <returns>Character in uppercase</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ToLowerInvariant(System.Char)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ToLowerInvariant(System.Char)">
             <summary>
                 Converts a character to lowercase, without a specific culture
             </summary>
             <param name="c">Character to convert</param>
             <returns>Character in lowercase</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ToStringInvariant(System.Char)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ToStringInvariant(System.Char)">
             <summary>
                 Converts a char to a string with an invariant culture format
             </summary>
             <param name="c">Character to convert</param>
             <returns>Character as a string with an invariant culture</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.AllExcept(System.String,System.String[])">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.AllExcept(System.String,System.String[])">
             <summary>
             	Returns a string without any of the given substring inside
             </summary>
@@ -72,7 +72,7 @@
             <param name="paramStrings">Array of strings to remove from the source string</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.EndWith(System.String,System.String)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.EndWith(System.String,System.String)">
             <summary>
             	Returns a string ending with the provided suffix, if it doesn't already end with it
             </summary>
@@ -80,7 +80,7 @@
             <param name="suffix">Expected suffix</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.BeginWith(System.String,System.String)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.BeginWith(System.String,System.String)">
             <summary>
             	Returns a string beginning with the provided prefix, if it doesn't already begin with it
             </summary>
@@ -88,19 +88,19 @@
             <param name="prefix">Expected prefix</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.CharExtensions.ReplaceUnicode(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ReplaceUnicode(System.String)">
             <summary>
             Replaces all diacritics in the source string with their romanized counterpart
             </summary>
             <param name="source">Source string</param>
             <returns>Completely Romanized string</returns>
         </member>
-        <member name="T:MyLibrary.Extensions.ComparisonExtensions">
+        <member name="T:MyLibrary.Core.Extensions.ComparisonExtensions">
             <summary>
                 Extension methods for comparisons
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.ComparisonExtensions.IsIn``1(``0,``0[])">
+        <member name="M:MyLibrary.Core.Extensions.ComparisonExtensions.IsIn``1(``0,``0[])">
             <summary>
                 Determines if an object can be found inside a generic list
                 Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")
@@ -111,7 +111,7 @@
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ComparisonExtensions.IsIn``1(``0,System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.ComparisonExtensions.IsIn``1(``0,System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Determines if an object can be found inside a generic list
                 Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")
@@ -127,12 +127,12 @@
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Extensions.ConversionExtensions">
+        <member name="T:MyLibrary.Core.Extensions.ConversionExtensions">
             <summary>
                 Extension methods for conversions
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.ConversionExtensions.ConvertTo``1(System.IConvertible)">
+        <member name="M:MyLibrary.Core.Extensions.ConversionExtensions.ConvertTo``1(System.IConvertible)">
             <summary>
                 Converts one type to another
             </summary>
@@ -146,7 +146,7 @@
             <param name="value">Item to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ConversionExtensions.ConvertTo``1(System.IConvertible,``0)">
+        <member name="M:MyLibrary.Core.Extensions.ConversionExtensions.ConvertTo``1(System.IConvertible,``0)">
             <summary>
                 Converts one type to another
             </summary>
@@ -161,7 +161,7 @@
             <param name="ifError">Value to return if there is an error</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ConversionExtensions.GetSafe``1(System.IConvertible)">
+        <member name="M:MyLibrary.Core.Extensions.ConversionExtensions.GetSafe``1(System.IConvertible)">
             <summary>
                 Another way to call ConvertTo{T}
             </summary>
@@ -169,7 +169,7 @@
             <param name="source">Source to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ConversionExtensions.HashBy``1(System.Byte[])">
+        <member name="M:MyLibrary.Core.Extensions.ConversionExtensions.HashBy``1(System.Byte[])">
             <summary>
                 Implicit hashing
             </summary>
@@ -179,12 +179,12 @@
             <param name="x">Byte array</param>
             <returns>Encrypted byte array</returns>
         </member>
-        <member name="T:MyLibrary.Extensions.DataReaderExtensions">
+        <member name="T:MyLibrary.Core.Extensions.DataReaderExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Data.IDataReader"/>
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.DataReaderExtensions.Get``1(System.Data.IDataReader,System.String)">
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.Get``1(System.Data.IDataReader,System.String)">
             <summary>
             Gets the value of a column from a <see cref="T:System.Data.IDataReader"/>
             </summary>
@@ -193,7 +193,7 @@
             <param name="column">Column Name</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DataReaderExtensions.Get``1(System.Data.IDataReader,System.String,``0)">
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.Get``1(System.Data.IDataReader,System.String,``0)">
             <summary>
                 Gets the value of a column in a DataReader, returning a default value if null, then converts it to T.
             </summary>
@@ -203,33 +203,33 @@
             <param name="defaultValue">Value to return if NULL</param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Extensions.DateTimeExtensions">
+        <member name="T:MyLibrary.Core.Extensions.DateTimeExtensions">
             <summary>
                 Extension methods for <see cref="T:System.DateTime" />
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.IsWeekday(System.DateTime)">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.IsWeekday(System.DateTime)">
             <summary>
                 Determines whether the date falls on Monday-Friday
             </summary>
             <param name="source"><see cref="T:System.DateTime" /> to check</param>
             <returns>true/false</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.IsWeekend(System.DateTime)">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.IsWeekend(System.DateTime)">
             <summary>
                 Determines whether the date falls on a weekend
             </summary>
             <param name="source"><see cref="T:System.DateTime" /> to check</param>
             <returns>true/false</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.IsHoliday(System.DateTime)">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.IsHoliday(System.DateTime)">
             <summary>
                 Determines whether the date falls on a national holiday.
             </summary>
             <param name="source"><see cref="T:System.DateTime" /> to check</param>
             <returns>true/false</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.FirstMondayOfYear(System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.FirstMondayOfYear(System.Int32)">
             <summary>
                 Returns a <see cref="T:System.DateTime" /> object for the first Monday of the year
             </summary>
@@ -237,7 +237,7 @@
             <param name="year"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.RangeUntil(System.DateTime,System.DateTime)">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.RangeUntil(System.DateTime,System.DateTime)">
             <summary>
                 Provides a range of dates from the source date to a defined date.
             </summary>
@@ -245,7 +245,7 @@
             <param name="to"><see cref="T:System.DateTime" /> that ends the range</param>
             <returns>Enumerable list of <see cref="T:System.DateTime" /></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.IsDate``1(``0)">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.IsDate``1(``0)">
             <summary>
                 Returns whether the object represents a valid date
             </summary>
@@ -253,7 +253,7 @@
             <param name="source">Object</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.Average(System.Collections.Generic.IEnumerable{System.TimeSpan})">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.Average(System.Collections.Generic.IEnumerable{System.TimeSpan})">
             <summary>
                 Returns an average of a list of <see cref="T:System.TimeSpan" /> items.
             </summary>
@@ -263,7 +263,7 @@
                 <see cref="T:System.TimeSpan" />
             </returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DateTimeExtensions.Sum(System.Collections.Generic.IEnumerable{System.TimeSpan})">
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.Sum(System.Collections.Generic.IEnumerable{System.TimeSpan})">
             <summary>
                 Calculates the sum of the given timeSpans.
             </summary>
@@ -272,12 +272,12 @@
                 <see cref="T:System.TimeSpan" />
             </returns>
         </member>
-        <member name="T:MyLibrary.Extensions.DictionaryExtensions">
+        <member name="T:MyLibrary.Core.Extensions.DictionaryExtensions">
             <summary>
             Extension methods for Dictionaries and Arrays.
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.DictionaryExtensions.MaxKey``2(System.Collections.Generic.IDictionary{``0,``1})">
+        <member name="M:MyLibrary.Core.Extensions.DictionaryExtensions.MaxKey``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>
                 Returns the key of the highest value in a dictionary.
             </summary>
@@ -286,7 +286,7 @@
             <param name="dictionary">The dictionary</param>
             <returns>The key of the highest value in the dictionary.</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DictionaryExtensions.MaxValue``2(System.Collections.Generic.IDictionary{``0,``1})">
+        <member name="M:MyLibrary.Core.Extensions.DictionaryExtensions.MaxValue``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>
                 Returns the maximum value in the dictionary.
             </summary>
@@ -295,20 +295,20 @@
             <typeparam name="TValue">The value type</typeparam>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.DictionaryExtensions.CopyTo``1(``0[],``0[])">
+        <member name="M:MyLibrary.Core.Extensions.DictionaryExtensions.CopyTo``1(``0[],``0[])">
             <summary>
-            Same as the <see cref="M:MyLibrary.Extensions.DictionaryExtensions.CopyTo``1(``0[],``0[])"/> method but defaults to start at index 0.
+            Same as the <see cref="M:MyLibrary.Core.Extensions.DictionaryExtensions.CopyTo``1(``0[],``0[])"/> method but defaults to start at index 0.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="source"></param>
             <param name="target"></param>
         </member>
-        <member name="T:MyLibrary.Extensions.EnumerableExtensions">
+        <member name="T:MyLibrary.Core.Extensions.EnumerableExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Collections.Generic.IEnumerable`1" />
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0[])">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0[])">
             <summary>
                 Appends multiple elements to the given sequence.
             </summary>
@@ -317,7 +317,7 @@
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> that contains the additional elements.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="source" /> or <paramref name="elements" /> is <c>null</c>.</exception>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])">
             <summary>
                 Concatenates multiple sequences.
             </summary>
@@ -326,7 +326,7 @@
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> that contains the elements of all sequences.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="first" /> or <paramref name="subsequent" /> is <c>null</c>.</exception>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
             <summary>
                 Returns whether the enumerable has any elements that match the LINQ qualifier.
             </summary>
@@ -336,7 +336,7 @@
             <param name="predicate"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty
             </summary>
@@ -344,7 +344,7 @@
             <param name="source"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Returns whether the IEnumerable{TSource} is null or empty
             </summary>
@@ -352,7 +352,7 @@
             <param name="source">IEnumerable to be compared against</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
             <summary>
                 Joins an <see cref="T:System.Collections.Generic.IEnumerable`1" /> into a single string.
             </summary>
@@ -360,7 +360,7 @@
             <param name="separator"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Max``1(``0[])">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Max``1(``0[])">
             <summary>
                 Returns the maximum value in a sequence
             </summary>
@@ -368,7 +368,7 @@
             <param name="values">Objects to compare</param>
             <returns>Object that is the maximum value in a sequence</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Min``1(``0[])">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Min``1(``0[])">
             <summary>
                 Returns the minimum value in a sequence
             </summary>
@@ -376,7 +376,7 @@
             <param name="values">Objects to compare</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.RemoveNull``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.RemoveNull``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Removes null values from the collection
             </summary>
@@ -384,7 +384,7 @@
             <param name="source"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Returns an empty enumerable if null, otherwise returns the enumerable.
                 <example>
@@ -394,7 +394,7 @@
                 </example>
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Takes any IEnumerable and returns a HashSet
             </summary>
@@ -402,7 +402,7 @@
             <typeparam name="TSource">Generic Class</typeparam>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
                 Returns a string that represents a concatenated list of enumerables
             </summary>
@@ -412,17 +412,17 @@
             <param name="delimiter">Delimiter as a <see cref="T:System.String" /> between values</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumerableExtensions.TrimEachElement(System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.TrimEachElement(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
                 Returns the same enumerable, with all its elements trimmed
             </summary>
         </member>
-        <member name="T:MyLibrary.Extensions.EnumExtensions">
+        <member name="T:MyLibrary.Core.Extensions.EnumExtensions">
             <summary>
                 Extension methods for <see cref="T:System.Enum"/>
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.EnumExtensions.GetDisplayName``1(``0)">
+        <member name="M:MyLibrary.Core.Extensions.EnumExtensions.GetDisplayName``1(``0)">
             <summary>
             Returns the Enum's Display Name as found in the Display(Name=xxx) Attribute or the Enum's value name if no attribute is found
             </summary>
@@ -430,44 +430,44 @@
             <param name="value">Enum Value</param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Extensions.JsonExtensions">
+        <member name="T:MyLibrary.Core.Extensions.JsonExtensions">
             <summary>
                 Extension methods for JSON objects
             </summary>
         </member>
-        <member name="T:MyLibrary.Extensions.NumberExtensions">
+        <member name="T:MyLibrary.Core.Extensions.NumberExtensions">
             <summary>
                 Extension methods for numbers
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Int32,System.Int32,System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.IsInRange(System.Int32,System.Int32,System.Int32)">
             <summary>
                 Checks if the value is in given range
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Double,System.Double,System.Double)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.IsInRange(System.Double,System.Double,System.Double)">
             <summary>
                 Checks if the value is in given range
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Single,System.Single,System.Single)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.IsInRange(System.Single,System.Single,System.Single)">
             <summary>
                 Checks if the value is in given range
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.IsInRange(System.Decimal,System.Decimal,System.Decimal)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.IsInRange(System.Decimal,System.Decimal,System.Decimal)">
             <summary>
                 Checks if the value is in given range
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.IsPrime(System.UInt32)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.IsPrime(System.UInt32)">
             <summary>
                 Returns whether the integer is a prime number.
             </summary>
             <param name="input">Integer to check against</param>
             <returns>True/False</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.Mode``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.Mode``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Returns the object(s) that appear the most number of times in the <see cref="T:System.Collections.Generic.IEnumerable`1" />
             </summary>
@@ -475,14 +475,14 @@
             <param name="sources"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDoubleOrDefault(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseDoubleOrDefault(System.String)">
             <summary>
                 Converts a string to a double
             </summary>
             <param name="source">String to convert</param>
             <returns>String as a double or an double type's default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDoubleOrDefault(System.String,System.Double)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseDoubleOrDefault(System.String,System.Double)">
             <summary>
                 Converts a string to a double
             </summary>
@@ -490,14 +490,14 @@
             <param name="defaultValue">Default value to return if the string fails to convert</param>
             <returns>String as a double or the default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseFloatOrDefault(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseFloatOrDefault(System.String)">
             <summary>
                 Converts a string to a float
             </summary>
             <param name="source">String to convert</param>
             <returns>String as a float or an float type's default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseFloatOrDefault(System.String,System.Single)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseFloatOrDefault(System.String,System.Single)">
             <summary>
                 Converts a string to a float
             </summary>
@@ -505,14 +505,14 @@
             <param name="defaultValue">Default value to return if the string fails to convert</param>
             <returns>String as a float or the default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseIntOrDefault(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseIntOrDefault(System.String)">
             <summary>
                 Converts a string to an integer
             </summary>
             <param name="source">String to convert</param>
             <returns>String as an integer or an integer type's default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseIntOrDefault(System.String,System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseIntOrDefault(System.String,System.Int32)">
             <summary>
                 Converts a string to an integer
             </summary>
@@ -520,14 +520,14 @@
             <param name="defaultValue">Default value to return if the string fails to convert</param>
             <returns>String as an integer or the default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseLongOrDefault(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseLongOrDefault(System.String)">
             <summary>
                 Converts a string to a long
             </summary>
             <param name="source">String to convert</param>
             <returns>String as a long or an long type's default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseLongOrDefault(System.String,System.Int64)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseLongOrDefault(System.String,System.Int64)">
             <summary>
                 Converts a string to a long
             </summary>
@@ -535,14 +535,14 @@
             <param name="defaultValue">Default value to return if the string fails to convert</param>
             <returns>String as a long or the default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDecimalOrDefault(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseDecimalOrDefault(System.String)">
             <summary>
                 Converts a string to a decimal
             </summary>
             <param name="source">String to convert</param>
             <returns>String as a decimal or an decimal type's default value</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.NumberExtensions.ParseDecimalOrDefault(System.String,System.Decimal)">
+        <member name="M:MyLibrary.Core.Extensions.NumberExtensions.ParseDecimalOrDefault(System.String,System.Decimal)">
             <summary>
                 Converts a string to a decimal
             </summary>
@@ -550,7 +550,7 @@
             <param name="defaultValue">Default value to return if the string fails to convert</param>
             <returns>String as a decimal or the default value</returns>
         </member>
-        <member name="T:MyLibrary.Extensions.ReflectionExtensions">
+        <member name="T:MyLibrary.Core.Extensions.ReflectionExtensions">
             <summary>Reflection extensions</summary>
             Use Module to get all global and non-global methods defined in the module.
             Use MethodInfo to look at information such as parameters, name, return type, access modifiers and implementation details.
@@ -560,7 +560,7 @@
             Use PropertyInfo to get the declaring type, reflected type, data type, name and writable status of a property or to get and set property values.
             Use CustomAttributeData to find out information on custom attributes or to review attributes without having to create more instances.
         </member>
-        <member name="M:MyLibrary.Extensions.ReflectionExtensions.ChangeType(System.Object,System.Type)">
+        <member name="M:MyLibrary.Core.Extensions.ReflectionExtensions.ChangeType(System.Object,System.Type)">
             <summary>
             Changes the type of an object to another type ignoring culture
             </summary>
@@ -568,7 +568,7 @@
             <param name="newType">New type to convert to</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ReflectionExtensions.ChangeType(System.Object,System.Type,System.Globalization.CultureInfo)">
+        <member name="M:MyLibrary.Core.Extensions.ReflectionExtensions.ChangeType(System.Object,System.Type,System.Globalization.CultureInfo)">
             <summary>
             Changes the type of an object to another type, with culture specificity
             </summary>
@@ -577,44 +577,44 @@
             <param name="culture">Culture</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
+        <member name="M:MyLibrary.Core.Extensions.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
             <summary>Get an attribute from a member</summary>
             <typeparam name="T">Attribute Type</typeparam>
             <param name="source">Member to retrieve attribute from</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.ReflectionExtensions.GetAttribute``1(System.Type)">
+        <member name="M:MyLibrary.Core.Extensions.ReflectionExtensions.GetAttribute``1(System.Type)">
             <summary>Get an attribute from a type</summary>
             <typeparam name="T">Attribute Type</typeparam>
             <param name="source">Type to retrieve attribute from</param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Extensions.StreamExtensions">
+        <member name="T:MyLibrary.Core.Extensions.StreamExtensions">
             <summary>
             Extension methods for Streams
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.StreamExtensions.CopyTo(System.IO.Stream,System.IO.Stream)">
+        <member name="M:MyLibrary.Core.Extensions.StreamExtensions.CopyTo(System.IO.Stream,System.IO.Stream)">
             <summary>Copies bytes from one stream to another</summary>
             <param name="source">The input stream</param>
             <param name="destination">The output stream</param>
         </member>
-        <member name="M:MyLibrary.Extensions.StreamExtensions.ReadAsBytes(System.IO.Stream)">
+        <member name="M:MyLibrary.Core.Extensions.StreamExtensions.ReadAsBytes(System.IO.Stream)">
             <summary>Read a stream into a byte array</summary>
             <param name="source">Stream to read</param>
             <returns>byte[]</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StreamExtensions.SaveAs(System.Byte[],System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StreamExtensions.SaveAs(System.Byte[],System.String)">
             <summary>Save a byte array to a file</summary>
             <param name="source">Bytes to save</param>
             <param name="path">Full path to save file to</param>
         </member>
-        <member name="T:MyLibrary.Extensions.StringExtensions">
+        <member name="T:MyLibrary.Core.Extensions.StringExtensions">
             <summary>
                 Extension methods for <see cref="T:System.String" />
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
             <summary>
                 Encrypts the string based on the provided <see cref="T:System.Net.Security.EncryptionPolicy" />
             </summary>
@@ -624,7 +624,7 @@
             </param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.GetCharsNotFound(System.String,System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetCharsNotFound(System.String,System.String)">
             <summary>
                 Returns a collection of characters that do not appear in both strings
             </summary>
@@ -632,14 +632,14 @@
             <param name="other">Secondary string to compare</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToLower(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.InitialLetterToLower(System.String)">
             <summary>
                 Converts the first letter in a string to lower case
             </summary>
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToLower(System.String,System.Globalization.CultureInfo)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.InitialLetterToLower(System.String,System.Globalization.CultureInfo)">
             <summary>
                 Returns the string with the first letter in lower case
             </summary>
@@ -647,14 +647,14 @@
             <param name="cultureInfo">Culture of the string</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToUpper(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.InitialLetterToUpper(System.String)">
             <summary>
                 Converts the first letter in a string to upper case using an invariant culture
             </summary>
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.InitialLetterToUpper(System.String,System.Globalization.CultureInfo)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.InitialLetterToUpper(System.String,System.Globalization.CultureInfo)">
             <summary>
                 Converts the first letter in a string to upper case
             </summary>
@@ -662,7 +662,7 @@
             <param name="cultureInfo">Culture of the string</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.IsBlank(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.IsBlank(System.String)">
             <summary>
                 Returns whether the string is blank (white space characters ignored because then it wouldn't be 'blank')
             </summary>
@@ -673,49 +673,49 @@
             <param name="source">String to check</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.IsLowercase(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.IsLowercase(System.String)">
             <summary>
                 Returns whether a string is completely in lowercase
             </summary>
             <param name="source">String to check</param>
             <returns>True/False</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
             <summary>
                 Returns whether the string is completely empty, including white spaces
             </summary>
             <param name="source">String to check</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.IsUppercase(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.IsUppercase(System.String)">
             <summary>
                 Returns whether a string is completely in uppercase
             </summary>
             <param name="source">String to check</param>
             <returns>True/False</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.NullIfEmpty(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.NullIfEmpty(System.String)">
             <summary>
                 Converts an empty string to null instead of string.Empty
             </summary>
             <param name="source">String to convert</param>
             <returns>A valid string or null</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.OnlyDigits(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.OnlyDigits(System.String)">
             <summary>
                 Returns only the digits inside of a string
             </summary>
             <param name="source">String to compare against</param>
             <returns>All digits in the string</returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ProperCapitalization(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ProperCapitalization(System.String)">
             <summary>
                 Converts the first letter of the string into either upper or lower case depending on the word before it
             </summary>
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.RemoveSubstring(System.String,System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.RemoveSubstring(System.String,System.String)">
             <summary>
                 Removes a substring from a string
             </summary>
@@ -723,14 +723,14 @@
             <param name="substring">Substring to remove</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.Reverse(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.Reverse(System.String)">
             <summary>
                 Reverses the string
             </summary>
             <param name="source">String to reverse</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.SplitPascalCase(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.SplitPascalCase(System.String)">
             <summary>
                 Splits the string by pascal case
             </summary>
@@ -744,7 +744,7 @@
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.SplitUnderlines(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.SplitUnderlines(System.String)">
             <summary>
                 Splits the string by underlines
             </summary>
@@ -758,14 +758,14 @@
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToPascalCase(System.String)">
             <summary>
                 Converts a string into pascal case (UpperCamelCase) with an invariant culture
             </summary>
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String,System.Globalization.CultureInfo)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToPascalCase(System.String,System.Globalization.CultureInfo)">
             <summary>
                 Converts a string into pascal case (UpperCamelCase)
             </summary>
@@ -773,7 +773,7 @@
             <param name="cultureInfo">Culture of the string</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToPascalCase(System.String,System.Boolean,System.Globalization.CultureInfo)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToPascalCase(System.String,System.Boolean,System.Globalization.CultureInfo)">
             <summary>
                 Converts a string into pascal case (UpperCamelCase) with the option to remove underscores
             </summary>
@@ -782,14 +782,14 @@
             <param name="cultureInfo">Culture of the string</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToSafeString(System.Char[])">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToSafeString(System.Char[])">
             <summary>
                 Converts an array of characters to a safe string
             </summary>
             <param name="source">Array of characters to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String)">
             <summary>
                 Returns a string, or a default value if the string is null
             </summary>
@@ -798,7 +798,7 @@
             <param name="defaultValue">String to display if the source string is null</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String,System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String,System.String)">
             <summary>
                 Returns a formatted string, or a default value if the string is null
             </summary>
@@ -808,14 +808,14 @@
             <param name="defaultValue">String to display if the source string is null</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateFirstChar(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateFirstChar(System.String)">
             <summary>
                 Removes the first character from the string
             </summary>
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateFromLeft(System.String,System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateFromLeft(System.String,System.Int32)">
             <summary>
                 Removes a number of characters from the beginning of the string
             </summary>
@@ -823,7 +823,7 @@
             <param name="numberOfChars">Number of characters to remove</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateFromRight(System.String,System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateFromRight(System.String,System.Int32)">
             <summary>
                 Removes a number of characters from the end of the string
             </summary>
@@ -831,48 +831,60 @@
             <param name="numberOfChars">Number of characters to remove</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Extensions.StringExtensions.TruncateLastChar(System.String)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateLastChar(System.String)">
             <summary>
                 Removes the last character from the string
             </summary>
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Extensions.UrlExtensions">
+        <member name="T:MyLibrary.Core.Extensions.UrlExtensions">
             <summary>
             Extension Methods for URLs
             </summary>
         </member>
-        <member name="M:MyLibrary.Extensions.UrlExtensions.IsNullOrEmpty(System.Uri)">
+        <member name="M:MyLibrary.Core.Extensions.UrlExtensions.IsNullOrEmpty(System.Uri)">
             <summary>
             Returns whether the url is null or empty
             </summary>
             <param name="url">Uri to check</param>
             <returns>True/False</returns>
         </member>
-        <member name="T:MyLibrary.Formatters.DateTimeFormatting">
+        <member name="T:MyLibrary.Core.Formatters.DateTimeFormatter">
             <summary>
             DateTime formatters
             </summary>
         </member>
-        <member name="T:MyLibrary.Formatters.StringFormatting">
+        <member name="T:MyLibrary.Core.Formatters.StringFormatter">
             <summary>
             String formatters
             </summary>
         </member>
-        <member name="T:MyLibrary.Helpers.AddressHelper">
+        <member name="T:MyLibrary.Core.Formatters.FilesizeFormatter">
+            <summary>
+            Utilities for file management
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Formatters.FilesizeFormatter.FormatFilesize(System.Double)">
+            <summary>
+            Returns the filesize in a human-readable string
+            </summary>
+            <param name="fileLength"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MyLibrary.Core.Helpers.AddressHelper">
             <summary>
                 Methods to extend and format Addresses
             </summary>
         </member>
-        <member name="M:MyLibrary.Helpers.AddressHelper.Format(MyLibrary.Models.Address)">
+        <member name="M:MyLibrary.Core.Helpers.AddressHelper.Format(MyLibrary.Models.Address)">
             <summary>
                 Formats an address into a string
             </summary>
             <param name="source"><see cref="T:MyLibrary.Models.Address" /> to be formatted</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Helpers.AddressHelper.IsValidZip(System.String,MyLibrary.Models.Country)">
+        <member name="M:MyLibrary.Core.Helpers.AddressHelper.IsValidZip(System.String,MyLibrary.Models.Country)">
             <summary>
                 Determines whether the postal/zip code is valid.
             </summary>
@@ -880,37 +892,37 @@
             <param name="country">Country of origin</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Helpers.AddressHelper.GetStates(MyLibrary.Models.Country)">
+        <member name="M:MyLibrary.Core.Helpers.AddressHelper.GetStates(MyLibrary.Models.Country)">
             <summary>
                 Returns a list of <see cref="T:MyLibrary.Models.State" /> for a given country.
             </summary>
             <param name="country">The <see cref="T:MyLibrary.Models.Country" /> to get the states from.</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Helpers.AddressHelper.GetCountries(MyLibrary.Models.Region)">
+        <member name="M:MyLibrary.Core.Helpers.AddressHelper.GetCountries(MyLibrary.Models.Region)">
             <summary>
                 Returns a list of countries in a given region.
             </summary>
             <param name="region">The enum of the region represented as an integer</param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Helpers.Constants">
+        <member name="T:MyLibrary.Core.Helpers.Constants">
             <summary>
             Constants
             </summary>
         </member>
-        <member name="P:MyLibrary.Helpers.Constants.Diacritics">
+        <member name="P:MyLibrary.Core.Helpers.Constants.Diacritics">
             <summary>
             Dictionary of all possible diacritics and their romanized counterparts
             </summary>
         </member>
-        <member name="T:MyLibrary.Helpers.EnumHelper`1">
+        <member name="T:MyLibrary.Core.Helpers.EnumHelper`1">
             <summary>
             Helper methods for <see cref="T:System.Enum"/>
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:MyLibrary.Helpers.EnumHelper`1.SearchDescriptions(System.String)">
+        <member name="M:MyLibrary.Core.Helpers.EnumHelper`1.SearchDescriptions(System.String)">
             <summary>
             Retrieves the description listed in an enum's attribute
             </summary>
@@ -918,198 +930,42 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Helpers.StringHelper">
+        <member name="T:MyLibrary.Core.Helpers.StringHelper">
             <summary>
             Helper methods for String types
             </summary>
         </member>
-        <member name="T:MyLibrary.Interfaces.IRssFeed">
-            <summary>
-            An interface for an RSS Feed object
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssFeed.FeedUrl">
-            <summary>
-            The URL to the HTML website corresponding to the channel
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssFeed.FeedLanguage">
-            <summary>
-            The culture the channel is written in (ex "en-US")
-            </summary>
-            <example>FeedLanguage = new CultureInfo("en-US")</example>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssFeed.Articles">
-            <summary>
-            List of articles from the RSS feed
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Interfaces.IRssItem">
-            <summary>
-            Individual RSS Feed article
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssItem.Title">
-            <summary>
-             Title of the article
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssItem.Link">
-            <summary>
-            URL of the article
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssItem.Description">
-            <summary>
-             Description of the article
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Interfaces.IRssItem.PublicationDate">
-            <summary>
-            Publication Date of the article
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Models.Address">
-            <summary>
-            Class to hold information about addresses
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.AddressLine1">
-            <summary>
-            Address line one
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.AddressLine2">
-            <summary>
-            Address line two
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.AddressLine3">
-            <summary>
-            Address line three
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.City">
-            <summary>
-            City
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.State">
-            <summary>
-            State
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.Country">
-            <summary>
-            Country
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Address.PostalCode">
-            <summary>
-            Postal/Zip code
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Models.Country">
-            <summary>
-                Class to hold information about countries
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Country.Name">
-            <summary>
-                ISO standard country name
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Country.Code">
-            <summary>
-                ISO standard country code
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Country.Region">
-            <summary>
-                Region the country belongs to
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Country.Currencies">
-            <summary>
-                Country's official currencies
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Country.Languages">
-            <summary>
-                Country's official languages
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Models.Region">
-            <summary>
-            Class to hold information about regions
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Region.Name">
-            <summary>
-            ISO standard region name
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.Region.Code">
-            <summary>
-            ISO standard region code
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Models.RssItem">
-            <summary>
-            Concrete instance of an Rss Item
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Models.State">
-            <summary>
-            Class to hold information about states
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.State.Name">
-            <summary>
-            ISO standard state name
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.State.Code">
-            <summary>
-            ISO standard state code
-            </summary>
-        </member>
-        <member name="P:MyLibrary.Models.State.Country">
-            <summary>
-            Country the state belongs to
-            </summary>
-        </member>
-        <member name="T:MyLibrary.Services.CookieService">
+        <member name="T:MyLibrary.Core.Services.CookieService">
             <summary>
             Services to handle cookie manipulation
             </summary>
         </member>
-        <member name="M:MyLibrary.Services.CookieService.Get(System.String)">
+        <member name="M:MyLibrary.Core.Services.CookieService.Get(System.String)">
             <summary>
             Get a specific cookie
             </summary>
             <param name="cookie"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Services.CookieService.Set(System.String,System.String)">
+        <member name="M:MyLibrary.Core.Services.CookieService.Set(System.String,System.String)">
             <summary>
             Set a specific cookie
             </summary>
             <param name="cookie"></param>
             <param name="value"></param>
         </member>
-        <member name="M:MyLibrary.Services.CookieService.Remove(System.String)">
+        <member name="M:MyLibrary.Core.Services.CookieService.Remove(System.String)">
             <summary>
             Delete a specific cookie
             </summary>
             <param name="cookie"></param>
         </member>
-        <member name="T:MyLibrary.Services.RssFeedService">
+        <member name="T:MyLibrary.Core.Services.RssFeedService">
             <summary>
                 Helper method to get an RSS Feed and populate articles
             </summary>
         </member>
-        <member name="M:MyLibrary.Services.RssFeedService.GetRssItems(MyLibrary.Interfaces.IRssFeed)">
+        <member name="M:MyLibrary.Core.Services.RssFeedService.GetRssItems(MyLibrary.Interfaces.IRssFeed)">
             <summary>
                 Method to get all Rss Articles from a feed
             </summary>
@@ -1117,12 +973,33 @@
             <param name="rssFeed"></param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Utilities.ConfigurationUtility">
+        <member name="T:MyLibrary.Core.Utilities.BaseFileUtility`1">
+            <inheritdoc />
+            <summary>
+                Base class for all file utility classes
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.GetById(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Get(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Insert(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Update(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Delete(`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:MyLibrary.Core.Utilities.ConfigurationUtility">
             <summary>
                 Utilities for System Configuration
             </summary>
         </member>
-        <member name="M:MyLibrary.Utilities.ConfigurationUtility.GetAppSetting``1(System.String,``0,System.Boolean)">
+        <member name="M:MyLibrary.Core.Utilities.ConfigurationUtility.GetAppSetting``1(System.String,``0,System.Boolean)">
             <summary>
                 Tries to read an appsetting strongly typed by using
                 <see cref="M:System.Convert.ChangeType(System.Object,System.TypeCode)" /> to convert the string value.
@@ -1138,21 +1015,24 @@
                 config value is null (not found).
             </param>
         </member>
-        <member name="T:MyLibrary.Utilities.ExcelUtilities`1">
+        <member name="T:MyLibrary.Core.Utilities.ExcelUtilities`1">
             <summary>
-            Utilities for CRUD operations of Excel files
+                Utilities for CRUD operations of Excel files
             </summary>
         </member>
-        <member name="M:MyLibrary.Utilities.ExcelUtilities`1.#ctor(System.Data.DataRowCollection)">
+        <member name="M:MyLibrary.Core.Utilities.ExcelUtilities`1.#ctor(System.Data.DataRowCollection)">
             <summary>
-            Constructor for Excel Utilities
+                Constructor for Excel Utilities
             </summary>
             <param name="rows"></param>
         </member>
-        <member name="T:MyLibrary.Utilities.FileUtility">
+        <member name="M:MyLibrary.Core.Utilities.ExcelUtilities`1.Import(System.IO.Stream,System.String)">
             <summary>
-            Utilities for file management
+                Gets data from an Excel file
             </summary>
+            <param name="stream"></param>
+            <param name="fileName"></param>
+            <exception cref="T:System.Exception"></exception>
         </member>
     </members>
 </doc>

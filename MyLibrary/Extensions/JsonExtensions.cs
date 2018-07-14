@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.Extensions
+﻿namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for JSON objects

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Reflection;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>Reflection extensions</summary>
 	/// Use Module to get all global and non-global methods defined in the module.

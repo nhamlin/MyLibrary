@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for <see cref="IDataReader"/>

@@ -8,7 +8,7 @@
 
 #endregion header
 
-namespace MyLibrary.Formatters
+namespace MyLibrary.Core.Formatters
 {
 	/// <summary>
 	/// Utilities for file management

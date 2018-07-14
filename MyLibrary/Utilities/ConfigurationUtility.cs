@@ -13,7 +13,7 @@ using System.Configuration;
 using System.Reflection;
 using log4net;
 
-namespace MyLibrary.Utilities
+namespace MyLibrary.Core.Utilities
 {
 	/// <summary>
 	///     Utilities for System Configuration

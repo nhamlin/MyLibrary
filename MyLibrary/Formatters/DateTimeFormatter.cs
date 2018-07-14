@@ -1,4 +1,4 @@
-﻿namespace MyLibrary.Formatters
+﻿namespace MyLibrary.Core.Formatters
 {
 	/// <summary>
 	/// DateTime formatters

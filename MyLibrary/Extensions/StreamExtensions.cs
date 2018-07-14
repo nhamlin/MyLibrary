@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	/// Extension methods for Streams

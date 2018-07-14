@@ -4,7 +4,7 @@ using System.Linq;
 
 // ReSharper disable PossibleMultipleEnumeration
 
-namespace MyLibrary.Extensions
+namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
 	///     Extension methods for numbers
