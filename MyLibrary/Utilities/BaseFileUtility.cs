@@ -19,32 +19,27 @@ namespace MyLibrary.Core.Utilities
 	/// </summary>
 	public abstract class BaseFileUtility<T> : IFileRepository<T>
 	{
+
 		/// <inheritdoc />
-		public virtual T GetById(object id)
+		public virtual void Create(T stream, string fileName)
 		{
 			throw new NotImplementedException();
 		}
 
 		/// <inheritdoc />
-		public T Get(object id)
+		public virtual T Read(T stream, string fileName)
 		{
 			throw new NotImplementedException();
 		}
 
 		/// <inheritdoc />
-		public void Insert(T entity)
+		public virtual void Update(T entity, string fileName)
 		{
 			throw new NotImplementedException();
 		}
 
 		/// <inheritdoc />
-		public void Update(T entity)
-		{
-			throw new NotImplementedException();
-		}
-
-		/// <inheritdoc />
-		public void Delete(T entity)
+		public virtual void Delete(T entity, string fileName)
 		{
 			throw new NotImplementedException();
 		}

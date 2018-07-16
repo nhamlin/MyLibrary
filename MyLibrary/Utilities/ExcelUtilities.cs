@@ -30,6 +30,7 @@ namespace MyLibrary.Core.Utilities
 		protected ExcelUtilities(DataRowCollection rows)
 		{
 			_rows = rows;
+			_excelWorksheetName = string.Empty;
 		}
 
 		/// <summary>
@@ -38,8 +39,9 @@ namespace MyLibrary.Core.Utilities
 		/// <param name="stream"></param>
 		/// <param name="fileName"></param>
 		/// <exception cref="Exception"></exception>
-		protected void Import(Stream stream, string fileName)
+		public DataSet Read(Stream stream, string fileName)
 		{
+			_excelWorksheetName = fileName;
 			IExcelDataReader excelReader;
 
 			if (fileName.EndsWith(".xlsx"))
@@ -66,6 +68,8 @@ namespace MyLibrary.Core.Utilities
 			excelReader.Close();
 			_rows = GetDataRowCollectionFromDataSet(result);
 			_rows.InsertAt(_rows[0].Table.NewRow(), 0);
+
+			return result;
 		}
 
 		private DataRowCollection GetDataRowCollectionFromDataSet(DataSet result)

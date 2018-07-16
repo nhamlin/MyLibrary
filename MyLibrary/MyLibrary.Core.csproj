@@ -84,7 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CookieService.cs" />
     <Compile Include="Services\RssFeedService.cs" />
-    <Compile Include="Utilities\BaseFileImporter.cs" />
+    <Compile Include="Utilities\BaseFileUtility.cs" />
     <Compile Include="Utilities\ConfigurationUtility.cs" />
     <Compile Include="Utilities\ExcelUtilities.cs" />
     <Compile Include="Formatters\FilesizeFormatter.cs" />
