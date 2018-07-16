@@ -6,7 +6,7 @@ using System.Linq;
 namespace MyLibrary.Core.Extensions
 {
 	/// <summary>
-	///     Extension methods for <see cref="IEnumerable{TSource}" />
+	///     Extension methods for <see cref="IEnumerable{T}" />
 	/// </summary>
 	public static class EnumerableExtensions
 	{
@@ -46,9 +46,9 @@ namespace MyLibrary.Core.Extensions
 		///     Returns whether the enumerable has any elements that match the LINQ qualifier.
 		/// </summary>
 		/// <example>intList.Contains(i =&gt; i == 2); // false</example>
-		/// <typeparam name="TSource"></typeparam>
-		/// <param name="source"></param>
-		/// <param name="predicate"></param>
+		/// <typeparam name="TSource">Object type</typeparam>
+		/// <param name="source">Source Enumerable</param>
+		/// <param name="predicate">LINQ statement to search for</param>
 		/// <returns></returns>
 		public static bool Contains<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
 		{
@@ -56,25 +56,98 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Returns whether the <see cref="IEnumerable{TSource}" /> is empty
+		///     Returns whether the enumerable has any elements that match the object.
 		/// </summary>
-		/// <typeparam name="TSource"></typeparam>
+		/// <example>intList.Contains("something"); // false</example>
+		/// <typeparam name="TSource">Object type</typeparam>
+		/// <param name="source">Source Enumerable</param>
+		/// <param name="predicate">Object to search for</param>
+		/// <returns></returns>
+		public static bool Contains<TSource>(this IEnumerable<TSource> source, TSource predicate)
+		{
+			var sourceHash = source.ToHashSet();
+			return sourceHash.Contains(predicate);
+		}
+
+		/// <summary>
+		///     Selects distinct items from a sequence by using a comparison expression.
+		/// </summary>
+		/// <typeparam name="T">The type of elements in the sequence</typeparam>
+		/// <typeparam name="TKey">The comparison expression.</typeparam>
+		/// <param name="source">The source sequence.</param>
+		/// <param name="keySelector">The comparison key selector.</param>
+		/// <param name="comparer">A optional comparer to compare the key items.</param>
+		public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector, IEqualityComparer<TKey> comparer = null)
+		{
+			return source.GroupBy(keySelector, comparer).Select(g => g.First());
+		}
+
+		/// <summary>
+		///     [Obsolete] Returns whether the enumerable has any elements that match the object.
+		/// </summary>
+		/// <example>intList.Contains("something"); // false</example>
+		/// <typeparam name="TSource">Object type</typeparam>
+		/// <param name="source">Source Enumerable</param>
+		/// <param name="predicate">Object to search for</param>
+		/// <returns></returns>
+		[Obsolete("Use .Contains<T> instead.")]
+		public static bool Has<TSource>(this IEnumerable<TSource> source, TSource predicate)
+		{
+			return source.Contains(predicate);
+		}
+
+		/// <summary>
+		///     Returns whether the enumerable has any elements that match the LINQ qualifier.
+		/// </summary>
+		/// <example>intList.Contains(i =&gt; i == 2); // false</example>
+		/// <typeparam name="TSource">Object type</typeparam>
+		/// <param name="source">Source Enumerable</param>
+		/// <param name="predicate">LINQ statement to search for</param>
+		/// <returns></returns>
+		[Obsolete("Use .Contains<T> instead.")]
+		public static bool Has<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+		{
+			return source.Contains(predicate);
+		}
+
+		/// <summary>
+		///     <para>
+		///         Returns whether the <see cref="IEnumerable{T}" /> is empty
+		///     </para>
+		///     <para>
+		///         Will throw an error if {T} is null.
+		///     </para>
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
 		/// <param name="source"></param>
 		/// <returns></returns>
-		public static bool IsEmpty<TSource>(this IEnumerable<TSource> source)
+		public static bool IsEmpty<T>(this IEnumerable<T> source)
 		{
 			return !source.Any();
 		}
 
 		/// <summary>
-		/// Returns whether the IEnumerable{TSource} is null or empty
+		///     Returns whether the IEnumerable{TSource} is null or empty
 		/// </summary>
-		/// <typeparam name="TSource">Source Type</typeparam>
+		/// <typeparam name="T">Source Type</typeparam>
 		/// <param name="source">IEnumerable to be compared against</param>
 		/// <returns></returns>
-		public static bool IsNullOrEmpty<TSource>(this IEnumerable<TSource> source)
+		public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
 		{
-			return source == null || !source.Any();
+			if (source == null)
+			{
+				return true;
+			}
+
+			using (IEnumerator<T> enumerator = source.GetEnumerator())
+			{
+				if (enumerator.MoveNext())
+				{
+					return false;
+				}
+			}
+
+			return true;
 		}
 
 		/// <summary>
@@ -89,41 +162,41 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Returns the maximum value in a sequence
+		///     Pics a random element from <paramref name="source" />. If the enumerable is null or empty, default(T) is returned.
 		/// </summary>
-		/// <typeparam name="TSource">Type of objects to compare</typeparam>
-		/// <param name="values">Objects to compare</param>
-		/// <returns>Object that is the maximum value in a sequence</returns>
-		public static TSource Max<TSource>(params TSource[] values)
+		/// <typeparam name="T">Type of elements in <paramref name="source" /></typeparam>
+		/// <param name="source">The source sequence.</param>
+		/// <param name="seed">Optional random seed</param>
+		/// <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
+		public static T Random<T>(this IEnumerable<T> source, int? seed = null)
 		{
-			IEnumerable<TSource> vals = values.ToList();
-			return vals.Max();
-		}
+			IEnumerable<T> sourceList = source.ToList();
+			if (sourceList.IsNullOrEmpty())
+			{
+				return default(T);
+			}
 
-		/// <summary>
-		///     Returns the minimum value in a sequence
-		/// </summary>
-		/// <typeparam name="TSource">Type of objects to compare</typeparam>
-		/// <param name="values">Objects to compare</param>
-		/// <returns></returns>
-		public static TSource Min<TSource>(params TSource[] values)
-		{
-			IEnumerable<TSource> vals = values.ToList();
-			return vals.Min();
+			int num = sourceList.Count();
+			int index = new Random((seed.HasValue ? seed.GetValueOrDefault() + num : new int?()) ?? Environment.TickCount).Next(sourceList.Count());
+			return sourceList.ElementAt(index);
 		}
 
 		/// <summary>
 		///     Removes null values from the collection
 		/// </summary>
-		/// <typeparam name="TSource"></typeparam>
-		/// <param name="source"></param>
+		/// <typeparam name="T">Object type</typeparam>
+		/// <param name="source">Source Enumerable</param>
 		/// <returns></returns>
-		public static IEnumerable<TSource> RemoveNull<TSource>(this IEnumerable<TSource> source)
+		public static IEnumerable<T> RemoveNull<T>(this IEnumerable<T> source)
 		{
+			// yield return is faster than LINQ's .Where()
 			foreach (var item in source)
 			{
 				if (item == null)
+				{
 					continue;
+				}
+
 				yield return item;
 			}
 		}
@@ -136,36 +209,31 @@ namespace MyLibrary.Core.Extensions
 		/// </code>
 		///     </example>
 		/// </summary>
-		public static IEnumerable<TSource> Safe<TSource>(this IEnumerable<TSource> source)
+		public static IEnumerable<T> Safe<T>(this IEnumerable<T> source)
 		{
-			if (source == null)
-			{
-				return new TSource[0];
-			}
-
-			return source;
+			return source ?? Enumerable.Empty<T>();
 		}
 
 		/// <summary>
 		///     Takes any IEnumerable and returns a HashSet
 		/// </summary>
-		/// <param name="source">Ienumerable</param>
-		/// <typeparam name="TSource">Generic Class</typeparam>
+		/// <param name="source">Source Enumerable</param>
+		/// <typeparam name="T">Object type</typeparam>
 		/// <returns></returns>
-		public static HashSet<TSource> ToHashSet<TSource>(this IEnumerable<TSource> source)
+		public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source)
 		{
-			return new HashSet<TSource>(source);
+			return new HashSet<T>(source);
 		}
 
 		/// <summary>
 		///     Returns a string that represents a concatenated list of enumerables
 		/// </summary>
 		/// <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
-		/// <typeparam name="TSource"></typeparam>
+		/// <typeparam name="T"></typeparam>
 		/// <param name="source">Enumerable to concatenate</param>
 		/// <param name="delimiter">Delimiter as a <see cref="string" /> between values</param>
 		/// <returns></returns>
-		public static string ToString<TSource>(this IEnumerable<TSource> source, string delimiter)
+		public static string ToString<T>(this IEnumerable<T> source, string delimiter)
 		{
 			return string.Join(delimiter, source);
 		}
@@ -173,9 +241,82 @@ namespace MyLibrary.Core.Extensions
 		/// <summary>
 		///     Returns the same enumerable, with all its elements trimmed
 		/// </summary>
-		public static IEnumerable<string> TrimEachElement(this IEnumerable<string> enumerable)
+		public static IEnumerable<string> TrimEachElement(this IEnumerable<string> source)
 		{
-			return enumerable.Select(str => str.Trim());
+			//return source.Select(str => str.Trim());
+
+			foreach (var item in source)
+			{
+				yield return item.Trim();
+			}
+		}
+
+		/// <summary>
+		///     Finds all items in <paramref name="values" /> that are found within the Enumerable <paramref name="source" />
+		///     using a LINQ delegate
+		/// </summary>
+		/// <typeparam name="T">Type of item to search or search for</typeparam>
+		/// <param name="source">Source Enumerable to search in</param>
+		/// <param name="predicate">An delegate used to compare the items</param>
+		/// <param name="values">Enumerable of values to check</param>
+		/// <returns>The items of <paramref name="values" /> that exist in <paramref name="source" /></returns>
+		public static IEnumerable<T> WhereIn<T>(this IEnumerable<T> source, Func<T, T> predicate, IEnumerable<T> values)
+		{
+			return values.Where(v => predicate(v).IsIn(source));
+		}
+
+		/// <summary>
+		///     Finds all items in <paramref name="values" /> that are found within the Enumerable <paramref name="source" />
+		/// </summary>
+		/// <typeparam name="T">Type of item to search</typeparam>
+		/// <param name="source">Source Enumerable to search in</param>
+		/// <param name="values">Enumerable of values to check</param>
+		/// <returns>The items of <paramref name="values" /> that exist in <paramref name="source" /></returns>
+		public static IEnumerable<T> WhereIn<T>(this IEnumerable<T> source, IEnumerable<T> values)
+		{
+			var valueHash = values.ToHashSet();
+
+			foreach (var item in source)
+			{
+				if (valueHash.Contains(item))
+				{
+					yield return item;
+				}
+			}
+		}
+
+		/// <summary>
+		///     Finds all items in <paramref name="values" /> that are not found within the Enumerable <paramref name="source" />
+		///     using a LINQ delegate
+		/// </summary>
+		/// <typeparam name="T">Type of item to search or search for</typeparam>
+		/// <param name="source">Source Enumerable to search in</param>
+		/// <param name="predicate">An delegate used to compare the items</param>
+		/// <param name="values">Enumerable of values to check</param>
+		/// <returns>The items of <paramref name="values" /> that do not exist in <paramref name="source" /></returns>
+		public static IEnumerable<T> WhereNotIn<T>(this IEnumerable<T> source, Func<T, T> predicate, IEnumerable<T> values)
+		{
+			return values.Where(v => !predicate(v).IsIn(source));
+		}
+
+		/// <summary>
+		///     Finds all items in <paramref name="values" /> that are not found within the Enumerable <paramref name="source" />
+		/// </summary>
+		/// <typeparam name="T">Type of item to search</typeparam>
+		/// <param name="source">Source Enumerable to search in</param>
+		/// <param name="values">Enumerable of values to check</param>
+		/// <returns>The items of <paramref name="values" /> that do not exist in <paramref name="source" /></returns>
+		public static IEnumerable<T> WhereNotIn<T>(this IEnumerable<T> source, IEnumerable<T> values)
+		{
+			var valueHash = values.ToHashSet();
+
+			foreach (var item in source)
+			{
+				if (!valueHash.Contains(item))
+				{
+					yield return item;
+				}
+			}
 		}
 	}
 }

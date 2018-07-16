@@ -331,24 +331,69 @@
                 Returns whether the enumerable has any elements that match the LINQ qualifier.
             </summary>
             <example>intList.Contains(i =&gt; i == 2); // false</example>
-            <typeparam name="TSource"></typeparam>
-            <param name="source"></param>
-            <param name="predicate"></param>
+            <typeparam name="TSource">Object type</typeparam>
+            <param name="source">Source Enumerable</param>
+            <param name="predicate">LINQ statement to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+                Returns whether the enumerable has any elements that match the object.
+            </summary>
+            <example>intList.Contains("something"); // false</example>
+            <typeparam name="TSource">Object type</typeparam>
+            <param name="source">Source Enumerable</param>
+            <param name="predicate">Object to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+                Selects distinct items from a sequence by using a comparison expression.
+            </summary>
+            <typeparam name="T">The type of elements in the sequence</typeparam>
+            <typeparam name="TKey">The comparison expression.</typeparam>
+            <param name="source">The source sequence.</param>
+            <param name="keySelector">The comparison key selector.</param>
+            <param name="comparer">A optional comparer to compare the key items.</param>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+                [Obsolete] Returns whether the enumerable has any elements that match the object.
+            </summary>
+            <example>intList.Contains("something"); // false</example>
+            <typeparam name="TSource">Object type</typeparam>
+            <param name="source">Source Enumerable</param>
+            <param name="predicate">Object to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+                Returns whether the enumerable has any elements that match the LINQ qualifier.
+            </summary>
+            <example>intList.Contains(i =&gt; i == 2); // false</example>
+            <typeparam name="TSource">Object type</typeparam>
+            <param name="source">Source Enumerable</param>
+            <param name="predicate">LINQ statement to search for</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-                Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty
+                <para>
+                    Returns whether the <see cref="T:System.Collections.Generic.IEnumerable`1" /> is empty
+                </para>
+                <para>
+                    Will throw an error if {T} is null.
+                </para>
             </summary>
-            <typeparam name="TSource"></typeparam>
+            <typeparam name="T"></typeparam>
             <param name="source"></param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            Returns whether the IEnumerable{TSource} is null or empty
+                Returns whether the IEnumerable{TSource} is null or empty
             </summary>
-            <typeparam name="TSource">Source Type</typeparam>
+            <typeparam name="T">Source Type</typeparam>
             <param name="source">IEnumerable to be compared against</param>
             <returns></returns>
         </member>
@@ -360,28 +405,21 @@
             <param name="separator"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Max``1(``0[])">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Random``1(System.Collections.Generic.IEnumerable{``0},System.Nullable{System.Int32})">
             <summary>
-                Returns the maximum value in a sequence
+                Pics a random element from <paramref name="source" />. If the enumerable is null or empty, default(T) is returned.
             </summary>
-            <typeparam name="TSource">Type of objects to compare</typeparam>
-            <param name="values">Objects to compare</param>
-            <returns>Object that is the maximum value in a sequence</returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Min``1(``0[])">
-            <summary>
-                Returns the minimum value in a sequence
-            </summary>
-            <typeparam name="TSource">Type of objects to compare</typeparam>
-            <param name="values">Objects to compare</param>
-            <returns></returns>
+            <typeparam name="T">Type of elements in <paramref name="source" /></typeparam>
+            <param name="source">The source sequence.</param>
+            <param name="seed">Optional random seed</param>
+            <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.RemoveNull``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Removes null values from the collection
             </summary>
-            <typeparam name="TSource"></typeparam>
-            <param name="source"></param>
+            <typeparam name="T">Object type</typeparam>
+            <param name="source">Source Enumerable</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
@@ -398,8 +436,8 @@
             <summary>
                 Takes any IEnumerable and returns a HashSet
             </summary>
-            <param name="source">Ienumerable</param>
-            <typeparam name="TSource">Generic Class</typeparam>
+            <param name="source">Source Enumerable</param>
+            <typeparam name="T">Object type</typeparam>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
@@ -407,7 +445,7 @@
                 Returns a string that represents a concatenated list of enumerables
             </summary>
             <example>new[]{"a", "b", "d", "z"}.ToString(",") => "a,b,d,z"</example>
-            <typeparam name="TSource"></typeparam>
+            <typeparam name="T"></typeparam>
             <param name="source">Enumerable to concatenate</param>
             <param name="delimiter">Delimiter as a <see cref="T:System.String" /> between values</param>
             <returns></returns>
@@ -416,6 +454,46 @@
             <summary>
                 Returns the same enumerable, with all its elements trimmed
             </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.WhereIn``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Finds all items in <paramref name="values" /> that are found within the Enumerable <paramref name="source" />
+                using a LINQ delegate
+            </summary>
+            <typeparam name="T">Type of item to search or search for</typeparam>
+            <param name="source">Source Enumerable to search in</param>
+            <param name="predicate">An delegate used to compare the items</param>
+            <param name="values">Enumerable of values to check</param>
+            <returns>The items of <paramref name="values" /> that exist in <paramref name="source" /></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.WhereIn``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Finds all items in <paramref name="values" /> that are found within the Enumerable <paramref name="source" />
+            </summary>
+            <typeparam name="T">Type of item to search</typeparam>
+            <param name="source">Source Enumerable to search in</param>
+            <param name="values">Enumerable of values to check</param>
+            <returns>The items of <paramref name="values" /> that exist in <paramref name="source" /></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.WhereNotIn``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Finds all items in <paramref name="values" /> that are not found within the Enumerable <paramref name="source" />
+                using a LINQ delegate
+            </summary>
+            <typeparam name="T">Type of item to search or search for</typeparam>
+            <param name="source">Source Enumerable to search in</param>
+            <param name="predicate">An delegate used to compare the items</param>
+            <param name="values">Enumerable of values to check</param>
+            <returns>The items of <paramref name="values" /> that do not exist in <paramref name="source" /></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.WhereNotIn``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Finds all items in <paramref name="values" /> that are not found within the Enumerable <paramref name="source" />
+            </summary>
+            <typeparam name="T">Type of item to search</typeparam>
+            <param name="source">Source Enumerable to search in</param>
+            <param name="values">Enumerable of values to check</param>
+            <returns>The items of <paramref name="values" /> that do not exist in <paramref name="source" /></returns>
         </member>
         <member name="T:MyLibrary.Core.Extensions.EnumExtensions">
             <summary>
@@ -979,19 +1057,16 @@
                 Base class for all file utility classes
             </summary>
         </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.GetById(System.Object)">
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Create(`0,System.String)">
             <inheritdoc />
         </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Get(System.Object)">
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Read(`0,System.String)">
             <inheritdoc />
         </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Insert(`0)">
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Update(`0,System.String)">
             <inheritdoc />
         </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Update(`0)">
-            <inheritdoc />
-        </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Delete(`0)">
+        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Delete(`0,System.String)">
             <inheritdoc />
         </member>
         <member name="T:MyLibrary.Core.Utilities.ConfigurationUtility">
@@ -1026,13 +1101,34 @@
             </summary>
             <param name="rows"></param>
         </member>
-        <member name="M:MyLibrary.Core.Utilities.ExcelUtilities`1.Import(System.IO.Stream,System.String)">
+        <member name="M:MyLibrary.Core.Utilities.ExcelUtilities`1.Read(System.IO.Stream,System.String)">
             <summary>
                 Gets data from an Excel file
             </summary>
             <param name="stream"></param>
             <param name="fileName"></param>
             <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:MyLibrary.Core.Utilities.MathUtilities">
+            <summary>
+            Utilities for handling mathematical operations
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.MathUtilities.Max``1(``0[])">
+            <summary>
+                Returns the maximum value in a sequence
+            </summary>
+            <typeparam name="T">Type of objects to compare</typeparam>
+            <param name="values">Objects to compare</param>
+            <returns>Object that is the maximum value in a sequence</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.MathUtilities.Min``1(``0[])">
+            <summary>
+                Returns the minimum value in a sequence
+            </summary>
+            <typeparam name="T">Type of objects to compare</typeparam>
+            <param name="values">Objects to compare</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
