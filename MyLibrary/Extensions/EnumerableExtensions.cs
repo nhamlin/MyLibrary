@@ -70,7 +70,7 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Selects distinct items from a sequence by using a comparison expression.
+		///     Selects distinct items from a sequence by using a comparison delegate.
 		/// </summary>
 		/// <typeparam name="T">The type of elements in the sequence</typeparam>
 		/// <typeparam name="TKey">The comparison expression.</typeparam>
