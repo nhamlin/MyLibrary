@@ -45,8 +45,7 @@ namespace EpiServer.Extensions
 		/// <param name="languageSelector">The <see cref="ILanguageSelector" /> to use.</param>
 		/// <param name="filterForVisitor">If the content should be filtered by visitor access rights.</param>
 		/// <param name="contentLoader">
-		///     Optional <see cref="IContentLoader" />, uses
-		///     <see cref="ApplicationServices.CurrentServiceLocator" /> to resolve if null
+		///     Optional <see cref="IContentLoader" />, uses ApplicationServices.CurrentServiceLocator to resolve if null
 		/// </param>
 		/// <returns>A <see cref="IContent" /> instance, or null if not found</returns>
 		public static TContentType Get<TContentType>(this ContentReference contentLink, bool filterForVisitor = false, IContentLoader contentLoader = null, LanguageSelector languageSelector = null)
