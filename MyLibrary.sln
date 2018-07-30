@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpiServer", "EpiServer\EpiS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.Models", "MyLibrary.Models\MyLibrary.Models.csproj", "{6DB5A7D7-E06C-437F-A090-C84950C37CF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.EF", "MyLibrary.EF\MyLibrary.EF.csproj", "{F8E7C70F-5970-489C-BBB5-67FCE85670D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6DB5A7D7-E06C-437F-A090-C84950C37CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB5A7D7-E06C-437F-A090-C84950C37CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB5A7D7-E06C-437F-A090-C84950C37CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E7C70F-5970-489C-BBB5-67FCE85670D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E7C70F-5970-489C-BBB5-67FCE85670D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E7C70F-5970-489C-BBB5-67FCE85670D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E7C70F-5970-489C-BBB5-67FCE85670D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
