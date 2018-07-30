@@ -348,7 +348,7 @@
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
             <summary>
-                Selects distinct items from a sequence by using a comparison expression.
+                Selects distinct items from a sequence by using a comparison delegate.
             </summary>
             <typeparam name="T">The type of elements in the sequence</typeparam>
             <typeparam name="TKey">The comparison expression.</typeparam>
@@ -1108,6 +1108,26 @@
             <param name="stream"></param>
             <param name="fileName"></param>
             <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:MyLibrary.Core.Utilities.HttpContextUtility">
+            <summary>
+                Utilities for handling Http Context operations
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.HttpContextUtility.ClearRouteOutputCache(System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+                Removes the specified action url from the output cache.
+            </summary>
+            <param name="actionName">Action</param>
+            <param name="controllerName">Controller</param>
+            <param name="context">HttpContext</param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.HttpContextUtility.GetClientIPAddress(System.Web.HttpContextBase)">
+            <summary>Tries to find the client's real IP address</summary>
+            <remarks>
+                Checks HTTP_TRUE_CLIENT_IP (CDNs), HTTP_X_FORWARDED_FOR (behind proxies) and REMOTE_ADDR
+            </remarks>
+            <returns>A <see cref="T:System.Net.IPAddress" />, or null if no IP could be determined</returns>
         </member>
         <member name="T:MyLibrary.Core.Utilities.MathUtilities">
             <summary>

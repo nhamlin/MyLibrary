@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{B16C706E-220B-44F4-BD67-74523A6A2DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.Core", "MyLibrary\MyLibrary.Core.csproj", "{15AA2005-F80A-4A3A-8915-424002A604D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.Core", "MyLibrary.Core\MyLibrary.Core.csproj", "{15AA2005-F80A-4A3A-8915-424002A604D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpiServer", "EpiServer\EpiServer.csproj", "{431F663E-AB41-4DB9-A426-63BEAEDC04E6}"
 EndProject

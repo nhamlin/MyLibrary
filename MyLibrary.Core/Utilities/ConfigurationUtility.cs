@@ -36,6 +36,7 @@ namespace MyLibrary.Core.Utilities
 		///     If set true, the function will throw if conversion fails. It will *not* throw if the
 		///     config value is null (not found).
 		/// </param>
+		// ReSharper disable once FlagArgument - DRY principle
 		public static T GetAppSetting<T>(string key, T fallback, bool throwIfInvalid = false)
 		{
 			try

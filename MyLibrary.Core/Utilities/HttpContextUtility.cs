@@ -76,7 +76,7 @@ namespace MyLibrary.Core.Utilities
 				{
 					if (ipString.Contains(","))
 					{
-						ipString = ipString.Split(new char[1] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+						ipString = ipString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
 						                   .FirstOrDefault();
 					}
 

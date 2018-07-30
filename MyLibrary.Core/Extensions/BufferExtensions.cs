@@ -15,12 +15,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>The byte as a string.</returns>
 		public static string AsString(this byte[] source)
 		{
-			if (source == null)
-			{
-				return "";
-			}
-
-			return Encoding.UTF8.GetString(source, 0, source.Length);
+			return source == null ? "" : Encoding.UTF8.GetString(source, 0, source.Length);
 		}
 	}
 }
