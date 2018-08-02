@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyLibrary.EF.Context;
-using MyLibrary.EF.Models;
 
 //using Humanizer;
 //using MyLibrary.Core.Extensions;
@@ -50,28 +49,45 @@ namespace ConsoleApp
 
 		private static void Main()
 		{
-			using (var db = new BloggingContext())
+			using (var context = new SchoolEntities())
 			{
-				// Create and save a new Blog 
-				Console.Write("Enter a name for a new Blog: ");
-				var name = Console.ReadLine();
+				context.Departments.Add(new Department { Name = DepartmentNames.Economics });
 
-				var blog = new Blog { Name = name };
-				db.Blogs.Add(blog);
-				db.SaveChanges();
+				context.SaveChanges();
 
-				// Display all Blogs from the database 
-				var query = from b in db.Blogs
-				            orderby b.Name
-				            select b;
+				var department = (from d in context.Departments
+				                  where d.Name == DepartmentNames.Economics
+				                  select d).FirstOrDefault();
 
-				Console.WriteLine("All blogs in the database:");
-				foreach (var item in query)
-				{
-					Console.WriteLine(item.Name);
-				}
-
+				Console.WriteLine($"DepartmentID: {department?.DepartmentID} Name: {department?.Name}");
 			}
+
+			#region Basic EF Example (BloggingContext.cs)
+			//using (var db = new BloggingContext())
+			//{
+			//	// Create and save a new Blog 
+			//	Console.Write("Enter a name for a new Blog: ");
+			//	var name = Console.ReadLine();
+
+			//	var blog = new Blog { Name = name };
+			//	db.Blogs.Add(blog);
+			//	db.SaveChanges();
+
+			//	// Display all Blogs from the database 
+			//	var query = from b in db.Blogs
+			//				orderby b.Name
+			//				select b;
+
+			//	Console.WriteLine("All blogs in the database:");
+			//	foreach (var item in query)
+			//	{
+			//		Console.WriteLine(item.Name);
+			//	}
+
+			//}
+			#endregion
+
+			#region GetStartingPoint
 			//uint o, n;
 			//o = 1000;
 			//n = 100;
@@ -88,7 +104,10 @@ namespace ConsoleApp
 
 			//Console.WriteLine("o:100, n:500, TL => " + GetStartingPoint(-500, -100, 0D));
 			//Console.WriteLine("o:100, n:500, TC => " + GetStartingPoint(-500, -100, 0.5D));
-			//Console.WriteLine("o:100, n:500, TR => " + GetStartingPoint(-500, -100, -1D));
+			//Console.WriteLine("o:100, n:500, TR => " + GetStartingPoint(-500, -100, -1D)); 
+			#endregion
+
+			#region Hash vs List Find
 			//Random random = new Random();
 			//var tmp = new List<string>();
 			//var find = new List<string>();
@@ -131,8 +150,10 @@ namespace ConsoleApp
 			//var whereIn2Count = tmp.WhereIn(find).Count();
 			//watch.Stop();
 			//Console.WriteLine("List: " + watch.ElapsedMilliseconds + " ms elapsed.");
-			//Console.WriteLine("Count: " + whereIn2Count);
+			//Console.WriteLine("Count: " + whereIn2Count); 
+			#endregion
 
+			#region StringExtensions (Move to Unit Tests)
 			//string number = "27";
 			//string reallyLongString = "Some really, really, really long string to parse and truncate.";
 			//int[] integers = { 1, 1, 2, 3, 3, 6 };
@@ -151,8 +172,12 @@ namespace ConsoleApp
 			//Console.WriteLine(reallyLongString.Truncate(8, "...", Truncator.FixedLength));
 			//Console.WriteLine(reallyLongString.Truncate(8, "...", Truncator.FixedNumberOfCharacters));
 			//Console.WriteLine((charD + ".ToHex()").PadRight(50) + " => " + 'a'.ToHex());
+
+			#endregion
+
+
 			Console.WriteLine("Done. Press the any key to exit...");
-			Console.ReadKey();
+			Console.ReadKey(true);
 		}
 	}
 }

@@ -4,9 +4,9 @@
 // Author:         Nicholas Hamlin
 // Created Date:  07/30/2018
 // Filename: MyLibrary:MyLibrary.EF:Post.cs
-// Usage:          
+// Usage:
 
-#endregion
+#endregion header
 
 namespace MyLibrary.EF.Models
 {
@@ -16,10 +16,10 @@ namespace MyLibrary.EF.Models
 		public string Title { get; set; }
 		public string Content { get; set; }
 		public int BlogId { get; set; }
+
 		/// <summary>
 		/// Marked virtual to allow lazy loading
 		/// </summary>
 		public virtual Blog Blog { get; set; }
-
 	}
 }

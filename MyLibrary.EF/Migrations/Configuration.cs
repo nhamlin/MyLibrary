@@ -1,19 +1,16 @@
 namespace MyLibrary.EF.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+	using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MyLibrary.EF.Context.BloggingContext>
+	internal sealed class Configuration : DbMigrationsConfiguration<Context.BloggingContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "MyLibrary.EF.Context.BloggingContext";
         }
 
-        protected override void Seed(MyLibrary.EF.Context.BloggingContext context)
+        protected override void Seed(Context.BloggingContext context)
         {
             //  This method will be called after migrating to the latest version.
 

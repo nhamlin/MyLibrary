@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,10 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Context\BloggingContext.cs" />
-    <Compile Include="Controllers\CodeFirstExistingDatabaseController.cs" />
-    <Compile Include="Controllers\CodeFirstNewDatabaseController.cs" />
+    <Compile Include="Context\CustomConventions.cs" />
+    <Compile Include="Context\SchoolEntities.cs" />
+    <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Migrations\201807301828088_InitialCreate.cs" />
     <Compile Include="Migrations\201807301828088_InitialCreate.Designer.cs">
       <DependentUpon>201807301828088_InitialCreate.cs</DependentUpon>
@@ -69,14 +71,21 @@
     <Compile Include="Migrations\201807301837371_AddUserClass.Designer.cs">
       <DependentUpon>201807301837371_AddUserClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807302104507_AddUser.cs" />
+    <Compile Include="Migrations\201807302104507_AddUser.Designer.cs">
+      <DependentUpon>201807302104507_AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogDetails.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807301837371_AddUserClass.resx">
       <DependentUpon>201807301837371_AddUserClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807302104507_AddUser.resx">
+      <DependentUpon>201807302104507_AddUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
