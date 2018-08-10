@@ -1,9 +1,9 @@
-﻿## Data Annotations
+﻿# Data Annotations
 
-### Key & ForeignKey
-#### Custom Primary Key
+## Key & ForeignKey
+### Custom Primary Key
 
-[Passport.cs](Passport.cs) Lines 18-20
+[Passport.cs](Passport.cs)
 
 ```csharp
 [Key]
@@ -12,9 +12,9 @@ public int PassportNumber { get; set; }
 
 The convention is to look for a property named `Id` or one that combines the class name with `Id`, such as `PassportId`. If it does not find a property matching this convention, it will throw an exception because of the requirement that you must have a key property. To circumvent this, decorate the property with the `Key` attribute.
 
-#### Composite Keys
+### Composite Keys
 
-[Passport.cs](Passport.cs) Lines 18-24
+[Passport.cs](Passport.cs) 
 
 ```csharp
 [Key]
@@ -26,11 +26,11 @@ public int PassportNumber { get; set; }
 public string IssuingCountry { get; set; }
 ```
 
-If the primary key consists of more than one property, simply decorate the properties with the `Key` attribute. But because you have more than one property, EF doesn't know which order to use when building the composite key. Decorate the properties with the `Column(Order=n)` attribute, specifying the Order in which to build the composite key.
+If the primary key consists of more than one property, simply decorate the properties with the `Key` attribute. But because you have more than one property, EF doesn't know which order to use when building the composite key. Decorate the properties with the `Column(Order = n)` attribute, specifying the Order in which to build the composite key.
 
-#### Foreign Keys
+### Foreign Keys
 
-[Passport.cs](Passport.cs) Lines 39-45
+[Passport.cs](Passport.cs) 
 
 ```csharp
 [ForeignKey("Passport")]
@@ -44,25 +44,123 @@ public string IssuingCountry { get; set; }
 
 Using the same concept as the two previous examples, setting the foreign keys is done by decorating with the `ForeignKey(FK_name)` attribute. If a composite foreign key is made, also include the `Column(Order = n)` attribute to specify the order in which the key is built.
 
+---
 
-### Required
+## Required
 
-### MaxLength & MinLength
+[Passport.cs](Passport.cs) 
 
-### NotMapped
+```csharp
+[Required]
+public DateTime Expires { get; set; }
+```
 
-### ComplexType
+Adding `Required` to a property will designate a property as needing to have a value when submitted. MVC will perform client-side validation, and any field marked Required that does not have data will be marked as an error and processing will not continue.
 
-### ConcurrencyCheck
+The `Required` attribute will also mark a property as needing to be set as `NOT NULL` in the database.
 
-### TimeStamp
+---
 
-### Table & Column
+## MaxLength & MinLength
 
-### DatabaseGenerated
+[Blog.cs](Blog.cs)
 
-### Index
+```csharp
+[MinLength(5)]
+[MaxLength(30, ErrorMessage = "The name can't be more than 30 characters long.")]
+public string Name { get; set; }
+```
 
-### InverseProperty
+`MinLength` and `MaxLength` set limits to the acceptable length of the data that can be stored in the property.
 
-### ForeignKey
+`MaxLength` will impact the database by setting the database field's length.
+
+`ErrorMessage` is what will be displayed during client-side validation if the limit is exceeded.
+
+---
+
+## NotMapped
+
+[SchoolEntities.cs]
+
+```csharp
+[NotMapped]
+public string CatalogEntry => CourseID + ": " + Title;
+```
+
+Not all of the properties in the class need to be represented in the database. For example, if there is a calculated field based on the values of other fields, that doesn't need to be stored in a database. To bypass the creation of fields in the database for a property, decorate it with the `NotMapped` attribute.
+
+---
+
+## ComplexType
+
+[]()
+
+```csharp
+```
+
+
+
+---
+
+## ConcurrencyCheck
+
+[]()
+
+```csharp
+```
+
+
+
+---
+
+## TimeStamp
+
+[]()
+
+```csharp
+```
+
+
+
+---
+
+## Table & Column
+
+[]()
+
+```csharp
+```
+
+
+
+---
+
+## DatabaseGenerated
+
+[]()
+
+```csharp
+```
+
+
+
+---
+
+## Index
+
+[]()
+
+```csharp
+```
+
+
+
+---
+
+## InverseProperty
+
+[]()
+
+```csharp
+```
