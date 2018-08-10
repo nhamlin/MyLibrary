@@ -7,15 +7,20 @@
 #endregion
 
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyLibrary.EF.Models
 {
 	public class Blog
 	{
 		public int BlogId { get; set; }
+		[MinLength(5)]
+		[MaxLength(30, ErrorMessage = "The name can't be more than 30 characters long.")]
 		public string Name { get; set; }
 		public string Url { get; set; }
 		public User Owner { get; set; }
+		public int Rating { get; set; }
+
 		/// <summary>
 		/// Marked virtual to allow lazy loading.
 		/// </summary>

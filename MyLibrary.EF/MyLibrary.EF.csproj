@@ -75,9 +75,18 @@
     <Compile Include="Migrations\201807302104507_AddUser.Designer.cs">
       <DependentUpon>201807302104507_AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808022134046_AddPostClass.cs" />
+    <Compile Include="Migrations\201808022134046_AddPostClass.Designer.cs">
+      <DependentUpon>201808022134046_AddPostClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808022138462_AddAbstract.cs" />
+    <Compile Include="Migrations\201808022138462_AddAbstract.Designer.cs">
+      <DependentUpon>201808022138462_AddAbstract.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\BlogDetails.cs" />
+    <Compile Include="Models\Passport.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807302104507_AddUser.resx">
       <DependentUpon>201807302104507_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808022134046_AddPostClass.resx">
+      <DependentUpon>201808022134046_AddPostClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808022138462_AddAbstract.resx">
+      <DependentUpon>201808022138462_AddAbstract.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
