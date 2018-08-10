@@ -86,6 +86,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Models\readme.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
