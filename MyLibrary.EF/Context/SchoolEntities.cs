@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace MyLibrary.EF.Context
@@ -41,6 +42,10 @@ namespace MyLibrary.EF.Context
 		public int CourseID { get; set; }
 
 		public string Title { get; set; }
+
+		[NotMapped]
+		public string CatalogEntry => CourseID + ": " + Title;
+
 		public int Credits { get; set; }
 
 		// Foreign key
