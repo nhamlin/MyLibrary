@@ -8,6 +8,8 @@
 
 #endregion
 
+using System.IO;
+
 namespace MyLibrary.Interfaces
 {
 	/// <summary>
@@ -19,29 +21,29 @@ namespace MyLibrary.Interfaces
 		///     Inserts a record
 		/// </summary>
 		/// <param name="stream">Datastream</param>
-		/// <param name="fileName">Name of the file to create</param>
-		void Create(T stream, string fileName);
+		/// <param name="path">Name of the file to create</param>
+		void Create(T stream, string path);
 
 		/// <summary>
 		///     Gets a record by the primary id
 		/// </summary>
 		/// <param name="stream">Datastream</param>
-		/// <param name="fileName">Name of the file to read</param>
+		/// <param name="path">Name of the file to read</param>
 		/// <returns></returns>
-		T Read(T stream, string fileName);
+		Stream Read(T stream, string path);
 
 		/// <summary>
 		///     Updates a record
 		/// </summary>
 		/// <param name="stream">Datastream</param>
-		/// <param name="fileName">Name of the file to update</param>
-		void Update(T stream, string fileName);
+		/// <param name="path">Name of the file to update</param>
+		void Update(T stream, string path);
 
 		/// <summary>
 		///     Deletes a record
 		/// </summary>
 		/// <param name="stream">Datastream</param>
-		/// <param name="fileName">Name of the file to delete</param>
-		void Delete(T stream, string fileName);
+		/// <param name="path">Name of the file to delete</param>
+		void Delete(T stream, string path);
 	}
 }
