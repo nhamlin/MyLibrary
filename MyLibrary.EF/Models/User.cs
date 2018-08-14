@@ -9,15 +9,14 @@
 #endregion header
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLibrary.EF.Models
 {
 	public class User
 	{
-		/// <summary>
-		///     [Key] tells EF that Username is the primary key
-		/// </summary>
-		[Key]
+		public int UserId { get; set; }
+		[Index(IsUnique = true)]
 		public string Username { get; set; }
 
 		public string DisplayName { get; set; }

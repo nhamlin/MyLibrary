@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace MyLibrary.EF.Context
@@ -38,9 +39,16 @@ namespace MyLibrary.EF.Context
 	public class Course
 	{
 		// Primary key
+		[Index("Catalog", Order = 1)]
 		public int CourseID { get; set; }
-
+		[Index("Catalog", 2)]
 		public string Title { get; set; }
+
+		[NotMapped]
+		public string CatalogEntry => CourseID + ": " + Title;
+
+		[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+		public string CatalogId { get; set; }
 		public int Credits { get; set; }
 
 		// Foreign key
@@ -48,6 +56,20 @@ namespace MyLibrary.EF.Context
 
 		// Navigation properties
 		public virtual Department Department { get; set; }
+
+		public Teacher OnlineTeacher { get; set; }
+		public Teacher ClassRoomTeacher { get; set; }
+	}
+
+	public class Teacher
+	{
+		public int TeacherId { get; set; }
+		public string Name { get; set; }
+
+		[InverseProperty("OnlineTeacher")]
+		public ICollection<OnlineCourse> OnlineCourses { get; set; }
+		[InverseProperty("ClassRoomTeacher")]
+		public ICollection<OnsiteCourse> ClassRoomCourses { get; set; }
 	}
 
 	public class OnlineCourse : Course
@@ -68,4 +90,6 @@ namespace MyLibrary.EF.Context
 		Math,
 		Economics
 	}
+
+	
 }

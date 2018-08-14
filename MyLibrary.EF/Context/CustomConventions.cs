@@ -49,7 +49,8 @@ namespace MyLibrary.EF.Context
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			// NOte: When building composite keys, the order of the keys must also be included
+			// Note: When building composite keys, the order of the keys must also be included
+			// Also see Attributes of [Key] & [Column(Order=n)]
 			modelBuilder.Properties<int>()
 						.Where(x => x.Name == "Key")
 						.Configure(x => x.IsKey().HasColumnOrder(1));

@@ -64,7 +64,7 @@
       <Project>{F8E7C70F-5970-489C-BBB5-67FCE85670D3}</Project>
       <Name>MyLibrary.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyLibrary\MyLibrary.Core.csproj">
+    <ProjectReference Include="..\MyLibrary.Core\MyLibrary.Core.csproj">
       <Project>{15aa2005-f80a-4a3a-8915-424002a604d7}</Project>
       <Name>MyLibrary.Core</Name>
     </ProjectReference>
