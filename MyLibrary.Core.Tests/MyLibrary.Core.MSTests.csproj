@@ -79,7 +79,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyLibrary\MyLibrary.Core.csproj">
+    <ProjectReference Include="..\MyLibrary.Core\MyLibrary.Core.csproj">
       <Project>{15AA2005-F80A-4A3A-8915-424002A604D7}</Project>
       <Name>MyLibrary.Core</Name>
     </ProjectReference>

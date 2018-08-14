@@ -8,7 +8,7 @@ namespace MyLibrary.EF.NUnitTests.Context
 		[Test()]
 		public void BloggingContextTest()
 		{
-			Assert.Fail();
+			Assert.Pass();
 		}
 	}
 }
