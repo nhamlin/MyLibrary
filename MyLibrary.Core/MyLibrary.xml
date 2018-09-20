@@ -1051,24 +1051,6 @@
             <param name="rssFeed"></param>
             <returns></returns>
         </member>
-        <member name="T:MyLibrary.Core.Utilities.BaseFileUtility`1">
-            <inheritdoc />
-            <summary>
-                Base class for all file utility classes
-            </summary>
-        </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Create(`0,System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Read(`0,System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Update(`0,System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:MyLibrary.Core.Utilities.BaseFileUtility`1.Delete(`0,System.String)">
-            <inheritdoc />
-        </member>
         <member name="T:MyLibrary.Core.Utilities.ConfigurationUtility">
             <summary>
                 Utilities for System Configuration

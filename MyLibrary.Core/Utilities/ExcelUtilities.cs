@@ -18,7 +18,7 @@ namespace MyLibrary.Core.Utilities
 	/// <summary>
 	///     Utilities for CRUD operations of Excel files
 	/// </summary>
-	public abstract class ExcelUtilities<T> : BaseFileUtility<T>
+	public abstract class ExcelUtilities<T> //: BaseFileUtility<T>
 	{
 		private string _excelWorksheetName;
 		private DataRowCollection _rows;

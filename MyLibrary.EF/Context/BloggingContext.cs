@@ -27,7 +27,8 @@ namespace MyLibrary.EF.Context
 	public class BloggingContext : DbContext
 	{
 		public DbSet<Blog> Blogs { get; set; }
-		public DbSet<Post> Posts { get; set; }
+		// This is a privately set DbSet
+		public DbSet<Post> Posts => Set<Post>();
 		public DbSet<User> Users { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
