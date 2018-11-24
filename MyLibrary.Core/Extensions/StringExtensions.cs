@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Security;
@@ -12,6 +13,50 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class StringExtensions
 	{
+		/// <summary>
+		///     Appends a string to the beginning of another string
+		/// </summary>
+		/// <param name="source">Original string</param>
+		/// <param name="prefix">String to append at the beginning</param>
+		/// <returns>String</returns>
+		public static string AddPrefix<T>(this string source, IEnumerable<T> prefix)
+		{
+			return $"{prefix.ToString("")}{source}";
+		}
+
+		/// <summary>
+		///     Appends a string to the beginning of another string
+		/// </summary>
+		/// <param name="source">Original string</param>
+		/// <param name="prefix">String to append at the beginning</param>
+		/// <returns>String</returns>
+		public static string AddPrefix(this string source, string prefix)
+		{
+			return $"{prefix}{source}";
+		}
+
+		/// <summary>
+		///     Appends a string to the end of another string
+		/// </summary>
+		/// <param name="source">Original string</param>
+		/// <param name="suffix">String to append at the end</param>
+		/// <returns>String</returns>
+		public static string AddSuffix(this string source, string suffix)
+		{
+			return $"{source}{suffix}";
+		}
+
+		/// <summary>
+		///     Appends a string to the end of another string
+		/// </summary>
+		/// <param name="source">Original string</param>
+		/// <param name="suffix">String to append at the end</param>
+		/// <returns>String</returns>
+		public static string AddSuffix<T>(this string source, IEnumerable<T> suffix)
+		{
+			return $"{source}{suffix.ToString("")}";
+		}
+
 		/// <summary>
 		///     Encrypts the string based on the provided <see cref="EncryptionPolicy" />
 		/// </summary>
@@ -37,6 +82,16 @@ namespace MyLibrary.Core.Extensions
 			string shortest = source.Length < other.Length ? source : other;
 
 			return longest.Except(shortest).ToArray();
+		}
+
+		/// <summary>
+		///     Returns whether the string is not empty
+		/// </summary>
+		/// <param name="source"></param>
+		/// <returns></returns>
+		public static bool HasValue(this string source)
+		{
+			return !source.IsNullOrWhiteSpace();
 		}
 
 		/// <summary>
@@ -123,6 +178,17 @@ namespace MyLibrary.Core.Extensions
 		public static bool IsUppercase(this string source)
 		{
 			return Regex.IsMatch(source, "^[A-Z]+$");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="pattern"></param>
+		/// <returns></returns>
+		public static bool Matches(this string source, string pattern)
+		{
+			return Regex.IsMatch(source, pattern);
 		}
 
 		/// <summary>

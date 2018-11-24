@@ -692,6 +692,38 @@
                 Extension methods for <see cref="T:System.String" />
             </summary>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.AddPrefix``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Appends a string to the beginning of another string
+            </summary>
+            <param name="source">Original string</param>
+            <param name="prefix">String to append at the beginning</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.AddPrefix(System.String,System.String)">
+            <summary>
+                Appends a string to the beginning of another string
+            </summary>
+            <param name="source">Original string</param>
+            <param name="prefix">String to append at the beginning</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.AddSuffix(System.String,System.String)">
+            <summary>
+                Appends a string to the end of another string
+            </summary>
+            <param name="source">Original string</param>
+            <param name="suffix">String to append at the end</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.AddSuffix``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Appends a string to the end of another string
+            </summary>
+            <param name="source">Original string</param>
+            <param name="suffix">String to append at the end</param>
+            <returns>String</returns>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
             <summary>
                 Encrypts the string based on the provided <see cref="T:System.Net.Security.EncryptionPolicy" />
@@ -708,6 +740,13 @@
             </summary>
             <param name="source">Primary string to compare</param>
             <param name="other">Secondary string to compare</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.HasValue(System.String)">
+            <summary>
+                Returns whether the string is not empty
+            </summary>
+            <param name="source"></param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.InitialLetterToLower(System.String)">
@@ -771,6 +810,14 @@
             </summary>
             <param name="source">String to check</param>
             <returns>True/False</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.Matches(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="pattern"></param>
+            <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.NullIfEmpty(System.String)">
             <summary>
@@ -927,6 +974,20 @@
             </summary>
             <param name="url">Uri to check</param>
             <returns>True/False</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.UrlExtensions.UrlDecode(System.String)">
+            <summary>
+            Returns a string decoded from a Url
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.UrlExtensions.UrlEncode(System.String)">
+            <summary>
+            Returns a string encoded as a Url
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
         </member>
         <member name="T:MyLibrary.Core.Formatters.DateTimeFormatter">
             <summary>
