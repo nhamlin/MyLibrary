@@ -83,6 +83,39 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
+		///     Pics a random element from <paramref name="source" />. If the enumerable is null or empty, default(T) is returned.
+		/// </summary>
+		/// <typeparam name="T">Type of elements in <paramref name="source" /></typeparam>
+		/// <param name="source">The source sequence.</param>
+		/// <param name="seed">Optional random seed</param>
+		/// <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
+		public static T GetRandomItem<T>(this IEnumerable<T> source, int? seed = null)
+		{
+			IEnumerable<T> sourceList = source.ToList();
+			if (sourceList.IsNullOrEmpty())
+			{
+				return default(T);
+			}
+
+			int num = sourceList.Count();
+			int index = new Random((seed.HasValue ? seed.GetValueOrDefault() + num : new int?()) ?? Environment.TickCount).Next(sourceList.Count());
+			return sourceList.ElementAt(index);
+		}
+
+		/// <summary>
+		///     Returns an empty enumerable if null, otherwise returns the enumerable.
+		///     <example>
+		///         <code>var something = Model.SomeNullEnumerable;
+		/// IEnumerable&lt;int&gt; source = something.GetSafeVersion();
+		/// </code>
+		///     </example>
+		/// </summary>
+		public static IEnumerable<T> GetSafeVersion<T>(this IEnumerable<T> source)
+		{
+			return source ?? Enumerable.Empty<T>();
+		}
+
+		/// <summary>
 		///     [Obsolete] Returns whether the enumerable has any elements that match the object.
 		/// </summary>
 		/// <example>intList.Contains("something"); // false</example>
@@ -162,32 +195,12 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Pics a random element from <paramref name="source" />. If the enumerable is null or empty, default(T) is returned.
-		/// </summary>
-		/// <typeparam name="T">Type of elements in <paramref name="source" /></typeparam>
-		/// <param name="source">The source sequence.</param>
-		/// <param name="seed">Optional random seed</param>
-		/// <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
-		public static T Random<T>(this IEnumerable<T> source, int? seed = null)
-		{
-			IEnumerable<T> sourceList = source.ToList();
-			if (sourceList.IsNullOrEmpty())
-			{
-				return default(T);
-			}
-
-			int num = sourceList.Count();
-			int index = new Random((seed.HasValue ? seed.GetValueOrDefault() + num : new int?()) ?? Environment.TickCount).Next(sourceList.Count());
-			return sourceList.ElementAt(index);
-		}
-
-		/// <summary>
 		///     Removes null values from the collection
 		/// </summary>
 		/// <typeparam name="T">Object type</typeparam>
 		/// <param name="source">Source Enumerable</param>
 		/// <returns></returns>
-		public static IEnumerable<T> RemoveNull<T>(this IEnumerable<T> source)
+		public static IEnumerable<T> RemoveNulls<T>(this IEnumerable<T> source)
 		{
 			// yield return is faster than LINQ's .Where()
 			foreach (var item in source)
@@ -199,19 +212,6 @@ namespace MyLibrary.Core.Extensions
 
 				yield return item;
 			}
-		}
-
-		/// <summary>
-		///     Returns an empty enumerable if null, otherwise returns the enumerable.
-		///     <example>
-		///         <code>var something = Model.SomeNullEnumerable;
-		/// IEnumerable&lt;int&gt; source = something.Safe();
-		/// </code>
-		///     </example>
-		/// </summary>
-		public static IEnumerable<T> Safe<T>(this IEnumerable<T> source)
-		{
-			return source ?? Enumerable.Empty<T>();
 		}
 
 		/// <summary>

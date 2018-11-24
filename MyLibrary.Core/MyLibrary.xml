@@ -356,6 +356,25 @@
             <param name="keySelector">The comparison key selector.</param>
             <param name="comparer">A optional comparer to compare the key items.</param>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.GetRandomItem``1(System.Collections.Generic.IEnumerable{``0},System.Nullable{System.Int32})">
+            <summary>
+                Pics a random element from <paramref name="source" />. If the enumerable is null or empty, default(T) is returned.
+            </summary>
+            <typeparam name="T">Type of elements in <paramref name="source" /></typeparam>
+            <param name="source">The source sequence.</param>
+            <param name="seed">Optional random seed</param>
+            <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.GetSafeVersion``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Returns an empty enumerable if null, otherwise returns the enumerable.
+                <example>
+                    <code>var something = Model.SomeNullEnumerable;
+            IEnumerable&lt;int&gt; source = something.GetSafeVersion();
+            </code>
+                </example>
+            </summary>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)">
             <summary>
                 [Obsolete] Returns whether the enumerable has any elements that match the object.
@@ -405,32 +424,13 @@
             <param name="separator"></param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Random``1(System.Collections.Generic.IEnumerable{``0},System.Nullable{System.Int32})">
-            <summary>
-                Pics a random element from <paramref name="source" />. If the enumerable is null or empty, default(T) is returned.
-            </summary>
-            <typeparam name="T">Type of elements in <paramref name="source" /></typeparam>
-            <param name="source">The source sequence.</param>
-            <param name="seed">Optional random seed</param>
-            <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.RemoveNull``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.RemoveNulls``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
                 Removes null values from the collection
             </summary>
             <typeparam name="T">Object type</typeparam>
             <param name="source">Source Enumerable</param>
             <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-                Returns an empty enumerable if null, otherwise returns the enumerable.
-                <example>
-                    <code>var something = Model.SomeNullEnumerable;
-            IEnumerable&lt;int&gt; source = something.Safe();
-            </code>
-                </example>
-            </summary>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
