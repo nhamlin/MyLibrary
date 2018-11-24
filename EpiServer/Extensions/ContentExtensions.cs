@@ -144,7 +144,7 @@ namespace EpiServer.Extensions
 		{
 			if (contentArea.HasContent())
 			{
-				return contentArea.FilteredItems.Select(item => item.GetContent() as T).RemoveNull();
+				return contentArea.FilteredItems.Select(item => item.GetContent() as T).RemoveNulls();
 			}
 
 			return Enumerable.Empty<T>();
