@@ -513,6 +513,23 @@
                 Extension methods for JSON objects
             </summary>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.JsonExtensions.ToJson(System.Object,Newtonsoft.Json.Formatting)">
+            <summary>
+            Converts any object into a JSON-formatted string
+            </summary>
+            <param name="source">Object to be converted</param>
+            <param name="formatting">Optional <see cref="T:Newtonsoft.Json.Formatting"/></param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.JsonExtensions.FromJson``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Deserializes a JSON string (with optional settings) into a desired object type.
+            </summary>
+            <param name="source">JSON string</param>
+            <param name="settings">Optional serializer settings</param>
+            <typeparam name="T">Resulting object type</typeparam>
+            <returns></returns>
+        </member>
         <member name="T:MyLibrary.Core.Extensions.NumberExtensions">
             <summary>
                 Extension methods for numbers
