@@ -11,6 +11,7 @@
 using System.Data.Entity;
 using MyLibrary.EF.Context;
 using MyLibrary.EF.Models;
+using Blog = MyLibrary.EF.Context.Blog;
 
 namespace MyLibrary.EF.Controllers
 {

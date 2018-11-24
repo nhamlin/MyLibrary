@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using MyLibrary.EF.Context;
 
 //using Humanizer;
 //using MyLibrary.Core.Extensions;
@@ -29,6 +27,7 @@ namespace ConsoleApp
 			{
 				return 0;
 			}
+
 			// if factor <= 0.0 then it's right-aligned
 			// ex: origLength = 200, newLength = 400, factor = -1 => ans: 0
 			// ex: origLength = 400, newLength = 300, factor = -1 => num1 = -400, num2 = -200 => num2 = 400, num1 = 100 ans: 100
@@ -38,7 +37,7 @@ namespace ConsoleApp
 			double num1 = factor <= 0.0 ? origLength * factor : (origLength - newLength) * factor;
 			double num2 = Math.Abs(num1 + newLength);
 			num1 = Math.Abs(num1);
-			return (num1 > num2) ? (int)num2 : (int)num1;
+			return num1 > num2 ? (int)num2 : (int)num1;
 			//if (num1 > num2)
 			//{
 			//	return (int)num2;
@@ -49,20 +48,8 @@ namespace ConsoleApp
 
 		private static void Main()
 		{
-			using (var context = new SchoolEntities())
-			{
-				context.Departments.Add(new Department { Name = DepartmentNames.Economics });
-
-				context.SaveChanges();
-
-				var department = (from d in context.Departments
-				                  where d.Name == DepartmentNames.Economics
-				                  select d).FirstOrDefault();
-
-				Console.WriteLine($"DepartmentID: {department?.DepartmentID} Name: {department?.Name}");
-			}
-
 			#region Basic EF Example (BloggingContext.cs)
+
 			//using (var db = new BloggingContext())
 			//{
 			//	// Create and save a new Blog 
@@ -85,9 +72,11 @@ namespace ConsoleApp
 			//	}
 
 			//}
+
 			#endregion
 
 			#region GetStartingPoint
+
 			//uint o, n;
 			//o = 1000;
 			//n = 100;
@@ -105,9 +94,11 @@ namespace ConsoleApp
 			//Console.WriteLine("o:100, n:500, TL => " + GetStartingPoint(-500, -100, 0D));
 			//Console.WriteLine("o:100, n:500, TC => " + GetStartingPoint(-500, -100, 0.5D));
 			//Console.WriteLine("o:100, n:500, TR => " + GetStartingPoint(-500, -100, -1D)); 
+
 			#endregion
 
 			#region Hash vs List Find
+
 			//Random random = new Random();
 			//var tmp = new List<string>();
 			//var find = new List<string>();
@@ -151,9 +142,11 @@ namespace ConsoleApp
 			//watch.Stop();
 			//Console.WriteLine("List: " + watch.ElapsedMilliseconds + " ms elapsed.");
 			//Console.WriteLine("Count: " + whereIn2Count); 
+
 			#endregion
 
 			#region StringExtensions (Move to Unit Tests)
+
 			//string number = "27";
 			//string reallyLongString = "Some really, really, really long string to parse and truncate.";
 			//int[] integers = { 1, 1, 2, 3, 3, 6 };

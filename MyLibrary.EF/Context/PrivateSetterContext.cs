@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using MyLibrary.EF.Models;
 
 namespace MyLibrary.EF.Context
 {

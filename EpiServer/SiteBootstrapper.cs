@@ -12,6 +12,7 @@ namespace EpiServer
 {
 	public class SiteBootstrapper : Registry
 	{
+		// ReSharper disable once EmptyConstructor
 		public SiteBootstrapper()
 		{
 			// Add implementations here

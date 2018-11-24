@@ -8,17 +8,16 @@
 
 #endregion header
 
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLibrary.EF.Models
 {
 	public class User
 	{
+		public string DisplayName { get; set; }
 		public int UserId { get; set; }
+
 		[Index(IsUnique = true)]
 		public string Username { get; set; }
-
-		public string DisplayName { get; set; }
 	}
 }

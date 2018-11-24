@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace MyLibrary.EF.Context
+namespace MyLibrary.EF.Models
 {
 	public class SchoolEntities : DbContext
 	{
