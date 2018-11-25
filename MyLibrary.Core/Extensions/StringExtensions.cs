@@ -6,6 +6,7 @@ using System.Net.Security;
 using System.Text.RegularExpressions;
 using Humanizer;
 using log4net;
+using MyLibrary.Core.Helpers;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -71,20 +72,6 @@ namespace MyLibrary.Core.Extensions
 		public static string Encrypt(this string source, EncryptionPolicy encryptionPolicy)
 		{
 			throw new NotImplementedException();
-		}
-
-		/// <summary>
-		///     Returns a collection of characters that do not appear in both strings
-		/// </summary>
-		/// <param name="source">Primary string to compare</param>
-		/// <param name="other">Secondary string to compare</param>
-		/// <returns></returns>
-		public static char[] GetCharsNotFound(this string source, string other)
-		{
-			string longest = source.Length >= other.Length ? source : other;
-			string shortest = source.Length < other.Length ? source : other;
-
-			return longest.Except(shortest).ToArray();
 		}
 
 		/// <summary>
@@ -184,7 +171,6 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		/// 
 		/// </summary>
 		/// <param name="source"></param>
 		/// <param name="pattern"></param>
@@ -232,7 +218,39 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static string RemoveSubstring(this string source, string substring)
 		{
-			return source.Replace(substring, string.Empty);
+			return source.RemoveSubstring(false, substring);
+		}
+
+		/// <summary>
+		///     Returns a string minus any of the given substrings inside.
+		/// </summary>
+		/// <param name="source">Source string to extract</param>
+		/// <param name="excludeWhitespace">T/F whether to exclude whitespace from results</param>
+		/// <param name="paramStrings">Array of strings to remove from the source string</param>
+		/// <returns>A string containing all characters except that of the substrings sent in.</returns>
+		public static string RemoveSubstring(this string source, bool excludeWhitespace = false, params string[] paramStrings)
+		{
+			foreach (string subString in paramStrings)
+			{
+				source = source.Replace(subString, string.Empty);
+			}
+
+			if (excludeWhitespace)
+			{
+				source = Regex.Replace(source, @"\s", "");
+			}
+
+			return source;
+		}
+
+		/// <summary>
+		///     Replaces all diacritics in the source string with their romanized counterpart
+		/// </summary>
+		/// <param name="source">Source string</param>
+		/// <returns>Completely Romanized string</returns>
+		public static string ReplaceUnicode(this string source)
+		{
+			return Constants.Diacritics[source];
 		}
 
 		/// <summary>
@@ -352,13 +370,13 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Converts an array of characters to a safe string
+		/// Converts a string to a null-safe (non-null) string.
 		/// </summary>
-		/// <param name="source">Array of characters to convert</param>
-		/// <returns></returns>
-		public static string ToSafeString(this char[] source)
+		/// <param name="source">String to convert</param>
+		/// <returns>Null-safe string</returns>
+		public static string ToSafeString(this string source)
 		{
-			return source == null ? default(string) : new string(source);
+			return source ?? string.Empty;
 		}
 
 		/// <summary>
