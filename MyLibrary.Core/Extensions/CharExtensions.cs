@@ -80,51 +80,13 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///		Returns a string without any of the given substring inside
+		/// Replaces the character diacritic with its romanized counterpart string
 		/// </summary>
-		/// <param name="source">Source string to extract</param>
-		/// <param name="paramStrings">Array of strings to remove from the source string</param>
-		/// <returns></returns>
-		public static string AllExcept(this string source, params string[] paramStrings)
+		/// <param name="source">Source character</param>
+		/// <returns>Character represented in its romanized form</returns>
+		public static string ReplaceUnicode(this char source) 
 		{
-			foreach (string subString in paramStrings)
-			{
-				source = source.Replace(subString, string.Empty);
-			}
-
-			return source;
-		}
-
-		/// <summary>
-		///		Returns a string ending with the provided suffix, if it doesn't already end with it
-		/// </summary>
-		/// <param name="source">Source string</param>
-		/// <param name="suffix">Expected suffix</param>
-		/// <returns></returns>
-		public static string EndWith(this string source, string suffix)
-		{
-			return source.EndsWith(suffix) ? source : source + suffix;
-		}
-
-		/// <summary>
-		///		Returns a string beginning with the provided prefix, if it doesn't already begin with it
-		/// </summary>
-		/// <param name="source">Source string</param>
-		/// <param name="prefix">Expected prefix</param>
-		/// <returns></returns>
-		public static string BeginWith(this string source, string prefix)
-		{
-			return source.StartsWith(prefix) ? source : source + prefix;
-		}
-
-		/// <summary>
-		/// Replaces all diacritics in the source string with their romanized counterpart
-		/// </summary>
-		/// <param name="source">Source string</param>
-		/// <returns>Completely Romanized string</returns>
-		public static string ReplaceUnicode(this string source) 
-		{
-			return Constants.Diacritics[source];
+			return Constants.Diacritics[source.ToString()];
 		}
 	}
 }

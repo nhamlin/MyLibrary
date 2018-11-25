@@ -64,36 +64,12 @@
             <param name="c">Character to convert</param>
             <returns>Character as a string with an invariant culture</returns>
         </member>
-        <member name="M:MyLibrary.Core.Extensions.CharExtensions.AllExcept(System.String,System.String[])">
+        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ReplaceUnicode(System.Char)">
             <summary>
-            	Returns a string without any of the given substring inside
+            Replaces the character diacritic with its romanized counterpart string
             </summary>
-            <param name="source">Source string to extract</param>
-            <param name="paramStrings">Array of strings to remove from the source string</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.CharExtensions.EndWith(System.String,System.String)">
-            <summary>
-            	Returns a string ending with the provided suffix, if it doesn't already end with it
-            </summary>
-            <param name="source">Source string</param>
-            <param name="suffix">Expected suffix</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.CharExtensions.BeginWith(System.String,System.String)">
-            <summary>
-            	Returns a string beginning with the provided prefix, if it doesn't already begin with it
-            </summary>
-            <param name="source">Source string</param>
-            <param name="prefix">Expected prefix</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.CharExtensions.ReplaceUnicode(System.String)">
-            <summary>
-            Replaces all diacritics in the source string with their romanized counterpart
-            </summary>
-            <param name="source">Source string</param>
-            <returns>Completely Romanized string</returns>
+            <param name="source">Source character</param>
+            <returns>Character represented in its romanized form</returns>
         </member>
         <member name="T:MyLibrary.Core.Extensions.ComparisonExtensions">
             <summary>
@@ -513,22 +489,24 @@
                 Extension methods for JSON objects
             </summary>
         </member>
-        <member name="M:MyLibrary.Core.Extensions.JsonExtensions.ToJson(System.Object,Newtonsoft.Json.Formatting)">
-            <summary>
-            Converts any object into a JSON-formatted string
-            </summary>
-            <param name="source">Object to be converted</param>
-            <param name="formatting">Optional <see cref="T:Newtonsoft.Json.Formatting"/></param>
-            <returns><see cref="T:System.String"/></returns>
-        </member>
         <member name="M:MyLibrary.Core.Extensions.JsonExtensions.FromJson``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
             <summary>
-            Deserializes a JSON string (with optional settings) into a desired object type.
+                Deserializes a JSON string (with optional settings) into a desired object type.
             </summary>
             <param name="source">JSON string</param>
             <param name="settings">Optional serializer settings</param>
             <typeparam name="T">Resulting object type</typeparam>
             <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.JsonExtensions.ToJson(System.Object,Newtonsoft.Json.Formatting)">
+            <summary>
+                Converts any object into a JSON-formatted string
+            </summary>
+            <param name="source">Object to be converted</param>
+            <param name="formatting">Optional <see cref="T:Newtonsoft.Json.Formatting" /></param>
+            <returns>
+                <see cref="T:System.String" />
+            </returns>
         </member>
         <member name="T:MyLibrary.Core.Extensions.NumberExtensions">
             <summary>
@@ -741,6 +719,14 @@
             <param name="suffix">String to append at the end</param>
             <returns>String</returns>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.AllExcept(System.String,System.String[])">
+            <summary>
+                Returns a string without any of the given substring inside
+            </summary>
+            <param name="source">Source string to extract</param>
+            <param name="paramStrings">Array of strings to remove from the source string</param>
+            <returns></returns>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
             <summary>
                 Encrypts the string based on the provided <see cref="T:System.Net.Security.EncryptionPolicy" />
@@ -830,7 +816,6 @@
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.Matches(System.String,System.String)">
             <summary>
-            
             </summary>
             <param name="source"></param>
             <param name="pattern"></param>
@@ -871,6 +856,13 @@
             </summary>
             <param name="source">String to reverse</param>
             <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ReplaceUnicode(System.String)">
+            <summary>
+            Replaces all diacritics in the source string with their romanized counterpart
+            </summary>
+            <param name="source">Source string</param>
+            <returns>Completely Romanized string</returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.SplitPascalCase(System.String)">
             <summary>
