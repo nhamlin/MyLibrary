@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using log4net;
 using MyLibrary.Models;
 
 namespace MyLibrary.Core.Helpers
@@ -9,6 +10,8 @@ namespace MyLibrary.Core.Helpers
 	/// </summary>
 	public static class AddressHelper
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(AddressHelper));
+
 		/// <summary>
 		///     Formats an address into a string
 		/// </summary>

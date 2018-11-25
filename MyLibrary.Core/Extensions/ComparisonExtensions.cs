@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -8,6 +9,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class ComparisonExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(ComparisonExtensions));
+
 		/// <summary>
 		///     Determines if an object can be found inside a generic list
 		///     Replaces: if (someString == "string1" || someString == "string2" || someString == "string3")

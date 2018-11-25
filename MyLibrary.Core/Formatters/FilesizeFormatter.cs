@@ -8,6 +8,8 @@
 
 #endregion header
 
+using log4net;
+
 namespace MyLibrary.Core.Formatters
 {
 	/// <summary>
@@ -15,6 +17,8 @@ namespace MyLibrary.Core.Formatters
 	/// </summary>
 	public static class FilesizeFormatter
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(FilesizeFormatter));
+
 		/// <summary>
 		/// Returns the filesize in a human-readable string
 		/// </summary>

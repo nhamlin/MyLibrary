@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using log4net;
 
 namespace MyLibrary.Core.Helpers
 {
@@ -10,6 +11,8 @@ namespace MyLibrary.Core.Helpers
 	/// <typeparam name="T"></typeparam>
 	public static class EnumHelper<T>
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(EnumHelper<T>));
+
 		/// <summary>
 		/// Retrieves the description listed in an enum's attribute
 		/// </summary>

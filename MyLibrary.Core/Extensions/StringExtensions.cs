@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Security;
 using System.Text.RegularExpressions;
 using Humanizer;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -13,6 +14,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class StringExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(StringExtensions));
+
 		/// <summary>
 		///     Appends a string to the beginning of another string
 		/// </summary>

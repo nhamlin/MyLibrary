@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
+using log4net;
 using MyLibrary.Core.Helpers;
 
 namespace MyLibrary.Core.Extensions
@@ -11,6 +12,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class CharExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(CharExtensions));
+
 		/// <summary>
 		///     Converts the Unicode value of this character to its equivalent 4-character hexadecimal string representation
 		/// </summary>

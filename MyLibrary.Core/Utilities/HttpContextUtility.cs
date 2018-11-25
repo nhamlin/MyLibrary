@@ -14,6 +14,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using log4net;
 
 namespace MyLibrary.Core.Utilities
 {
@@ -22,6 +23,8 @@ namespace MyLibrary.Core.Utilities
 	/// </summary>
 	public static class HttpContextUtility
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(HttpContextUtility));
+
 		/// <summary>
 		///     Removes the specified action url from the output cache.
 		/// </summary>

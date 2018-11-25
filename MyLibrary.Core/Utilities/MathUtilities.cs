@@ -8,6 +8,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using log4net;
 
 namespace MyLibrary.Core.Utilities
 {
@@ -16,6 +17,7 @@ namespace MyLibrary.Core.Utilities
 	/// </summary>
 	public static class MathUtilities
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(MathUtilities));
 
 		/// <summary>
 		///     Returns the maximum value in a sequence

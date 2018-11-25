@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Reflection;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -14,6 +15,8 @@ namespace MyLibrary.Core.Extensions
 	/// Use CustomAttributeData to find out information on custom attributes or to review attributes without having to create more instances.
 public static class ReflectionExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(ReflectionExtensions));
+
 		/// <summary>
 		/// Changes the type of an object to another type ignoring culture
 		/// </summary>

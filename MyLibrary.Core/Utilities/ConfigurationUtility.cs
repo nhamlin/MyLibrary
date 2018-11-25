@@ -10,7 +10,6 @@
 
 using System;
 using System.Configuration;
-using System.Reflection;
 using log4net;
 
 namespace MyLibrary.Core.Utilities
@@ -20,7 +19,7 @@ namespace MyLibrary.Core.Utilities
 	/// </summary>
 	public class ConfigurationUtility
 	{
-		private static readonly ILog _logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(ConfigurationUtility));
 
 		/// <summary>
 		///     Tries to read an appsetting strongly typed by using

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -9,6 +10,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class DictionaryExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(DictionaryExtensions));
+
 		/// <summary>
 		///     Returns the key of the highest value in a dictionary.
 		/// </summary>

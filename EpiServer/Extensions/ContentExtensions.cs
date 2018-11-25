@@ -8,6 +8,7 @@ using EPiServer.Core.Internal;
 using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using log4net;
 using MyLibrary.Core.Extensions;
 
 namespace EpiServer.Extensions
@@ -17,7 +18,8 @@ namespace EpiServer.Extensions
 	/// </summary>
 	public static class ContentExtensions
 	{
-		private static IContentRepository _repo;		
+		private static IContentRepository _repo;
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(ContentExtensions));
 
 		/// <summary>
 		///     Filters content for the current visitor/user according to publish status and page access

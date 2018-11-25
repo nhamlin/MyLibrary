@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -8,6 +9,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class DataReaderExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(DataReaderExtensions));
+
 		/// <summary>
 		/// Gets the value of a column from a <see cref="IDataReader"/>
 		/// </summary>

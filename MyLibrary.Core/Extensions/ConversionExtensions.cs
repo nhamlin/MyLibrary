@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Security.Cryptography;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -9,6 +10,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class ConversionExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(ConversionExtensions));
+
 		/// <summary>
 		///     Converts one type to another
 		/// </summary>

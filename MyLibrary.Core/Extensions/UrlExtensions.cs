@@ -9,6 +9,7 @@
 using System;
 using System.Text;
 using System.Web;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -17,6 +18,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class UrlExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(UrlExtensions));
+
 		/// <summary>
 		/// Returns whether the url is null or empty
 		/// </summary>

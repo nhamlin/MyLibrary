@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -7,6 +8,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class BufferExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(BufferExtensions));
+
 		/// <summary>
 		///     Converts a byte array to a string, using its byte order mark to convert it to the right encoding.
 		///     http://www.shrinkrays.net/code-snippets/csharp/an-extension-method-for-converting-a-byte-array-to-a-string.aspx

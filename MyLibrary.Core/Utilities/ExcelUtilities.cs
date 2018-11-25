@@ -12,6 +12,7 @@ using System;
 using System.Data;
 using System.IO;
 using ExcelDataReader;
+using log4net;
 
 namespace MyLibrary.Core.Utilities
 {
@@ -20,6 +21,8 @@ namespace MyLibrary.Core.Utilities
 	/// </summary>
 	public abstract class ExcelUtilities<T> //: BaseFileUtility<T>
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(ExcelUtilities<T>));
+
 		private string _excelWorksheetName;
 		private DataRowCollection _rows;
 
@@ -31,6 +34,16 @@ namespace MyLibrary.Core.Utilities
 		{
 			_rows = rows;
 			_excelWorksheetName = string.Empty;
+		}
+
+		private DataRowCollection GetDataRowCollectionFromDataSet(DataSet result)
+		{
+			if (!string.IsNullOrWhiteSpace(_excelWorksheetName))
+			{
+				return result.Tables[_excelWorksheetName].Rows;
+			}
+
+			return result.Tables[0].Rows;
 		}
 
 		/// <summary>
@@ -70,16 +83,6 @@ namespace MyLibrary.Core.Utilities
 			_rows.InsertAt(_rows[0].Table.NewRow(), 0);
 
 			return result;
-		}
-
-		private DataRowCollection GetDataRowCollectionFromDataSet(DataSet result)
-		{
-			if (!string.IsNullOrWhiteSpace(_excelWorksheetName))
-			{
-				return result.Tables[_excelWorksheetName].Rows;
-			}
-
-			return result.Tables[0].Rows;
 		}
 	}
 }

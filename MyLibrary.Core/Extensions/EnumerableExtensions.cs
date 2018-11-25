@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -10,6 +11,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class EnumerableExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(EnumerableExtensions));
+
 		/// <summary>
 		///     Appends multiple elements to the given sequence.
 		/// </summary>

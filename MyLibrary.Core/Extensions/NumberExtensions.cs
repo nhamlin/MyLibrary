@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net;
 
 // ReSharper disable PossibleMultipleEnumeration
 
@@ -11,6 +12,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class NumberExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(NumberExtensions));
+
 		/// <summary>
 		///     Checks if the value is in given range
 		/// </summary>

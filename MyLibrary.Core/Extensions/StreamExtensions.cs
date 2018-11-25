@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using log4net;
 
 namespace MyLibrary.Core.Extensions
 {
@@ -7,6 +8,8 @@ namespace MyLibrary.Core.Extensions
 	/// </summary>
 	public static class StreamExtensions
 	{
+		private static readonly ILog _logger = LogManager.GetLogger(typeof(StreamExtensions));
+
 		/// <summary>Copies bytes from one stream to another</summary>
 		/// <param name="source">The input stream</param>
 		/// <param name="destination">The output stream</param>
