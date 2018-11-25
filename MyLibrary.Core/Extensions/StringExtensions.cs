@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Security;
+using System.Text;
 using System.Text.RegularExpressions;
 using Humanizer;
 using log4net;
@@ -250,7 +251,29 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>Completely Romanized string</returns>
 		public static string ReplaceUnicode(this string source)
 		{
-			return Constants.Diacritics[source];
+			StringBuilder result = new StringBuilder();
+			try
+			{
+
+				foreach (char character in source)
+				{
+					if (character > 127)
+					{
+						result.Append(Constants.Diacritics[character.ToString()]);
+					}
+					else
+					{
+						result.Append(character);
+					}
+				}
+
+			}
+			catch (Exception ex)
+			{
+				_logger.Error($"There was a problem converting {source} into its romanized form. Perhaps a diacritic is missing?", ex);
+			}
+
+			return result.ToString();
 		}
 
 		/// <summary>
