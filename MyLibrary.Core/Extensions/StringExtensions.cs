@@ -329,9 +329,9 @@ namespace MyLibrary.Core.Extensions
 				return source;
 			}
 
-			return Regex.Replace(source, "(_)", " $1", RegexOptions.Compiled).Trim();
+			return Regex.Replace(source, "_(.)", " $1", RegexOptions.Compiled).Trim();
 		}
-
+		
 		/// <summary>
 		///     Converts a string into pascal case (UpperCamelCase) with an invariant culture
 		/// </summary>
@@ -430,6 +430,21 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
+		///     Returns a formatted string, or a default value if the string is null
+		/// </summary>
+		/// <typeparam name="T">Generic type</typeparam>
+		/// <param name="source">String to display</param>
+		/// <param name="format">Format of the string</param>
+		/// <param name="culture">Culture of the string</param>
+		/// <param name="defaultValue">String to display if the source string is null</param>
+		/// <returns></returns>
+		public static string ToStringOrDefault<T>(this T? source, string format, CultureInfo culture, string defaultValue)
+			where T : struct, IFormattable
+		{
+			return source.HasValue ? source.Value.ToString(format, culture) : defaultValue;
+		}
+
+		/// <summary>
 		///     Removes the first character from the string
 		/// </summary>
 		/// <param name="source">String to convert</param>
@@ -445,7 +460,7 @@ namespace MyLibrary.Core.Extensions
 		/// <param name="source">String to convert</param>
 		/// <param name="numberOfChars">Number of characters to remove</param>
 		/// <returns></returns>
-		public static string TruncateFromLeft(this string source, int numberOfChars)
+		public static string GetFromEnd(this string source, int numberOfChars)
 		{
 			return source.Truncate(numberOfChars, null, Truncator.FixedLength, TruncateFrom.Left);
 		}
@@ -456,7 +471,7 @@ namespace MyLibrary.Core.Extensions
 		/// <param name="source">String to convert</param>
 		/// <param name="numberOfChars">Number of characters to remove</param>
 		/// <returns></returns>
-		public static string TruncateFromRight(this string source, int numberOfChars)
+		public static string GetFromBeginning(this string source, int numberOfChars)
 		{
 			return source.Truncate(numberOfChars, null, Truncator.FixedLength, TruncateFrom.Right);
 		}

@@ -56,6 +56,26 @@ string result = source.Encrypt(EncryptionPolicy.RequireEncryption);
 _`{some string}`_
 
 ---
+#### GetFromEnd(int) : string
+Removes a number of characters from the beginning of a string.
+
+```csharp
+string result = source.GetFromEnd(3);
+```
+**Output:**  
+_`ng.`_
+
+---
+#### GetFromBeginning(int) : string
+Removes a number of characters from the end of a string.
+
+```csharp
+string result = source.GetFromBeginning(3);
+```
+**Output:**  
+_`Thi`_
+
+---
 #### HasValue() : bool
 Returns whether the string is not null or only white space.
 
@@ -256,91 +276,105 @@ _`This Is My String`_
 Splits the string by underscores.
 
 ```csharp
-
+string example = "This_is_a_string_with_underscores.";
+string result = example.SplitUnderlines();
 ```
-**Output:** _`s`_
+**Output:**  
+_`This is a string with underscores.`_
 
 ---
 #### ToPascalCase() : string
 Converts a string to Pascal Case (UpperCamelCase) with an invariant culture.
 
 ```csharp
-
+string result = source.ToPascalCase();
 ```
-**Output:** _`s`_
+**Output:**  
+_`ThisIsMyString.`_
 
 ---
 #### ToPascalCase(CultureInfo) : string
 Converts a string to Pascal Case (UpperCamelCase) using a specific culture.
 
 ```csharp
-
+string result = source.ToPascalCase(new CultureInfo("tr-TR"));
 ```
-**Output:** _`s`_
+**Output:**  
+_`ThisIsMyString.`_
 
 ---
 #### ToPascalCase(bool, CultureInfo) : string
 Converts a string to Pascal Case (UpperCamelCase) using a specific culture with the option to remove underscores.
 
 ```csharp
-
+string example = "This_is_my_string.";
+string result = example.ToPascalCase(true, new CultureInfo("es-ES"));_
 ```
-**Output:** _`s`_
+**Output:**  
+_`ThisIsMyString.`_
 
 ---
 #### ToSafeString() : string
 Converts a string to a null-safe string.
 
 ```csharp
-
+string example = null;
+string result = example.ToSafeString();
 ```
-**Output:** _`s`_
+**Output:**  
+_` `_
 
 ---
 #### ToStringOrDefault&lt;T&gt;(string) : string
 Returns a string, or a default value if the string is null.
 
 ```csharp
-
+int? example = null;
+string result = example.ToStringOrDefault("Default Value");
 ```
-**Output:** _`s`_
+**Output:**  
+_`Default Value`_
 
 ---
 #### ToStringOrDefault&lt;T&gt;(string, string) : string
-Returns a formatted string, or a default value if the string is null.
+Returns a formatted string in an invariant culture, or a default value if the string is null.
 
 ```csharp
-
+int? example = null;
+string result = example.ToStringOrDefault("N1", "Default");
 ```
-**Output:** _`s`_
+**Output:**  
+_`Default`_
+
+---
+#### ToStringOrDefault&lt;T&gt;(string, CultureInfo, string) : string
+Returns a formatted string using a specific culture, or a default value if the string is null.
+
+```csharp
+int? example = 1234;
+string result = example.ToStringOrDefault("N1", "ru-RU", "Default");
+```
+**Output:**  
+_`1 234,0`_
 
 ---
 #### TruncateFirstChar() : string
 Removes the first character of the string.
 
 ```csharp
-
+string result = source.TruncateFirstChar();
 ```
-**Output:** _`s`_
-
----
-#### TruncateFromLeft(int) : string
-Removes a number of characters from the beginning of a string.
-
-```csharp
-
-```
-**Output:** _`s`_
-
----
-#### TruncateFromRight(int) : string
-Removes a number of characters from the end of a string.
-
-```csharp
-
-```
-**Output:** _`s`_
+**Output:**  
+_`his is my string.`_
 
 ---
 #### TruncateLastChar() : string
 Removes the last character of a string.
+
+```csharp
+string result = source.TruncateLastChar();
+```
+**Output:**  
+_This is my string_
+
+---

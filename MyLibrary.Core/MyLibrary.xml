@@ -951,6 +951,17 @@
             <param name="defaultValue">String to display if the source string is null</param>
             <returns></returns>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToStringOrDefault``1(System.Nullable{``0},System.String,System.Globalization.CultureInfo,System.String)">
+            <summary>
+                Returns a formatted string, or a default value if the string is null
+            </summary>
+            <typeparam name="T">Generic type</typeparam>
+            <param name="source">String to display</param>
+            <param name="format">Format of the string</param>
+            <param name="culture">Culture of the string</param>
+            <param name="defaultValue">String to display if the source string is null</param>
+            <returns></returns>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateFirstChar(System.String)">
             <summary>
                 Removes the first character from the string
@@ -958,7 +969,7 @@
             <param name="source">String to convert</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateFromLeft(System.String,System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetFromEnd(System.String,System.Int32)">
             <summary>
                 Removes a number of characters from the beginning of the string
             </summary>
@@ -966,7 +977,7 @@
             <param name="numberOfChars">Number of characters to remove</param>
             <returns></returns>
         </member>
-        <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateFromRight(System.String,System.Int32)">
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetFromBeginning(System.String,System.Int32)">
             <summary>
                 Removes a number of characters from the end of the string
             </summary>
