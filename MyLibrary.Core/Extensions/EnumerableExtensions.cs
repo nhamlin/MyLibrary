@@ -46,7 +46,7 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Returns whether the enumerable has any elements that match the LINQ qualifier.
+		///     Returns whether the sequence has any elements that match the LINQ qualifier.
 		/// </summary>
 		/// <example>intList.Contains(i =&gt; i == 2); // false</example>
 		/// <typeparam name="TSource">Object type</typeparam>
@@ -59,7 +59,7 @@ namespace MyLibrary.Core.Extensions
 		}
 
 		/// <summary>
-		///     Returns whether the enumerable has any elements that match the object.
+		///     Returns whether the sequence has any elements that match the object.
 		/// </summary>
 		/// <example>intList.Contains("something"); // false</example>
 		/// <typeparam name="TSource">Object type</typeparam>
