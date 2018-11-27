@@ -118,6 +118,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Extensions\EnumerableExtensions.md" />
     <None Include="Extensions\StringExtension.md" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
