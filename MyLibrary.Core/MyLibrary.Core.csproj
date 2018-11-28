@@ -118,8 +118,21 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Extensions\DateTimeExtensions.md" />
+    <None Include="Extensions\UrlExtensions.md" />
+    <None Include="Extensions\StreamExtensions.md" />
+    <None Include="Extensions\ReflectionExtensions.md" />
+    <None Include="Extensions\NumberExtensions.md" />
+    <None Include="Extensions\JsonExtensions.md" />
+    <None Include="Extensions\EnumExtensions.md" />
+    <None Include="Extensions\DictionaryExtensions.md" />
+    <None Include="Extensions\DateReaderExtensions.md" />
+    <None Include="Extensions\ConversionExtensions.md" />
+    <None Include="Extensions\ComparisonExtensions.md" />
+    <None Include="Extensions\CharExtensions.md" />
+    <None Include="Extensions\BufferExtensions.md" />
     <None Include="Extensions\EnumerableExtensions.md" />
-    <None Include="Extensions\StringExtension.md" />
+    <None Include="Extensions\StringExtensions.md" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

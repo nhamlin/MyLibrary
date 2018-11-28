@@ -13,6 +13,8 @@
             <summary>
                 Converts a byte array to a string, using its byte order mark to convert it to the right encoding.
                 http://www.shrinkrays.net/code-snippets/csharp/an-extension-method-for-converting-a-byte-array-to-a-string.aspx
+            https://weblog.west-wind.com/posts/2007/Nov/28/Detecting-Text-Encoding-for-StreamReader
+            http://www.anotherchris.net/csharp/an-extension-method-for-converting-a-byte-array-to-a-string-reading-its-bom/
             </summary>
             <param name="source">An array of bytes to convert</param>
             <returns>The byte as a string.</returns>
@@ -320,7 +322,7 @@
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
             <summary>
-                Returns whether the enumerable has any elements that match the LINQ qualifier.
+                Returns whether the sequence has any elements that match the LINQ qualifier.
             </summary>
             <example>intList.Contains(i =&gt; i == 2); // false</example>
             <typeparam name="TSource">Object type</typeparam>
@@ -330,7 +332,7 @@
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0)">
             <summary>
-                Returns whether the enumerable has any elements that match the object.
+                Returns whether the sequence has any elements that match the object.
             </summary>
             <example>intList.Contains("something"); // false</example>
             <typeparam name="TSource">Object type</typeparam>
