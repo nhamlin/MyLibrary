@@ -747,6 +747,22 @@
             </param>
             <returns></returns>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetFromBeginning(System.String,System.Int32)">
+            <summary>
+                Removes a number of characters from the end of the string
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="numberOfChars">Number of characters to remove</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetFromEnd(System.String,System.Int32)">
+            <summary>
+                Removes a number of characters from the beginning of the string
+            </summary>
+            <param name="source">String to convert</param>
+            <param name="numberOfChars">Number of characters to remove</param>
+            <returns></returns>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.HasValue(System.String)">
             <summary>
                 Returns whether the string is not empty
@@ -929,7 +945,7 @@
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.ToSafeString(System.String)">
             <summary>
-            Converts a string to a null-safe (non-null) string.
+                Converts a string to a null-safe (non-null) string.
             </summary>
             <param name="source">String to convert</param>
             <returns>Null-safe string</returns>
@@ -969,22 +985,6 @@
                 Removes the first character from the string
             </summary>
             <param name="source">String to convert</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetFromEnd(System.String,System.Int32)">
-            <summary>
-                Removes a number of characters from the beginning of the string
-            </summary>
-            <param name="source">String to convert</param>
-            <param name="numberOfChars">Number of characters to remove</param>
-            <returns></returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.StringExtensions.GetFromBeginning(System.String,System.Int32)">
-            <summary>
-                Removes a number of characters from the end of the string
-            </summary>
-            <param name="source">String to convert</param>
-            <param name="numberOfChars">Number of characters to remove</param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.TruncateLastChar(System.String)">

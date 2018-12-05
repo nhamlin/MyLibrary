@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using log4net;
 using MyLibrary.Core.Helpers;
@@ -24,9 +25,9 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static char[] RemoveChars(this char[] source, bool excludeWhitespace = false, params char[] paramChars)
 		{
-			source = source.Except(paramChars).ToArray();
+		    source = Regex.Replace(source.ToString(""), $"[{paramChars.ToString("")}]", "").ToCharArray();
 
-			if (excludeWhitespace)
+            if (excludeWhitespace)
 			{
 				source = Regex.Replace(source.ToString(""), @"\s", "").ToCharArray();
 			}
@@ -41,7 +42,16 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>Character represented in its romanized form</returns>
 		public static string ReplaceUnicode(this char source)
 		{
-			return Constants.Diacritics[source.ToString()];
+		    try
+		    {
+		        return source > 127 ? Constants.Diacritics[source.ToString()] : source.ToString();
+		    }
+		    catch (Exception ex)
+		    {
+		        _logger.Error($"There was a problem converting '{source}' into its romanized form. Perhaps the diacritic is missing?", ex);
+		    }
+
+		    return string.Empty;
 		}
 
 		/// <summary>
