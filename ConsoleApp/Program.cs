@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Net.Security;
+using System.Text;
+using Humanizer;
+using MyLibrary.Core.Extensions;
 
 //using Humanizer;
 //using MyLibrary.Core.Extensions;
@@ -37,17 +43,18 @@ namespace ConsoleApp
 			double num1 = factor <= 0.0 ? origLength * factor : (origLength - newLength) * factor;
 			double num2 = Math.Abs(num1 + newLength);
 			num1 = Math.Abs(num1);
-			return num1 > num2 ? (int)num2 : (int)num1;
+			return num1 > num2 ? (int)num2 : (int)num1;  
 			//if (num1 > num2)
 			//{
 			//	return (int)num2;
-			//}
+			//} 
 
-			//return (int)num1;
+			//return (int)num1; 
 		}
-
+		
 		private static void Main()
 		{
+			Console.OutputEncoding = Encoding.UTF8;
 			#region Basic EF Example (BloggingContext.cs)
 
 			//using (var db = new BloggingContext())
@@ -168,9 +175,18 @@ namespace ConsoleApp
 
 			#endregion
 
+		    //byte[] source = Encoding.ASCII.GetBytes("My string");
+            string[] arrayString = new[] { "yeh		I think it might work!", "will my string work" } ;
+		    char[] source = "This is a character array.".ToCharArray();
+			string oneString = "This is my string and it's fairly long so that I can test various extensions.";
+			string nullString = null;
 
-			Console.WriteLine("Done. Press the any key to exit...");
-			Console.ReadKey(true);
+		    char example = 'ç';
+		    char result = example.ToUpperInvariant();
+
+            Console.WriteLine(result);
+		    Console.WriteLine("Done. Press the any key to exit..."); 
+			Console.ReadKey(true);  
 		}
 	}
 }
