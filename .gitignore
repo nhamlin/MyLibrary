@@ -264,3 +264,6 @@ __pycache__/
 *.cd
 GeoLiteCity.dat
 *.zip
+*.lock
+MyLibrary.Umbraco/App_Data/TEMP/
+MyLibrary.Umbraco/App_Data/Logs/
