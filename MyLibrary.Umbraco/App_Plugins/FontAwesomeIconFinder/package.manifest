@@ -1,0 +1,22 @@
+﻿{
+    "propertyEditors": [
+        {
+            "alias": "fontAwesomeIconFinder",
+            "name": "Font Awesome Icon Finder",
+            "hideLabel": false,
+            "valueType": "JSON",
+            "editor": {
+                "view": "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.html"
+            }
+        }
+    ],
+  "javascript": [
+    "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.node.js",
+    "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.manager.js",
+    "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.trie.js",
+    "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.controller.js"
+  ],
+    "css":[
+        "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.css"
+    ]
+}

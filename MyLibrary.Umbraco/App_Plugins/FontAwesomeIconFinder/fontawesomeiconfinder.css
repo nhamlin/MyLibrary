@@ -1,0 +1,42 @@
+﻿.result {
+    height: 30rem;
+    overflow-y: scroll;
+}
+
+.result > span:hover {
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+.result > svg {
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* IE Only Hack */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .result > svg {
+        width: 5rem;
+    }
+}
+
+    .selected,
+    .result > svg:hover {
+        background-color: lightgrey;
+    }
+
+.hidden {
+    display: none;
+}
+
+.iconSearch {
+    display: inline-block;
+}
+
+.selectedLabel {
+    display: inline-block;
+    padding-left: 1rem;
+    font-weight: bold;
+}
