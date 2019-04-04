@@ -202,6 +202,13 @@
                 Extension methods for <see cref="T:System.DateTime" />
             </summary>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.EndOfDay(System.DateTime)">
+            <summary>
+                Returns the last minute of the day (23:59:59)
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.IsWeekday(System.DateTime)">
             <summary>
                 Determines whether the date falls on Monday-Friday
@@ -222,14 +229,6 @@
             </summary>
             <param name="source"><see cref="T:System.DateTime" /> to check</param>
             <returns>true/false</returns>
-        </member>
-        <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.FirstMondayOfYear(System.Int32)">
-            <summary>
-                Returns a <see cref="T:System.DateTime" /> object for the first Monday of the year
-            </summary>
-            <example>DateTime mnd = DateExtensions.FirstMondayOfYear(2017);</example>
-            <param name="year"></param>
-            <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.DateTimeExtensions.RangeUntil(System.DateTime,System.DateTime)">
             <summary>
@@ -1085,6 +1084,19 @@
             <summary>
             Dictionary of all possible diacritics and their romanized counterparts
             </summary>
+        </member>
+        <member name="T:MyLibrary.Core.Helpers.DateHelper">
+            <summary>
+            Helper methods for DateTime objects
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Helpers.DateHelper.FirstMondayOfYear(System.Int32)">
+            <summary>
+                Returns a <see cref="T:System.DateTime" /> object for the first Monday of the year
+            </summary>
+            <example>DateTime mnd = DateExtensions.FirstMondayOfYear(2017);</example>
+            <param name="year"></param>
+            <returns></returns>
         </member>
         <member name="T:MyLibrary.Core.Helpers.EnumHelper`1">
             <summary>

@@ -31,8 +31,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns>true/false</returns>
         public static bool IsWeekday(this DateTime source)
         {
+            return (source.DayOfWeek != DayOfWeek.Saturday && source.DayOfWeek != DayOfWeek.Sunday);
             // TODO: Add culture insensitivity (week starts on Monday)
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns>true/false</returns>
         public static bool IsWeekend(this DateTime source)
         {
+            return source.DayOfWeek == DayOfWeek.Saturday || source.DayOfWeek == DayOfWeek.Sunday;
             // TODO: Add culture insensitivity (week starts on Monday)
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -55,18 +55,6 @@ namespace MyLibrary.Core.Extensions
         {
             // TODO: Add culture insensitivity (different country's holidays)
             throw new NotImplementedException();
-        }
-
-        /// <summary>
-        ///     Returns a <see cref="DateTime" /> object for the first Monday of the year
-        /// </summary>
-        /// <example>DateTime mnd = DateExtensions.FirstMondayOfYear(2017);</example>
-        /// <param name="year"></param>
-        /// <returns></returns>
-        public static DateTime FirstMondayOfYear(int year)
-        {
-            DateTime firstDay = new DateTime(year, 1, 1);
-            return new DateTime(year, 1, (8 - (int)firstDay.DayOfWeek) % 7 + 1);
         }
 
         /// <summary>

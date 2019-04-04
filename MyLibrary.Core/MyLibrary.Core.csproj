@@ -103,6 +103,7 @@
     <Compile Include="Formatters\StringFormatter.cs" />
     <Compile Include="Helpers\AddressHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
