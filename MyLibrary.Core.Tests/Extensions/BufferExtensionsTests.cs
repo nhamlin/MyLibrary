@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MyLibrary.Core.Extensions;
 
 namespace MyLibrary.Core.MSTests
 {
@@ -8,12 +10,14 @@ namespace MyLibrary.Core.MSTests
 		[TestMethod()]
 		public void AsStringTest()
 		{
-			// Arrange 
+            // Arrange 
+		    byte[] source = Encoding.ASCII.GetBytes("My string");
 
-			// Act
+            // Act
+		    string result = source.AsString();
 
-			// Assert
-			Assert.IsTrue(true);
+            // Assert
+            Assert.IsTrue(result == "My string");
 		}
 	}
 }
