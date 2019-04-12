@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Reflection;
 using log4net;
@@ -25,7 +26,11 @@ public static class ReflectionExtensions
 		/// <returns></returns>
 		public static object ChangeType(this object source, Type newType)
 		{
-			return Convert.ChangeType(source, newType);
+            Contract.Requires<ArgumentNullException>(newType != null);
+            Contract.Requires<InvalidCastException>(source != null && !newType.IsValueType);
+            Contract.Requires<InvalidCastException>(!(source is IConvertible));
+
+            return Convert.ChangeType(source, newType);
 		}
 
 		/// <summary>
@@ -37,7 +42,11 @@ public static class ReflectionExtensions
 		/// <returns></returns>
 		public static object ChangeType(this object source, Type newType, CultureInfo culture)
 		{
-			return Convert.ChangeType(source, newType, culture);
+		    Contract.Requires<ArgumentNullException>(newType != null);
+		    Contract.Requires<InvalidCastException>(source != null && !newType.IsValueType);
+		    Contract.Requires<InvalidCastException>(!(source is IConvertible));
+
+            return Convert.ChangeType(source, newType, culture);
 		}
 
 		/// <summary>Get an attribute from a member</summary>
@@ -47,6 +56,7 @@ public static class ReflectionExtensions
 		public static T GetAttribute<T>(this MemberInfo source)
 			where T : Attribute
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return Attribute.GetCustomAttribute(source, typeof(T)) as T;
 		}
 
@@ -57,6 +67,7 @@ public static class ReflectionExtensions
 		public static T GetAttribute<T>(this Type source)
 			where T : Attribute
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return Attribute.GetCustomAttribute(source, typeof(T)) as T;
 		}
 	}

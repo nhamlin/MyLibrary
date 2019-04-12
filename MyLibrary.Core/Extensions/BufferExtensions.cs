@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Diagnostics.Contracts;
+using System.IO;
 using System.Text;
 using log4net;
 
@@ -21,8 +23,10 @@ namespace MyLibrary.Core.Extensions
         /// <returns>The byte as a string.</returns>
         public static string AsString(this byte[] source)
 		{
-		    if (source == null || source.Length == 0)
-		        return "";
+
+		    Contract.Requires<ArgumentNullException>(source != null);
+
+		    if (source.Length == 0) return string.Empty;
 
 		    // Ansi as default
 		    Encoding encoding = Encoding.Default;

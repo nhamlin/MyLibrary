@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using log4net;
 using Newtonsoft.Json;
 
@@ -21,11 +22,7 @@ namespace MyLibrary.Core.Extensions
 		public static T FromJson<T>(this string source, JsonSerializerSettings settings = null)
 			where T : class
 		{
-			if (source == null)
-			{
-				_logger.Warn("Tried deserializing a null object.");
-				return null;
-			}
+            Contract.Requires<ArgumentNullException>(source != null);
 
 			try
 			{
@@ -51,11 +48,7 @@ namespace MyLibrary.Core.Extensions
 		/// </returns>
 		public static string ToJson(this object source, Formatting formatting = Formatting.Indented)
 		{
-			if (source == null)
-			{
-				_logger.Warn("Tried serializing a null object.");
-				return string.Empty;
-			}
+            Contract.Requires<ArgumentNullException>(source != null);
 
 			try
 			{

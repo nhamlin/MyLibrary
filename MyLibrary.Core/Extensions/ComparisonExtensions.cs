@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using log4net;
 
 namespace MyLibrary.Core.Extensions
@@ -22,10 +23,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static bool IsIn<T>(this T source, params T[] list)
 		{
-			if (source == null)
-			{
-				throw new ArgumentNullException(nameof(source));
-			}
+            Contract.Requires<ArgumentNullException>(source != null);
 
 			return list.Contains(source);
 		}
@@ -46,10 +44,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static bool IsIn<T>(this T source, IEnumerable<T> list)
 		{
-			if (source == null)
-			{
-				throw new ArgumentNullException(nameof(source));
-			}
+            Contract.Requires<ArgumentNullException>(source != null);
 
 			return list.Contains(source);
 		}

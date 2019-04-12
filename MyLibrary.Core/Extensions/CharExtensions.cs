@@ -25,6 +25,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static char[] RemoveChars(this char[] source, bool excludeWhitespace = false, params char[] paramChars)
 		{
+		    Contract.Requires<ArgumentNullException>(paramChars != null);
+
 		    source = Regex.Replace(source.ToString(""), $"[{paramChars.ToString("")}]", "").ToCharArray();
 
             if (excludeWhitespace)

@@ -55,6 +55,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static bool Contains<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
 			return source.Any(predicate);
 		}
 
@@ -68,6 +70,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static bool Contains<TSource>(this IEnumerable<TSource> source, TSource predicate)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
 			var sourceHash = source.ToHashSet();
 			return sourceHash.Contains(predicate);
 		}
@@ -82,6 +86,8 @@ namespace MyLibrary.Core.Extensions
 		/// <param name="comparer">A optional comparer to compare the key items.</param>
 		public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector, IEqualityComparer<TKey> comparer = null)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(keySelector != null);
 			return source.GroupBy(keySelector, comparer).Select(g => g.First());
 		}
 
@@ -94,6 +100,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>A random <typeparamref name="T" /> from <paramref name="source" />, or default(T) if source is null or empty</returns>
 		public static T GetRandomItem<T>(this IEnumerable<T> source, int? seed = null)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			IEnumerable<T> sourceList = source.ToList();
 			if (sourceList.IsNullOrEmpty())
 			{
@@ -129,7 +136,9 @@ namespace MyLibrary.Core.Extensions
 		[Obsolete("Use .Contains<T> instead.")]
 		public static bool Has<TSource>(this IEnumerable<TSource> source, TSource predicate)
 		{
-			return source.Contains(predicate);
+		    Contract.Requires<ArgumentNullException>(source != null);
+		    Contract.Requires<ArgumentNullException>(predicate != null);
+            return source.Contains(predicate);
 		}
 
 		/// <summary>
@@ -143,6 +152,8 @@ namespace MyLibrary.Core.Extensions
 		[Obsolete("Use .Contains<T> instead.")]
 		public static bool Has<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
 			return source.Contains(predicate);
 		}
 
@@ -159,6 +170,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static bool IsEmpty<T>(this IEnumerable<T> source)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return !source.Any();
 		}
 
@@ -194,6 +206,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static string Join(this IEnumerable<string> source, string separator)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return string.Join(separator, source);
 		}
 
@@ -205,6 +218,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static IEnumerable<T> RemoveNulls<T>(this IEnumerable<T> source)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			// yield return is faster than LINQ's .Where()
 			foreach (var item in source)
 			{
@@ -225,6 +239,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return new HashSet<T>(source);
 		}
 
@@ -238,6 +253,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static string ToString<T>(this IEnumerable<T> source, string delimiter)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return string.Join(delimiter, source);
 		}
 
@@ -246,8 +262,7 @@ namespace MyLibrary.Core.Extensions
 		/// </summary>
 		public static IEnumerable<string> TrimEachElement(this IEnumerable<string> source)
 		{
-			//return source.Select(str => str.Trim());
-
+			Contract.Requires<ArgumentNullException>(source != null);
 			foreach (var item in source)
 			{
 				yield return item.Trim();
@@ -265,6 +280,9 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>The items of <paramref name="values" /> that exist in <paramref name="source" /></returns>
 		public static IEnumerable<T> WhereIn<T>(this IEnumerable<T> source, Func<T, T> predicate, IEnumerable<T> values)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
+            Contract.Requires<ArgumentNullException>(values != null);
 			return values.Where(v => predicate(v).IsIn(source));
 		}
 
@@ -277,6 +295,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>The items of <paramref name="values" /> that exist in <paramref name="source" /></returns>
 		public static IEnumerable<T> WhereIn<T>(this IEnumerable<T> source, IEnumerable<T> values)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(values != null);
 			var valueHash = values.ToHashSet();
 
 			foreach (var item in source)
@@ -299,6 +319,9 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>The items of <paramref name="values" /> that do not exist in <paramref name="source" /></returns>
 		public static IEnumerable<T> WhereNotIn<T>(this IEnumerable<T> source, Func<T, T> predicate, IEnumerable<T> values)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
+            Contract.Requires<ArgumentNullException>(values != null);
 			return values.Where(v => !predicate(v).IsIn(source));
 		}
 
@@ -311,6 +334,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>The items of <paramref name="values" /> that do not exist in <paramref name="source" /></returns>
 		public static IEnumerable<T> WhereNotIn<T>(this IEnumerable<T> source, IEnumerable<T> values)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(values != null);
 			var valueHash = values.ToHashSet();
 
 			foreach (var item in source)

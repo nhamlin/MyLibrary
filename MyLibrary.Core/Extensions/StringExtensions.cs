@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
 using System.Net.Security;
@@ -72,6 +73,7 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string Encrypt(this string source, EncryptionPolicy encryptionPolicy)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
             throw new NotImplementedException();
         }
 
@@ -114,6 +116,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string InitialLetterToLower(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentOutOfRangeException>(source.Length > 1);
             return char.ToLowerInvariant(source[0]) + source.Substring(1);
         }
 
@@ -125,6 +129,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string InitialLetterToLower(this string source, CultureInfo cultureInfo)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentOutOfRangeException>(source.Length > 1);
             return char.ToLower(source[0], cultureInfo) + source.Substring(1);
         }
 
@@ -135,6 +141,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string InitialLetterToUpper(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentOutOfRangeException>(source.Length > 1);
             return char.ToUpperInvariant(source[0]) + source.Substring(1);
         }
 
@@ -146,6 +154,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string InitialLetterToUpper(this string source, CultureInfo cultureInfo)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentOutOfRangeException>(source.Length > 1);
             return char.ToUpper(source[0], cultureInfo) + source.Substring(1);
         }
 
@@ -170,6 +180,7 @@ namespace MyLibrary.Core.Extensions
         /// <returns>True/False</returns>
         public static bool IsLowercase(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
             return Regex.IsMatch(source, "^[a-z]+$");
         }
 
@@ -190,6 +201,7 @@ namespace MyLibrary.Core.Extensions
         /// <returns>True/False</returns>
         public static bool IsUppercase(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
             return Regex.IsMatch(source, "^[A-Z]+$");
         }
 
@@ -200,6 +212,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static bool Matches(this string source, string pattern)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(pattern != null);
             return Regex.IsMatch(source, pattern);
         }
 
@@ -241,6 +255,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string RemoveSubstring(this string source, string substring)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(substring != null);
             return source.RemoveSubstring(false, substring);
         }
 
@@ -253,6 +269,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns>A string containing all characters except that of the substrings sent in.</returns>
         public static string RemoveSubstring(this string source, bool excludeWhitespace = false, params string[] paramStrings)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(paramStrings != null);
             foreach (string subString in paramStrings)
             {
                 source = source.Replace(subString, string.Empty);
@@ -273,6 +291,7 @@ namespace MyLibrary.Core.Extensions
         /// <returns>Completely Romanized string</returns>
         public static string ReplaceUnicode(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
             StringBuilder result = new StringBuilder();
             try
             {
@@ -359,6 +378,7 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string ToPascalCase(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
             return source.ToPascalCase(true, CultureInfo.InvariantCulture);
         }
 
@@ -370,6 +390,7 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string ToPascalCase(this string source, CultureInfo cultureInfo)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
             return source.ToPascalCase(true, cultureInfo);
         }
 
@@ -471,6 +492,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string TruncateFirstChar(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentOutOfRangeException>(source.Length > 1);
             return source.Substring(1);
         }
 
@@ -481,6 +504,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static string TruncateLastChar(this string source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentOutOfRangeException>(source.Length > 1);
             return source.Substring(0, source.Length - 1);
         }
     }

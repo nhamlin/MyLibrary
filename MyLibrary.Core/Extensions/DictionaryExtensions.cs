@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using log4net;
 
@@ -49,6 +50,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static TValue MaxValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
 		{
+            Contract.Requires<ArgumentNullException>(dictionary != null);
+
 			return dictionary.Values.Max();
 		}
 
@@ -60,6 +63,8 @@ namespace MyLibrary.Core.Extensions
 		/// <param name="target"></param>
 		public static void CopyTo<T>(this T[] source, T[] target)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
+
 			source.CopyTo(target, 0);
 		}
 	}

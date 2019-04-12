@@ -27,7 +27,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>True/False</returns>
 		public static bool IsNullOrEmpty(this Uri url)
 		{
-			return string.IsNullOrEmpty(url.AbsoluteUri);
+			return string.IsNullOrEmpty(url?.AbsoluteUri);
 		}
 
 		/// <summary>
@@ -37,9 +37,9 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static string UrlDecode(this string source)
 		{
-			if (source == null)
+			if (string.IsNullOrWhiteSpace(source))
 			{
-				throw new ArgumentNullException(nameof(source));
+				return string.Empty;
 			}
 
 			return HttpUtility.UrlDecode(source);
@@ -52,9 +52,9 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static string UrlEncode(this string source)
 		{
-			if (source == null)
+			if (string.IsNullOrWhiteSpace(source))
 			{
-				throw new ArgumentNullException(nameof(source));
+			    return string.Empty;
 			}
 
 			if (source.Length <= 32766)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using log4net;
 
@@ -21,6 +22,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static DateTime EndOfDay(this DateTime source)
         {
+            Contract.Requires<ArgumentNullException>(source != DateTime.MaxValue);
+
             return source.AddDays(1).AddSeconds(-1);
         }
 
@@ -76,6 +79,8 @@ namespace MyLibrary.Core.Extensions
         /// <returns></returns>
         public static bool IsDate<T>(this T source)
         {
+            Contract.Requires<ArgumentNullException>(source != null);
+
             return source is DateTime || DateTime.TryParse(source.ToString(), out _);
         }
 
@@ -93,6 +98,8 @@ namespace MyLibrary.Core.Extensions
         /// </returns>
         public static TimeSpan Average(this IEnumerable<TimeSpan> sourceTimeSpans)
         {
+            Contract.Requires<ArgumentNullException>(sourceTimeSpans != null);
+
             IEnumerable<long> ticksPerTimeSpan = sourceTimeSpans.Select(t => t.Ticks);
             double averageTicks = ticksPerTimeSpan.Average();
             long averageTicksLong = Convert.ToInt64(averageTicks);
@@ -111,6 +118,8 @@ namespace MyLibrary.Core.Extensions
         /// </returns>
         public static TimeSpan Sum(this IEnumerable<TimeSpan> sources)
         {
+            Contract.Requires<ArgumentNullException>(sources != null);
+
             TimeSpan sumTillNowTimeSpan = TimeSpan.Zero;
 
             foreach (TimeSpan timeSpan in sources)

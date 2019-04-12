@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics.Contracts;
 using log4net;
 
 namespace MyLibrary.Core.Extensions
@@ -20,6 +21,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static T Get<T>(this IDataReader rd, string column)
 		{
+            Contract.Requires<ArgumentNullException>(rd != null);
+
 			return rd.Get(column, default(T));
 		}
 
@@ -33,6 +36,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		private static T Get<T>(this IDataReader rd, string column, T defaultValue)
 		{
+            Contract.Requires<ArgumentNullException>(rd != null);
+
 			try
 			{
 				int ordinal = rd.GetOrdinal(column);

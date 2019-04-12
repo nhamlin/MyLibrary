@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Diagnostics.Contracts;
+using System.IO;
 using log4net;
 
 namespace MyLibrary.Core.Extensions
@@ -53,6 +55,7 @@ namespace MyLibrary.Core.Extensions
 		/// <param name="path">Full path to save file to</param>
 		public static void SaveAs(this byte[] source, string path)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			File.WriteAllBytes(path, source);
 		}
 	}

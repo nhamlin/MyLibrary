@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Reflection;
 using System.Security.Cryptography;
 using log4net;
@@ -61,6 +62,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static T ConvertTo<T>(this IConvertible value, T ifError)
 		{
+            Contract.Requires<ArgumentNullException>(ifError != null);
+
 			try
 			{
 				if (value == null || value.Equals(""))
@@ -107,8 +110,7 @@ namespace MyLibrary.Core.Extensions
 			try
 			{
 				algorithm = typeof(T)
-				            .GetMethod("Create", BindingFlags.Public | BindingFlags.Static, null, new Type[] { }, null)
-				            ?
+				            .GetMethod("Create", BindingFlags.Public | BindingFlags.Static, null, new Type[] { }, null)?
 				            .Invoke(null, null) as HashAlgorithm;
 			}
 			catch

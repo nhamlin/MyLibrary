@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Contracts;
 using System.Reflection;
 using log4net;
 
@@ -20,12 +21,10 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static string GetDisplayName<TEnum>(this TEnum value)
 		{
-			if (value == null)
-			{
-				throw new ArgumentNullException();
-			}
+            Contract.Requires<ArgumentNullException>(value != null);
+            Contract.Requires<ArgumentNullException>(Enum.GetName(typeof(TEnum), value) != null);
 
-			var staticName = Enum.GetName(typeof(TEnum), value) ?? throw new NullReferenceException();
+			var staticName = Enum.GetName(typeof(TEnum), value);
 
 			FieldInfo fi = typeof(TEnum).GetField(staticName);
 			if (fi.GetCustomAttributes(typeof(DisplayAttribute), false) is DisplayAttribute[] attributes && attributes.Length > 0)

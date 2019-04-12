@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using log4net;
 
@@ -70,10 +71,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns></returns>
 		public static IEnumerable<T> Mode<T>(this IEnumerable<T> sources)
 		{
-			if (sources.IsEmpty())
-			{
-				return null;
-			}
+            Contract.Requires<ArgumentNullException>(sources != null);
 
 			var groups = sources
 			             .GroupBy(x => x)
@@ -92,6 +90,7 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a double or an double type's default value</returns>
 		public static double ParseDoubleOrDefault(this string source)
 		{
+            Contract.Requires<ArgumentNullException>(source != null);
 			return source.ParseDoubleOrDefault(default(double));
 		}
 
@@ -103,7 +102,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a double or the default value</returns>
 		public static double ParseDoubleOrDefault(this string source, double defaultValue)
 		{
-			return !double.TryParse(source, out double output) ? defaultValue : output;
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return !double.TryParse(source, out double output) ? defaultValue : output;
 		}
 
 		/// <summary>
@@ -113,7 +113,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a float or an float type's default value</returns>
 		public static float ParseFloatOrDefault(this string source)
 		{
-			return source.ParseFloatOrDefault(default(float));
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return source.ParseFloatOrDefault(default(float));
 		}
 
 		/// <summary>
@@ -124,7 +125,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a float or the default value</returns>
 		public static float ParseFloatOrDefault(this string source, float defaultValue)
 		{
-			return !float.TryParse(source, out float output) ? defaultValue : output;
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return !float.TryParse(source, out float output) ? defaultValue : output;
 		}
 
 		/// <summary>
@@ -134,7 +136,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as an integer or an integer type's default value</returns>
 		public static int ParseIntOrDefault(this string source)
 		{
-			return source.ParseIntOrDefault(default(int));
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return source.ParseIntOrDefault(default(int));
 		}
 
 		/// <summary>
@@ -145,7 +148,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as an integer or the default value</returns>
 		public static int ParseIntOrDefault(this string source, int defaultValue)
 		{
-			return !int.TryParse(source, out int output) ? defaultValue : output;
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return !int.TryParse(source, out int output) ? defaultValue : output;
 		}
 
 		/// <summary>
@@ -155,7 +159,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a long or an long type's default value</returns>
 		public static long ParseLongOrDefault(this string source)
 		{
-			return source.ParseLongOrDefault(default(long));
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return source.ParseLongOrDefault(default(long));
 		}
 
 		/// <summary>
@@ -166,7 +171,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a long or the default value</returns>
 		public static long ParseLongOrDefault(this string source, long defaultValue)
 		{
-			return !long.TryParse(source, out long output) ? defaultValue : output;
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return !long.TryParse(source, out long output) ? defaultValue : output;
 		}
 
 		/// <summary>
@@ -176,7 +182,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a decimal or an decimal type's default value</returns>
 		public static decimal ParseDecimalOrDefault(this string source)
 		{
-			return source.ParseDecimalOrDefault(default(decimal));
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return source.ParseDecimalOrDefault(default(decimal));
 		}
 
 		/// <summary>
@@ -187,7 +194,8 @@ namespace MyLibrary.Core.Extensions
 		/// <returns>String as a decimal or the default value</returns>
 		public static decimal ParseDecimalOrDefault(this string source, decimal defaultValue)
 		{
-			return !decimal.TryParse(source, out decimal output) ? defaultValue : output;
+		    Contract.Requires<ArgumentNullException>(source != null);
+            return !decimal.TryParse(source, out decimal output) ? defaultValue : output;
 		}
 	}
 }
