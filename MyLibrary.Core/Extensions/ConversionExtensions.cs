@@ -103,8 +103,7 @@ namespace MyLibrary.Core.Extensions
 		/// </typeparam>
 		/// <param name="x">Byte array</param>
 		/// <returns>Encrypted byte array</returns>
-		public static byte[] HashBy<T>(this byte[] x)
-			where T : HashAlgorithm
+		public static byte[] HashBy<T>(this byte[] x) where T : HashAlgorithm
 		{
 			HashAlgorithm algorithm;
 			try
