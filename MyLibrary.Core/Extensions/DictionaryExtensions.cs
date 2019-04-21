@@ -28,9 +28,9 @@ namespace MyLibrary.Core.Extensions
 				return default(TKey);
 			}
 
-			var dicList = dictionary.ToList();
-			var maxKvp = dicList.First();
-			foreach (var kvp in dicList.Skip(1))
+			var dictList = dictionary.ToList();
+			var maxKvp = dictList.First();
+			foreach (var kvp in dictList.Skip(1))
 			{
 				if (kvp.Value.CompareTo(maxKvp.Value) > 0)
 				{
