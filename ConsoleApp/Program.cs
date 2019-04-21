@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Security;
+using System.Security.Cryptography;
 using System.Text;
 using Humanizer;
 using MyLibrary.Core.Extensions;
@@ -184,6 +185,7 @@ namespace ConsoleApp
 		    char example = 'ç';
 		    char result = example.ToUpperInvariant();
 
+		    Console.WriteLine(System.Text.Encoding.ASCII.GetBytes("Hello World!").HashBy<MD5>());
             Console.WriteLine(result);
 		    Console.WriteLine("Done. Press the any key to exit..."); 
 			Console.ReadKey(true);  

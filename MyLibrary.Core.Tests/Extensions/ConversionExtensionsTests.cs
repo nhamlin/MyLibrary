@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MyLibrary.Core.Extensions;
 
 namespace MyLibrary.Core.MSTests
 {
@@ -14,7 +16,10 @@ namespace MyLibrary.Core.MSTests
 		[TestMethod()]
 		public void ConvertToWithErrorTest()
 		{
-			Assert.IsTrue(true);
+		    string age = "28";
+		    var birthday = DateTime.Today.AddYears(-age.ConvertTo<int>());
+            
+            Assert.IsTrue(birthday.Year == 1991);
 		}
 
 		[TestMethod()]
