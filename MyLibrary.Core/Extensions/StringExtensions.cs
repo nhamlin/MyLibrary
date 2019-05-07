@@ -370,7 +370,7 @@ namespace MyLibrary.Core.Extensions
 
             return Regex.Replace(source, "_(.)", " $1", RegexOptions.Compiled).Trim();
         }
-
+        
         /// <summary>
         ///     Converts a string into pascal case (UpperCamelCase) with an invariant culture
         /// </summary>
