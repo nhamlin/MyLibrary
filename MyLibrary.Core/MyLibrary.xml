@@ -197,6 +197,102 @@
             <param name="defaultValue">Value to return if NULL</param>
             <returns></returns>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetBoolean(System.Data.IDataReader,System.String)">
+            <summary>
+            This extends the DataReader.GetBoolean by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetDateTime(System.Data.IDataReader,System.String,System.DateTime)">
+            <summary>
+            This extends the DataReader.GetDateTime by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetDecimal(System.Data.IDataReader,System.String,System.Decimal)">
+            <summary>
+            This extends the DataReader.GetDecimal by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetDouble(System.Data.IDataReader,System.String,System.Double)">
+            <summary>
+            This extends the DataReader.GetDouble by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetFloat(System.Data.IDataReader,System.String,System.Single)">
+            <summary>
+            This extends the DataReader.GetFloat by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetGuid(System.Data.IDataReader,System.String,System.Guid)">
+            <summary>
+            This extends the DataReader.GetGuid by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetInt16(System.Data.IDataReader,System.String,System.Int16)">
+            <summary>
+            This extends the DataReader.GetInt16 by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetInt32(System.Data.IDataReader,System.String,System.Int32)">
+            <summary>
+            This extends the DataReader.GetInt32 by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetInt64(System.Data.IDataReader,System.String,System.Int64)">
+            <summary>
+            This extends the DataReader.GetInt64 by allowing it to call by field name instead of position.
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.GetString(System.Data.IDataReader,System.String,System.String)">
+            <summary>
+            This extends the DataReader.GetString by allowing it to call by field name instead of position. 
+            </summary>
+            <param name="dr"></param>
+            <param name="fieldName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.DataReaderExtensions.AsEnumerable(System.Data.IDataReader)">
+            <summary>
+            This allows LINQ operations on a DataReader
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
         <member name="T:MyLibrary.Core.Extensions.DateTimeExtensions">
             <summary>
                 Extension methods for <see cref="T:System.DateTime" />
