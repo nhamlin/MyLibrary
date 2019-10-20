@@ -29,7 +29,7 @@ namespace EpiServer.Attributes
 			var contentArea = (ContentArea)value;
 			if (contentArea.Count > _max)
 			{
-				ErrorMessage = $"contentArea restricted to {_max} content items";
+                ErrorMessage = $"{contentArea} restricted to {_max} content items";
 				return false;
 			}
 

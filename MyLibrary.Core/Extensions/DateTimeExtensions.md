@@ -61,3 +61,21 @@ var result = source.Sum();
 _` `_
 
 ---
+#### IsHoliday : bool
+Returns whether a date falls on a holiday
+```csharp
+
+```
+**Output:**  
+_` `_
+
+---
+#### RangeUntil(DateTime) : IEnumerable&lt;DateTime&gt;
+Returns a range of individual days between two dates.
+```csharp
+
+```
+**Output:**  
+_` `_
+
+---

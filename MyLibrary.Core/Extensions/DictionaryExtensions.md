@@ -27,3 +27,12 @@ var result = source.MaxValue();
 _`3`_
 
 ---
+#### CopyTo(T[]) : void
+Same as CopyTo&lt;T&gt; but defaults to start at index 0.
+```csharp
+
+```
+**Output:**  
+_`(no output)`_
+
+---

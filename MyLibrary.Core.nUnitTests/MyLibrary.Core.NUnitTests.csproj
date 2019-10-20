@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
   <PropertyGroup>
@@ -51,6 +51,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="MyLibrary.Core.NUnitTests.csproj" />
+    <None Include="bin\Debug\MyLibrary.Core.NUnitTests.dll" />
+    <None Include="bin\Debug\MyLibrary.Core.NUnitTests.pdb" />
+    <None Include="bin\Debug\NUnit3.TestAdapter.dll" />
+    <None Include="bin\Debug\NUnit3.TestAdapter.pdb" />
+    <None Include="bin\Debug\nunit.engine.api.dll" />
+    <None Include="bin\Debug\nunit.engine.dll" />
+    <None Include="bin\Debug\nunit.framework.dll" />
+    <None Include="bin\Debug\nunit.framework.pdb" />
+    <None Include="bin\Debug\nunit.framework.xml" />
+    <None Include="bin\Debug\nunit_random_seed.tmp" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\MyLibrary.Core.NUnitTests.csproj.CopyComplete" />
+    <None Include="obj\Debug\MyLibrary.Core.NUnitTests.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\MyLibrary.Core.NUnitTests.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\MyLibrary.Core.NUnitTests.dll" />
+    <None Include="obj\Debug\MyLibrary.Core.NUnitTests.pdb" />
+    <None Include="obj\Debug\MyLibrary.Core.nUnitTests.csproj.FileListAbsolute.txt" />
+    <None Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <None Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <None Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <None Include="obj\Release\MyLibrary.Core.NUnitTests.csproj.CoreCompileInputs.cache" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

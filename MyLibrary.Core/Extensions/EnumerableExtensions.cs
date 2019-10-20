@@ -202,12 +202,12 @@ namespace MyLibrary.Core.Extensions
 		///     Joins an <see cref="IEnumerable{String}" /> into a single string.
 		/// </summary>
 		/// <param name="source"></param>
-		/// <param name="separator"></param>
+		/// <param name="delimiter"></param>
 		/// <returns></returns>
-		public static string Join(this IEnumerable<string> source, string separator)
+		public static string Join(this IEnumerable<string> source, string delimiter)
 		{
             Contract.Requires<ArgumentNullException>(source != null);
-			return string.Join(separator, source);
+			return string.Join(delimiter, source);
 		}
 
 		/// <summary>
@@ -346,5 +346,6 @@ namespace MyLibrary.Core.Extensions
 				}
 			}
 		}
-	}
+        
+    }
 }
