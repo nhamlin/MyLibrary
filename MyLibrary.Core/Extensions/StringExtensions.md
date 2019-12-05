@@ -45,6 +45,16 @@ string result = source.AddSuffix("...and don't call me Shirley.");
 _`This is my string....and don't call me Shirley.`_
 
 ---
+#### Capitalize(CultureInfo?) : string
+Converts the first letter of a string to uppercase.
+
+```csharp
+string result = source.Capitalize();
+```
+**Output:**  
+_`This is my string.`_
+
+---
 #### Encrypt(EncryptionPolicy) : string
 Encrypts a string using a specific EncryptionPolicy.  
 **_(Not Implemented)_**
@@ -207,6 +217,17 @@ string result = example.OnlyDigits();
 ```
 **Output:**  
 _`123`_
+
+---
+#### Pluralize(string, string) : string
+Returns either a singular or plural string based on a quantity.
+
+```csharp
+int objectCount = 3;
+string result = objectCount.Pluralize("item", "items");
+```
+**Output:**  
+_`3 items`_
 
 ---
 #### ProperCapitalization() : string

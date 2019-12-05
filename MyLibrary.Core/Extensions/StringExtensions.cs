@@ -64,6 +64,17 @@ namespace MyLibrary.Core.Extensions
         }
 
         /// <summary>
+        ///     Capitalize first letter of the string.
+        /// </summary>
+        /// <param name="source">String to capitalize</param>
+        /// <param name="cultureInfo">CultureInfo, if available</param>
+        /// <returns></returns>
+        public static string Capitalize(this string source, CultureInfo cultureInfo = null)
+        {
+            return cultureInfo == null ? source.InitialLetterToUpper() : source.InitialLetterToUpper(cultureInfo);
+        }
+
+        /// <summary>
         ///     Encrypts the string based on the provided <see cref="EncryptionPolicy" />
         /// </summary>
         /// <param name="source">String to encrypt</param>
@@ -235,6 +246,18 @@ namespace MyLibrary.Core.Extensions
         public static string OnlyDigits(this string source)
         {
             return new string(source?.Where(char.IsDigit).ToArray());
+        }
+
+        /// <summary>
+        ///     Returns either a singular or plural string based on a quantity
+        /// </summary>
+        /// <param name="source">Quantity of objects</param>
+        /// <param name="singular">Singular form of descriptor</param>
+        /// <param name="plural">Plural form of descriptor</param>
+        /// <returns></returns>
+        public static string Pluralize(this int source, string singular, string plural)
+        {
+            return Math.Abs(source) == 1 ? singular : plural;
         }
 
         /// <summary>
