@@ -119,6 +119,7 @@
     <Compile Include="Utilities\ConfigurationUtility.cs" />
     <Compile Include="Utilities\ExcelUtilities.cs" />
     <Compile Include="Formatters\FilesizeFormatter.cs" />
+    <Compile Include="Utilities\GuardUtilities.cs" />
     <Compile Include="Utilities\HttpContextUtility.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
   </ItemGroup>
