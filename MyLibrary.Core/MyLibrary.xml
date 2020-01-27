@@ -510,7 +510,7 @@
                 Joins an <see cref="T:System.Collections.Generic.IEnumerable`1" /> into a single string.
             </summary>
             <param name="source"></param>
-            <param name="separator"></param>
+            <param name="delimiter"></param>
             <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.EnumerableExtensions.RemoveNulls``1(System.Collections.Generic.IEnumerable{``0})">
@@ -832,6 +832,14 @@
             <param name="suffix">String to append at the end</param>
             <returns>String</returns>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.Capitalize(System.String,System.Globalization.CultureInfo)">
+            <summary>
+                Capitalize first letter of the string.
+            </summary>
+            <param name="source">String to capitalize</param>
+            <param name="cultureInfo">CultureInfo, if available</param>
+            <returns></returns>
+        </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.Encrypt(System.String,System.Net.Security.EncryptionPolicy)">
             <summary>
                 Encrypts the string based on the provided <see cref="T:System.Net.Security.EncryptionPolicy" />
@@ -947,6 +955,15 @@
             </summary>
             <param name="source">String to compare against</param>
             <returns>All digits in the string</returns>
+        </member>
+        <member name="M:MyLibrary.Core.Extensions.StringExtensions.Pluralize(System.Int32,System.String,System.String)">
+            <summary>
+                Returns either a singular or plural string based on a quantity
+            </summary>
+            <param name="source">Quantity of objects</param>
+            <param name="singular">Singular form of descriptor</param>
+            <param name="plural">Plural form of descriptor</param>
+            <returns></returns>
         </member>
         <member name="M:MyLibrary.Core.Extensions.StringExtensions.ProperCapitalization(System.String)">
             <summary>
@@ -1115,6 +1132,13 @@
             <param name="source"></param>
             <returns></returns>
         </member>
+        <member name="M:MyLibrary.Core.Extensions.UrlExtensions.GetAbsoluteUrlFromRelative(System.String)">
+            <summary>
+            Converts a relative Url to an absolute one
+            </summary>
+            <param name="source">Must be a relative url</param>
+            <returns></returns>
+        </member>
         <member name="T:MyLibrary.Core.Formatters.DateTimeFormatter">
             <summary>
             DateTime formatters
@@ -1213,6 +1237,42 @@
             Helper methods for String types
             </summary>
         </member>
+        <member name="T:MyLibrary.Core.ItemPagination">
+            <summary>
+            Basic pagination content class
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.ItemPagination.#ctor">
+            <summary>
+            Constructor for ItemPagination
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Core.ItemPagination.IsActive">
+            <summary>
+            Is the current page number the active page?
+            </summary>
+        </member>
+        <member name="P:MyLibrary.Core.ItemPagination.PageNumber">
+            <summary>
+            Current page number
+            </summary>
+        </member>
+        <member name="T:MyLibrary.Core.Pagination">
+            <summary>
+            Pagination creation methods
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Pagination.SetPagination``1(System.Collections.Generic.IEnumerable{``0},System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Create the pagination object to be displayed on the page
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pagedItems"></param>
+            <param name="currentPage"></param>
+            <param name="totalPages"></param>
+            <param name="maxPagesToShow"></param>
+            <returns></returns>
+        </member>
         <member name="T:MyLibrary.Core.Services.CookieService">
             <summary>
             Services to handle cookie manipulation
@@ -1290,6 +1350,66 @@
             <param name="stream"></param>
             <param name="fileName"></param>
             <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:MyLibrary.Core.Utilities.Guard">
+            <summary>
+            Guard Clauses. Inspired by: https://github.com/ardalis/GuardClauses
+            </summary>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstNull(System.Object,System.String)">
+            <summary>
+            [Guard Clause] Quick check whether the argument is null and throws an exception if so. Use at beginning of methods.
+            </summary>
+            <param name="source"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstEmptyString(System.String,System.String)">
+            <summary>
+            [Guard Clause] Quick check that the string is valid but empty.
+            </summary>
+            <param name="source"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstNullOrEmpty(System.String,System.String)">
+            <summary>
+            [Guard Clause] Quick check that the string is not null or empty.
+            </summary>
+            <param name="source"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            [Guard Clause] Quick check that a generic enumerable is not null or empty.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            [Guard Clause] Validates that a string is not null or empty or simply white space.
+            </summary>
+            <param name="source"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstOutOfRange(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            [Guard Clause] Validates that a variable has a value that falls within a range.
+            </summary>
+            <param name="source"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="sourceName"></param>
+        </member>
+        <member name="M:MyLibrary.Core.Utilities.Guard.AgainstOutOfRange``1(``0,System.String,``0,``0)">
+            <summary>
+            [Guard Clause] Validates that a variable has a value that falls within a range.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="sourceName"></param>
+            <param name="min"></param>
+            <param name="max"></param>
         </member>
         <member name="T:MyLibrary.Core.Utilities.HttpContextUtility">
             <summary>
