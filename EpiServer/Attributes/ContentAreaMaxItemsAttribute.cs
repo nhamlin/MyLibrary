@@ -14,26 +14,26 @@ namespace EpiServer.Attributes
 			_max = max;
 		}
 
-		public override bool IsValid(object value)
-		{
-			if (value == null)
-			{
-				return true;
-			}
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value == null)
+            {
+                return ValidationResult.Success;
+            }
 
-			if (!(value is ContentArea))
-			{
-				throw new ValidationException("ContentAreaMaxItemsAttribute is intended to be used with ContentArea properties only.");
-			}
+            if (!(value is ContentArea))
+            {
+                throw new ValidationException("ContentAreaMaxItemsAttribute is intended to be used with ContentArea properties only.");
+            }
 
-			var contentArea = (ContentArea)value;
-			if (contentArea.Count > _max)
-			{
-                ErrorMessage = $"{contentArea} restricted to {_max} content items";
-				return false;
-			}
+            var contentArea = (ContentArea)value;
+            if (contentArea.Count > _max)
+            {
+                ErrorMessage = $"{validationContext.DisplayName} is restricted to a maximum of {_max} content items";
+                return new ValidationResult(ErrorMessage);
+            }
 
-			return true;
-		}
-	}
+            return ValidationResult.Success;
+        }
+    }
 }
